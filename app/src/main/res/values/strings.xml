@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">팅팅플레이스</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">홈</string>
+    <string name="title_pocha">포차찾기</string>
+    <string name="title_profile">내정보</string>
+    <string name="title_more">더보기</string>
 </resources>
