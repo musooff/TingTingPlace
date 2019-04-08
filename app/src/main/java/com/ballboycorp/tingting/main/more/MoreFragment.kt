@@ -20,11 +20,11 @@ class MoreFragment: BaseFragment() {
 
         private const val FRAGMENT_TAG = "more_fragment"
 
-        fun add(fragmentActivity: FragmentActivity) {
+        fun replace(fragmentActivity: FragmentActivity) {
             val manager = fragmentActivity.supportFragmentManager
             val transaction = manager.beginTransaction()
             val fragment = MoreFragment()
-            transaction.add(R.id.container_main, fragment, FRAGMENT_TAG)
+            transaction.replace(R.id.container_main, fragment, FRAGMENT_TAG)
                     .commit()
         }
     }

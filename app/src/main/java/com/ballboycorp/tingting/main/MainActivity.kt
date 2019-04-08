@@ -9,6 +9,7 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityMainBinding
 import com.ballboycorp.tingting.main.home.HomeFragment
+import com.ballboycorp.tingting.main.home.adapter.ViewPagerAdapter
 import com.ballboycorp.tingting.main.more.MoreFragment
 import com.ballboycorp.tingting.main.pocha.PochaFragment
 import com.ballboycorp.tingting.main.profile.ProfileFragment
@@ -38,19 +39,19 @@ class MainActivity: BaseActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                HomeFragment.add(this)
+                HomeFragment.replace(this)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_pocha -> {
-                PochaFragment.add(this)
+                PochaFragment.replace(this)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_profile -> {
-                ProfileFragment.add(this)
+                ProfileFragment.replace(this)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_more -> {
-                MoreFragment.add(this)
+                MoreFragment.replace(this)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -62,5 +63,6 @@ class MainActivity: BaseActivity() {
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         binding.viewModel = viewModel
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        navigation.selectedItemId = R.id.navigation_home
     }
 }

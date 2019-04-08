@@ -20,11 +20,11 @@ class ProfileFragment: BaseFragment() {
 
         private const val FRAGMENT_TAG = "profile_fragment"
 
-        fun add(fragmentActivity: FragmentActivity) {
+        fun replace(fragmentActivity: FragmentActivity) {
             val manager = fragmentActivity.supportFragmentManager
             val transaction = manager.beginTransaction()
             val fragment = ProfileFragment()
-            transaction.add(R.id.container_main, fragment, FRAGMENT_TAG)
+            transaction.replace(R.id.container_main, fragment, FRAGMENT_TAG)
                     .commit()
         }
     }

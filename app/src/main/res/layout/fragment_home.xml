@@ -1,8 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <import type="com.ballboycorp.tingting.common.ButtonType"/>
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorHomeBackground">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="156dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_home_top"
+                    android:scaleType="fitXY"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp">
+                <ImageView
+                    android:layout_width="134dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_logo"
+                    android:scaleType="fitXY"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="122dp"
+                    android:layout_marginTop="66dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp">
+                    <androidx.viewpager.widget.ViewPager
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/vp_main">
+                    </androidx.viewpager.widget.ViewPager>
+                    <com.google.android.material.tabs.TabLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tabs_vp_main"
+                        android:layout_alignParentBottom="true"
+                        app:tabBackground="@drawable/tab_selector"
+                        app:tabGravity="center"
+                        app:tabIndicatorHeight="0dp">
+                    </com.google.android.material.tabs.TabLayout>
+                </RelativeLayout>
+                <ImageView
+                    android:layout_width="178dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/image_home_building"/>
+                <include
+                    layout="@layout/custom_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="10dp"
+                    bind:buttonType= "@{ButtonType.QR_CODE}"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorWhite">
+        </LinearLayout>
     </LinearLayout>
 </layout>

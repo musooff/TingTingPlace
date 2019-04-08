@@ -33,6 +33,7 @@ class SplashActivity: BaseActivity() {
 
         viewModel.mainPageRequest.observeIfTrue(this) {
             MainActivity.newIntent(this)
+            finish()
         }
 
         viewModel.openMainPage()
