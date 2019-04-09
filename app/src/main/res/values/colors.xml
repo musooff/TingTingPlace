@@ -6,4 +6,6 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorButtonRed">#f53b50</color>
     <color name="colorHomeBackground">#f6f6f8</color>
+    <color name="colorBlackSecond">#231f20</color>
+    <color name="colorBlackThird">#9ca0ae</color>
 </resources>

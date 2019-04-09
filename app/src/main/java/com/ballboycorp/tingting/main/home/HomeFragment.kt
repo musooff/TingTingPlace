@@ -1,19 +1,19 @@
 package com.ballboycorp.tingting.main.home
 
-import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentHomeBinding
+import com.ballboycorp.tingting.main.home.adapter.HomeRecyclerViewAdapter
 import com.ballboycorp.tingting.main.home.adapter.ViewPagerAdapter
+import com.ballboycorp.tingting.main.home.utils.ItemDecorator
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_home.view.*
 
 /**
  * Created by musooff on 08/04/2019.
@@ -36,6 +36,9 @@ class HomeFragment: BaseFragment() {
 
     private val viewPagerAdapter = ViewPagerAdapter()
 
+    private val recentAdapter by lazy { HomeRecyclerViewAdapter().apply { setEmptyView(tv_empty_recent) } }
+    private val likedAdapter by lazy { HomeRecyclerViewAdapter().apply { setEmptyView(tv_empty_liked) } }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater, R.layout.fragment_home, container, false)
@@ -44,14 +47,14 @@ class HomeFragment: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.vp_main.adapter = viewPagerAdapter
-        view.tabs_vp_main.setupWithViewPager(view.vp_main)
+        vp_main.adapter = viewPagerAdapter
+        tabs_vp_main.setupWithViewPager(vp_main)
 
-        for (i in 0 until view.tabs_vp_main.tabCount) {
-            val tab = (view.tabs_vp_main.getChildAt(0) as ViewGroup).getChildAt(i)
-            val p = tab.layoutParams as ViewGroup.MarginLayoutParams
-            p.setMargins(0, 0, 0, 0)
-            tab.requestLayout()
-        }
+        rv_recent.adapter = recentAdapter
+        rv_recent.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        rv_recent.addItemDecoration(ItemDecorator.emptyHorizontal(context!!))
+        rv_liked.adapter = likedAdapter
+        rv_liked.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        rv_liked.addItemDecoration(ItemDecorator.emptyHorizontal(context!!))
     }
 }

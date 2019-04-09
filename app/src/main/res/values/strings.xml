@@ -5,4 +5,8 @@
     <string name="title_pocha">포차찾기</string>
     <string name="title_profile">내정보</string>
     <string name="title_more">더보기</string>
+    <string name="recent_pocha">최근 간 포차</string>
+    <string name="more">더보기</string>
+    <string name="empty_recent">최근 간 포차가 없습니다.</string>
+    <string name="liked_pocha">찜한 포차</string>
 </resources>
