@@ -3,16 +3,16 @@ package com.ballboycorp.tingting.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityMainBinding
 import com.ballboycorp.tingting.main.home.HomeFragment
-import com.ballboycorp.tingting.main.home.adapter.ViewPagerAdapter
 import com.ballboycorp.tingting.main.more.MoreFragment
 import com.ballboycorp.tingting.main.pocha.PochaFragment
 import com.ballboycorp.tingting.main.profile.ProfileFragment
+import com.ballboycorp.tingting.utils.extensions.bind
+import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_main.*
  * Created by musooff on 07/04/2019.
  */
 
-class MainActivity: BaseActivity() {
+class MainActivity : BaseActivity() {
 
     companion object {
 
@@ -30,11 +30,7 @@ class MainActivity: BaseActivity() {
         }
     }
 
-    private val viewModel by lazy {
-        ViewModelProviders
-                .of(this)
-                .get(MainViewModel::class.java)
-    }
+    private val viewModel by lazy { getViewModel<MainViewModel>() }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -60,7 +56,7 @@ class MainActivity: BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        val binding = bind<ActivityMainBinding>(R.layout.activity_main)
         binding.viewModel = viewModel
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         navigation.selectedItemId = R.id.navigation_home

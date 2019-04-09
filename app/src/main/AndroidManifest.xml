@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".main.MainActivity">
-
+        </activity>
+        <activity android:name=".qr.QRScanActivity">
         </activity>
     </application>
 

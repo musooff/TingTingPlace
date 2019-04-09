@@ -13,6 +13,11 @@ import com.ballboycorp.tingting.databinding.FragmentHomeBinding
 import com.ballboycorp.tingting.main.home.adapter.HomeRecyclerViewAdapter
 import com.ballboycorp.tingting.main.home.adapter.ViewPagerAdapter
 import com.ballboycorp.tingting.main.home.utils.ItemDecorator
+import com.ballboycorp.tingting.qr.QRScanActivity
+import com.ballboycorp.tingting.utils.extensions.bind
+import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.observeIfTrue
+import com.ballboycorp.tingting.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
@@ -34,6 +39,8 @@ class HomeFragment: BaseFragment() {
         }
     }
 
+    private val viewModel by lazy { getViewModel<HomeViewModel>() }
+
     private val viewPagerAdapter = ViewPagerAdapter()
 
     private val recentAdapter by lazy { HomeRecyclerViewAdapter().apply { setEmptyView(tv_empty_recent) } }
@@ -41,7 +48,8 @@ class HomeFragment: BaseFragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater, R.layout.fragment_home, container, false)
+        val binding = bind<FragmentHomeBinding>(inflater, R.layout.fragment_home, container)
+        binding.viewModel = viewModel
         return binding.root
     }
 
@@ -56,5 +64,17 @@ class HomeFragment: BaseFragment() {
         rv_liked.adapter = likedAdapter
         rv_liked.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rv_liked.addItemDecoration(ItemDecorator.emptyHorizontal(context!!))
+
+        initialize()
+    }
+
+    private fun initialize(){
+        initializeViewModel()
+    }
+
+    private fun initializeViewModel() {
+        viewModel.qrScanPageRequest.observeIfTrue(this) {
+            startActivity<QRScanActivity>()
+        }
     }
 }

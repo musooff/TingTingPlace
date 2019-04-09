@@ -7,7 +7,7 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivitySplashBinding
 import com.ballboycorp.tingting.main.MainActivity
-import com.ballboycorp.tingting.utils.preference.observeIfTrue
+import com.ballboycorp.tingting.utils.extensions.observeIfTrue
 
 /**
  * Created by musooff on 07/04/2019.

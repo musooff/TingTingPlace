@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentMoreBinding
+import com.ballboycorp.tingting.utils.extensions.bind
 
 /**
  * Created by musooff on 08/04/2019.
@@ -30,7 +30,7 @@ class MoreFragment: BaseFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding = DataBindingUtil.inflate<FragmentMoreBinding>(inflater, R.layout.fragment_more, container, false)
+        val binding = bind<FragmentMoreBinding>(inflater, R.layout.fragment_more, container)
         return binding.root
     }
 }

@@ -1,4 +1,4 @@
-package com.ballboycorp.tingting.utils.preference
+package com.ballboycorp.tingting.utils.extensions
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData

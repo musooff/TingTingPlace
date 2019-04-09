@@ -9,4 +9,8 @@
     <string name="more">더보기</string>
     <string name="empty_recent">최근 간 포차가 없습니다.</string>
     <string name="liked_pocha">찜한 포차</string>
+    <string name="notice_title">공지</string>
+    <string name="notice">팅팅플레이스 새로운 버전이 출시 되었습니다!</string>
+    <string name="event">오픈 이벤트 개최합니다. 많이참여하세요.</string>
+    <string name="event_title">이벤트</string>
 </resources>

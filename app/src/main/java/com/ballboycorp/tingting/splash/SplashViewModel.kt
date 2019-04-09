@@ -13,6 +13,8 @@ class SplashViewModel: BaseViewModel() {
     val mainPageRequest: MutableLiveData<Boolean> = MutableLiveData()
 
     fun openMainPage() {
-        mainPageRequest.value = true
+        Handler().postDelayed({
+            mainPageRequest.value = true
+        }, 2000)
     }
 }

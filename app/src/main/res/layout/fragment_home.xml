@@ -4,6 +4,9 @@
     xmlns:bind="http://schemas.android.com/tools">
     <data>
         <import type="com.ballboycorp.tingting.common.ButtonType"/>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.main.home.HomeViewModel"/>
     </data>
     <ScrollView
         android:layout_width="match_parent"
@@ -68,16 +71,19 @@
                         android:layout_height="45dp"
                         android:layout_marginTop="10dp"
                         android:src="@drawable/image_home_building"/>
-                    <include
-                        layout="@layout/custom_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="46dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_marginBottom="10dp"
-                        bind:buttonType= "@{ButtonType.QR_CODE}"
-                        />
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="46dp"
+    android:layout_marginTop="3dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginBottom="10dp"
+    android:onClick="@{()-> viewModel.openQrScanPage()}">
+    <include
+        layout="@layout/custom_button"
+        bind:buttonType= "@{ButtonType.QR_CODE}" />
+
+                    </RelativeLayout>
                 </LinearLayout>
             </RelativeLayout>
             <LinearLayout
@@ -238,7 +244,81 @@
                     </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorBlackFourth"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="14dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorBlackSecond"
+                        android:text="@string/notice_title"/>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/colorBlackFifth"
+                        android:text="@string/notice"/>
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/colorBlackFourth"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="14dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorBlackSecond"
+                        android:text="@string/event_title"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/colorBlackFifth"
+                        android:text="@string/event"/>
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/colorBlackFourth"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </layout>
