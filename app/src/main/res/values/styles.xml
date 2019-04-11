@@ -18,4 +18,9 @@
         <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
 
+    <style name="BottomNavigationTheme" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorSecondary">@color/colorWhite</item>
+    </style>
+
 </resources>

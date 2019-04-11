@@ -43,8 +43,6 @@ class HomeFragment: BaseFragment() {
 
     private val viewPagerAdapter = ViewPagerAdapter()
 
-    private val recentAdapter by lazy { HomeRecyclerViewAdapter().apply { setEmptyView(tv_empty_recent) } }
-    private val likedAdapter by lazy { HomeRecyclerViewAdapter().apply { setEmptyView(tv_empty_liked) } }
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -57,13 +55,6 @@ class HomeFragment: BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         vp_main.adapter = viewPagerAdapter
         tabs_vp_main.setupWithViewPager(vp_main)
-
-        rv_recent.adapter = recentAdapter
-        rv_recent.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        rv_recent.addItemDecoration(ItemDecorator.emptyHorizontal(context!!))
-        rv_liked.adapter = likedAdapter
-        rv_liked.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        rv_liked.addItemDecoration(ItemDecorator.emptyHorizontal(context!!))
 
         initialize()
     }

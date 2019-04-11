@@ -13,4 +13,21 @@
     <string name="notice">팅팅플레이스 새로운 버전이 출시 되었습니다!</string>
     <string name="event">오픈 이벤트 개최합니다. 많이참여하세요.</string>
     <string name="event_title">이벤트</string>
+    <string name="long_text">You can spell check very long text areas without compromising any performance hits. Regardless of the size of the text, UltimateSpell only sends small portions of the text to the server as needed, while the user spell checks through the text.
+
+Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.
+
+Note that UltimateSpell displays the text in the dialog box sentence-by-sentence just like Microsoft Word. This helps the user understand the actual context in which the spelling error occurs.You can spell check very long text areas without compromising any performance hits. Regardless of the size of the text, UltimateSpell only sends small portions of the text to the server as needed, while the user spell checks through the text.
+
+Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.
+
+Note that UltimateSpell displays the text in the dialog box sentence-by-sentence just like Microsoft Word. This helps the user understand the actual context in which the spelling error occurs.You can spell check very long text areas without compromising any performance hits. Regardless of the size of the text, UltimateSpell only sends small portions of the text to the server as needed, while the user spell checks through the text.
+
+Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.
+
+Note that UltimateSpell displays the text in the dialog box sentence-by-sentence just like Microsoft Word. This helps the user understand the actual context in which the spelling error occurs.You can spell check very long text areas without compromising any performance hits. Regardless of the size of the text, UltimateSpell only sends small portions of the text to the server as needed, while the user spell checks through the text.
+
+Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.
+
+Note that UltimateSpell displays the text in the dialog box sentence-by-sentence just like Microsoft Word. This helps the user understand the actual context in which the spelling error occurs.</string>
 </resources>
