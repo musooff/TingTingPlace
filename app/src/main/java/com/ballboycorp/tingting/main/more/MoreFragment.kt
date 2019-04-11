@@ -9,6 +9,8 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentMoreBinding
 import com.ballboycorp.tingting.utils.extensions.bind
+import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.toolbar.view.*
 
 /**
  * Created by musooff on 08/04/2019.
@@ -32,5 +34,11 @@ class MoreFragment: BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = bind<FragmentMoreBinding>(inflater, R.layout.fragment_more, container)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        toolbar.tb_title.text = "더보기"
+
     }
 }
