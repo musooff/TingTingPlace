@@ -6,12 +6,12 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
         <include
                 android:id="@+id/view_search"
                 app:layout_constraintTop_toTopOf="parent"
-                layout="@layout/activity_splash"/>
+                layout="@layout/view_search"/>
 
         <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"

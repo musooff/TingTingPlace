@@ -30,4 +30,8 @@ Note that UltimateSpell displays the text in the dialog box sentence-by-sentence
 Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.
 
 Note that UltimateSpell displays the text in the dialog box sentence-by-sentence just like Microsoft Word. This helps the user understand the actual context in which the spelling error occurs.</string>
+    <string name="profile_recent">최근 간 포차</string>
+    <string name="profile_liked">찜한 포차</string>
+    <string name="profile_reviewed">나의 리뷰</string>
+    <string name="profile_recommended">친구에게 같이놀자 조르기</string>
 </resources>

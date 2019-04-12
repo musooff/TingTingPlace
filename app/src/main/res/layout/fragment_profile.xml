@@ -1,74 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@color/colorWhite">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:id="@+id/iv_profile_top"
             app:layout_constraintDimensionRatio="H, 360:220"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/shape_home_top"
+            android:scaleType="fitXY">
+
+        </ImageView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/shape_home_top"
-                android:scaleType="fitXY" />
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/shape_circle">
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8.5dp"
+                android:text="닉네임"
+                android:textColor="@color/colorBlackSecond"
+                android:textSize="15sp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="56dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_border"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:background="@drawable/shape_circle"></LinearLayout>
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/ic_pen_black_24dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8.5dp"
-                    android:text="닉네임"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="프로필 수정"
                     android:textColor="@color/colorBlackSecond"
-                    android:textSize="15sp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/shape_border"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_margin="8dp"
-                        app:srcCompat="@drawable/ic_pen_black_24dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginRight="8dp"
-                        android:text="프로필 수정"
-                        android:textColor="@color/colorBlackSecond"
-                        android:textSize="12sp" />
-                </LinearLayout>
+                    android:textSize="12sp" />
             </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            app:layout_constraintTop_toBottomOf="@id/iv_profile_top">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:id="@+id/iv_recent"
+                    android:scaleType="fitXY"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_clock_black_24dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_recent"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/iv_recent"
+                    android:layout_toRightOf="@id/iv_recent"
+                    android:layout_toLeftOf="@id/iv_recent_arrow"
+                    android:layout_toStartOf="@id/iv_recent_arrow"/>
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="12dp"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/iv_recent_arrow"
+                    app:srcCompat="@drawable/ic_arrow_right_24db"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlackFourth" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:id="@+id/iv_liked"
+                    android:scaleType="fitXY"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_heart_black_24dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_liked"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/iv_liked"
+                    android:layout_toRightOf="@id/iv_liked"
+                    android:layout_toLeftOf="@id/iv_liked_arrow"
+                    android:layout_toStartOf="@id/iv_liked_arrow"/>
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="12dp"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/iv_liked_arrow"
+                    app:srcCompat="@drawable/ic_arrow_right_24db"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlackFourth" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:id="@+id/iv_reviewed"
+                    android:scaleType="fitXY"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_pen_review_black_24dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_reviewed"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/iv_reviewed"
+                    android:layout_toRightOf="@id/iv_reviewed"
+                    android:layout_toLeftOf="@id/iv_reviewed_arrow"
+                    android:layout_toStartOf="@id/iv_reviewed_arrow"/>
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="12dp"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/iv_reviewed_arrow"
+                    app:srcCompat="@drawable/ic_arrow_right_24db"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlackFourth" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:id="@+id/iv_recommended"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_recommended_black_24dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_recommended"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/iv_recommended"
+                    android:layout_toRightOf="@id/iv_recommended"
+                    android:layout_toLeftOf="@id/iv_recommended_arrow"
+                    android:layout_toStartOf="@id/iv_recommended_arrow"/>
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="12dp"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/iv_recommended_arrow"
+                    app:srcCompat="@drawable/ic_arrow_right_24db"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlackFourth" />
+
+        </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </layout>
