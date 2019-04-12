@@ -9,7 +9,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_rectangle"
+            android:background="@drawable/shape_rectangle_outline_black_0"
             android:orientation="horizontal"
             app:layout_constraintTop_toTopOf="parent">
 

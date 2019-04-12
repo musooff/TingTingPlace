@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentActivity
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentHomeBinding
+import com.ballboycorp.tingting.liked.LikedActivity
 import com.ballboycorp.tingting.main.home.adapter.ViewPagerAdapter
 import com.ballboycorp.tingting.qr.QRScanActivity
 import com.ballboycorp.tingting.recent.RecentActivity
@@ -71,6 +72,10 @@ class HomeFragment: BaseFragment() {
 
         fun onClickMoreRecent() {
             startActivity<RecentActivity>()
+        }
+
+        fun onClickMoreLiked() {
+            startActivity<LikedActivity>()
         }
     }
 }

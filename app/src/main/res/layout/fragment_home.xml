@@ -254,7 +254,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:onClick="@{() -> clickHandler.onClickMoreLiked()}">
 
                     <TextView
                         android:layout_width="wrap_content"

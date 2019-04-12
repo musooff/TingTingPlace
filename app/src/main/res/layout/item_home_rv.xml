@@ -21,7 +21,7 @@
             <RelativeLayout
                 android:layout_width="53dp"
                 android:layout_height="20dp"
-                android:background="@drawable/shape_cornered_rectangle">
+                android:background="@drawable/shape_rectangle_red_2">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

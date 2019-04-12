@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentActivity
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentProfileBinding
+import com.ballboycorp.tingting.liked.LikedActivity
 import com.ballboycorp.tingting.recent.RecentActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.startActivity
@@ -41,6 +42,10 @@ class ProfileFragment: BaseFragment() {
 
         fun onClickRecent() {
             startActivity<RecentActivity>()
+        }
+
+        fun onClickLiked() {
+            startActivity<LikedActivity>()
         }
     }
 }
