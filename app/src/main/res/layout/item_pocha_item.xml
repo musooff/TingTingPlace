@@ -22,7 +22,8 @@
                 android:id="@+id/iv_thumb"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@color/colorBlackSeventh" />
+                android:scaleType="fitXY"
+                android:src="@drawable/placeholder_thumb" />
         </androidx.cardview.widget.CardView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
