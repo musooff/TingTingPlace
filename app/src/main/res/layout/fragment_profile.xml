@@ -2,6 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.main.profile.ProfileFragment.ClickHandler"/>
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -81,7 +86,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp">
+                android:layout_height="60dp"
+                android:onClick="@{() -> clickHandler.onClickRecent()}">
                 <ImageView
                     android:layout_width="15dp"
                     android:layout_height="15dp"

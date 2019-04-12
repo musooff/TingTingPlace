@@ -21,6 +21,6 @@ class QRScanActivity: BaseActivity() {
         val binding = bind<ActivityQrBinding>(R.layout.activity_qr)
         binding.viewModel = viewModel
 
-        customToolbar(toolbar, true)
+        customToolbar(toolbar, "QR", true)
     }
 }

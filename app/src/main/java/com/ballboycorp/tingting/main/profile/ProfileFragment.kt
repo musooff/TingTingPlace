@@ -8,7 +8,9 @@ import androidx.fragment.app.FragmentActivity
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentProfileBinding
+import com.ballboycorp.tingting.recent.RecentActivity
 import com.ballboycorp.tingting.utils.extensions.bind
+import com.ballboycorp.tingting.utils.extensions.startActivity
 
 /**
  * Created by musooff on 08/04/2019.
@@ -31,6 +33,14 @@ class ProfileFragment: BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = bind<FragmentProfileBinding>(inflater, R.layout.fragment_profile, container)
+        binding.clickHandler = ClickHandler()
         return binding.root
+    }
+
+    inner class ClickHandler {
+
+        fun onClickRecent() {
+            startActivity<RecentActivity>()
+        }
     }
 }

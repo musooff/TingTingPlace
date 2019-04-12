@@ -50,6 +50,6 @@ class PochaFragment : BaseFragment(){
         tabs_vp_pocha.setupWithViewPager(vp_pocha)
         adapter = ViewPagerAdapter(childFragmentManager)
         vp_pocha.adapter = adapter
-        vp_pocha.setCurrentItem(2)
+        vp_pocha.offscreenPageLimit = 2
     }
 }

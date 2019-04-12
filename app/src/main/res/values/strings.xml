@@ -35,4 +35,5 @@ Note that UltimateSpell displays the text in the dialog box sentence-by-sentence
     <string name="profile_reviewed">나의 리뷰</string>
     <string name="profile_recommended">친구에게 같이놀자 조르기</string>
     <string name="no_result">그 지역에 팅팅 플레이스 제휴점이 없습니다.\n열심히 뛰도록 하겠습니다..! 죄송합니다.</string>
+    <string name="button_review">리뷰작성</string>
 </resources>

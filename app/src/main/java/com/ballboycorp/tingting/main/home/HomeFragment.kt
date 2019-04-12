@@ -10,6 +10,7 @@ import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentHomeBinding
 import com.ballboycorp.tingting.main.home.adapter.ViewPagerAdapter
 import com.ballboycorp.tingting.qr.QRScanActivity
+import com.ballboycorp.tingting.recent.RecentActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.observeIfTrue
@@ -44,6 +45,7 @@ class HomeFragment: BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = bind<FragmentHomeBinding>(inflater, R.layout.fragment_home, container)
         binding.viewModel = viewModel
+        binding.clickHandler = ClickHandler()
         return binding.root
     }
 
@@ -62,6 +64,13 @@ class HomeFragment: BaseFragment() {
     private fun initializeViewModel() {
         viewModel.qrScanPageRequest.observeIfTrue(this) {
             startActivity<QRScanActivity>()
+        }
+    }
+
+    inner class ClickHandler {
+
+        fun onClickMoreRecent() {
+            startActivity<RecentActivity>()
         }
     }
 }

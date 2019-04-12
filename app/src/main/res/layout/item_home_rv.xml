@@ -54,7 +54,7 @@
                     android:id="@+id/rating_bar"
                     style="?android:attr/ratingBarStyleSmall"
                     android:rating="4"
-                    android:theme="@style/RatingBar"
+                    android:theme="@style/HomeRatingBar"
                     android:numStars="5"/>
             </LinearLayout>
         </RelativeLayout>

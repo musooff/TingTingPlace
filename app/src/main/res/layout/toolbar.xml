@@ -11,11 +11,18 @@
         android:id="@+id/toolbar"
         app:contentInsetStart="0dp"
         android:background="@color/colorPrimary">
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:visibility="gone"
+                android:id="@+id/iv_back"
+                app:srcCompat="@drawable/ic_arrow_left_black_24dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -25,6 +32,6 @@
                 android:gravity="center"
                 android:textSize="16sp"
                 android:textColor="@color/colorBlackSecond" />
-        </LinearLayout>
+        </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 </LinearLayout>
