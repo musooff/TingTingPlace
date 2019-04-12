@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#ffdd00</color>
     <color name="colorAccent">#333333</color>
     <color name="colorWhite">#ffffff</color>
-    <color name="colorButtonRed">#f53b50</color>
+    <color name="colorRed">#f53b50</color>
     <color name="colorHomeBackground">#f6f6f8</color>
     <color name="colorBlackFirst">#000000</color>
     <color name="colorBlackSecond">#231f20</color>
@@ -12,4 +12,5 @@
     <color name="colorBlackFourth">#e5e5e5</color>
     <color name="colorBlackFifth">#535763</color>
     <color name="colorBlackSixth">#eeeeee</color>
+    <color name="colorBlackSeventh">#9b9b9b</color>
 </resources>

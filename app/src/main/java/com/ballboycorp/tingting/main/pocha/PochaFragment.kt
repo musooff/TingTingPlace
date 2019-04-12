@@ -47,8 +47,9 @@ class PochaFragment : BaseFragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         toolbar.tb_title.text = "지역 선택"
+        tabs_vp_pocha.setupWithViewPager(vp_pocha)
         adapter = ViewPagerAdapter(childFragmentManager)
         vp_pocha.adapter = adapter
-        tabs_vp_pocha.setupWithViewPager(vp_pocha)
+        vp_pocha.setCurrentItem(2)
     }
 }

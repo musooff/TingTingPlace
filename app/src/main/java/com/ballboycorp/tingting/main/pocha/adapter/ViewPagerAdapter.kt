@@ -2,8 +2,10 @@ package com.ballboycorp.tingting.main.pocha.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.ballboycorp.tingting.main.pocha.nearby.NearbyFragment
+import com.ballboycorp.tingting.main.pocha.region.RegionFragment
+import com.ballboycorp.tingting.main.pocha.search.SearchFragment
 
 /**
  * Created by musooff on 12/04/2019.
@@ -11,7 +13,12 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 
 class ViewPagerAdapter(fragmentManager: FragmentManager): FragmentStatePagerAdapter(fragmentManager) {
     override fun getItem(position: Int): Fragment {
-        return Fragment()
+        return when (position) {
+            0 -> NearbyFragment()
+            1 -> RegionFragment()
+            2 -> SearchFragment()
+            else -> Fragment()
+        }
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
