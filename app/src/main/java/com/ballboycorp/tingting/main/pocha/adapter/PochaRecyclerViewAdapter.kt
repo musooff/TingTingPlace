@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.main.pocha.model.Pocha
+import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
+import com.ballboycorp.tingting.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.item_pocha_item.view.*
 
 /**
@@ -42,6 +44,9 @@ class PochaRecyclerViewAdapter: RecyclerView.Adapter<PochaRecyclerViewAdapter.Po
             view.text_review_count.text = "리뷰 ${pocha.reviewCount}"
             view.text_comment_count.text = "사장님 댓글 ${pocha.commentCount}"
             view.text_distance.text = "${pocha.distance}m"
+
+            view.setOnClickListener { view.context.startActivity<PochaDetailsActivity>() }
+
         }
     }
 }

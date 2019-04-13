@@ -7,9 +7,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.main.pocha.model.Pocha
+import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
 import com.ballboycorp.tingting.utils.extensions.add
 import com.ballboycorp.tingting.utils.extensions.contains
 import com.ballboycorp.tingting.utils.extensions.remove
+import com.ballboycorp.tingting.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.item_liked.view.*
 
 /**
@@ -73,9 +75,10 @@ class LikedAdapter: RecyclerView.Adapter<LikedAdapter.RecentViewHolder>() {
                     if (selected.contains(pocha)) selected.remove(pocha) else selected.add(pocha)
                 }
                 else {
-
+                    view.context.startActivity<PochaDetailsActivity>()
                 }
             }
+
         }
     }
 }

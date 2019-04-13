@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.main.pocha.model.Pocha
+import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
+import com.ballboycorp.tingting.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.item_recent.view.*
 
 /**
@@ -41,6 +43,8 @@ class RecentAdapter: RecyclerView.Adapter<RecentAdapter.RecentViewHolder>() {
             view.rating_bar.rating = pocha.rating
             view.text_review_count.text = "리뷰 ${pocha.reviewCount}"
             view.text_comment_count.text = "사장님 댓글 ${pocha.commentCount}"
+
+            view.setOnClickListener { view.context.startActivity<PochaDetailsActivity>() }
         }
     }
 }

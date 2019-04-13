@@ -14,6 +14,8 @@ import me.dm7.barcodescanner.core.ViewFinderView
 import me.dm7.barcodescanner.core.IViewFinder
 import android.content.Context
 import androidx.core.content.ContextCompat
+import com.ballboycorp.tingting.pocha.PochaActivity
+import com.ballboycorp.tingting.utils.extensions.startActivity
 
 
 /**
@@ -51,6 +53,9 @@ class QRScanActivity: BaseActivity(), ZXingScannerView.ResultHandler {
     }
 
     override fun handleResult(rawResult: Result) {
+        mScannerView.stopCamera()
+        startActivity<PochaActivity>()
+        finish()
     }
 
     public override fun onResume() {
