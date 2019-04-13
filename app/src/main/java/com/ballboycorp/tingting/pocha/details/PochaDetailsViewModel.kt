@@ -9,6 +9,7 @@ import com.ballboycorp.tingting.BR
 import com.ballboycorp.tingting.base.BaseObservableViewModel
 import com.ballboycorp.tingting.main.pocha.model.Pocha
 import com.ballboycorp.tingting.pocha.details.model.Menu
+import com.ballboycorp.tingting.review.Review
 
 /**
  * Created by musooff on 13/04/2019.
@@ -50,6 +51,13 @@ class PochaDetailsViewModel : BaseObservableViewModel() {
         set(value) {
             field = value
             notifyPropertyChanged(BR.reviewCount)
+        }
+
+    var bottomReviewCount: String? = null
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.bottomReviewCount)
         }
 
     var location: String? = null
@@ -102,6 +110,7 @@ class PochaDetailsViewModel : BaseObservableViewModel() {
         title = pocha.title
         commentCount = "사장님 댓글 ${pocha.commentCount}"
         reviewCount = "리뷰 ${pocha.reviewCount}"
+        bottomReviewCount = "전체 ${pocha.reviewCount}개의 리뷰"
         location = pocha.location
         rating = pocha.rating.toString()
         isLiked = pocha.isLiked
@@ -119,5 +128,12 @@ class PochaDetailsViewModel : BaseObservableViewModel() {
         result.add(Menu())
 
         return MutableLiveData<List<Menu>>().apply { value = result }
+    }
+
+    fun getReviews(): LiveData<List<Review>> {
+        val result = ArrayList<Review>()
+        result.add(Review())
+        result.add(Review())
+        return MutableLiveData<List<Review>>().apply { value = result }
     }
 }

@@ -6,6 +6,7 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityPochaDetailsBinding
 import com.ballboycorp.tingting.pocha.details.adapter.MenuAdapter
+import com.ballboycorp.tingting.review.model.ReviewViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.observe
@@ -21,10 +22,12 @@ class PochaDetailsActivity: BaseActivity() {
 
     private val menuAdapter = MenuAdapter()
 
+    private lateinit var binding: ActivityPochaDetailsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding = bind<ActivityPochaDetailsBinding>(R.layout.activity_pocha_details)
+        binding = bind(R.layout.activity_pocha_details)
         binding.viewModel = viewModel
         binding.clickHandler = ClickHandler()
         initialize()
@@ -37,6 +40,15 @@ class PochaDetailsActivity: BaseActivity() {
         viewModel.getMenus().observe(this) {
             menuAdapter.submitList(it)
         }
+
+        viewModel.getReviews().observe(this) {
+            val reviewViewModel = ReviewViewModel()
+            binding.review1.viewModel = reviewViewModel
+            binding.review2.viewModel = reviewViewModel
+            reviewViewModel.setData(it[0])
+        }
+
+
     }
 
     inner class ClickHandler {

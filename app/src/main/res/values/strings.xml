@@ -32,4 +32,5 @@
     <string name="button_copy">주소복사</string>
     <string name="info_phone">전화번호</string>
     <string name="info_work_time">운영시간</string>
+    <string name="button_go_to_location">지도로 찾아가기</string>
 </resources>
