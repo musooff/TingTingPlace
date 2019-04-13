@@ -10,6 +10,7 @@ import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentHomeBinding
 import com.ballboycorp.tingting.liked.LikedActivity
 import com.ballboycorp.tingting.main.home.adapter.ViewPagerAdapter
+import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
 import com.ballboycorp.tingting.qr.QRScanActivity
 import com.ballboycorp.tingting.recent.RecentActivity
 import com.ballboycorp.tingting.utils.extensions.bind
@@ -80,6 +81,10 @@ class HomeFragment: BaseFragment() {
 
         fun onClickQr() {
             startActivity<QRScanActivity>()
+        }
+
+        fun onClickPocha() {
+            startActivity<PochaDetailsActivity>()
         }
     }
 }

@@ -180,7 +180,8 @@
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/fl_recent_2"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:onClick="@{()->clickHandler.onClickPocha()}">
 
                     <include layout="@layout/item_home_rv" />
                 </FrameLayout>
@@ -194,7 +195,8 @@
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintLeft_toRightOf="@+id/fl_recent_1"
                     app:layout_constraintRight_toLeftOf="@+id/fl_recent_3"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:onClick="@{()->clickHandler.onClickPocha()}">
 
                     <include layout="@layout/item_home_rv" />
                 </FrameLayout>
@@ -208,7 +210,8 @@
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintLeft_toRightOf="@+id/fl_recent_2"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:onClick="@{()->clickHandler.onClickPocha()}">
 
                     <include layout="@layout/item_home_rv" />
                 </FrameLayout>

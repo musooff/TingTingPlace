@@ -32,6 +32,8 @@
         <activity android:name=".recent.RecentActivity">
         </activity>
         <activity android:name=".liked.LikedActivity"/>
+        <activity android:name=".pocha.details.PochaDetailsActivity"/>
+        <activity android:name=".pocha.PochaActivity"/>
     </application>
 
 </manifest>
