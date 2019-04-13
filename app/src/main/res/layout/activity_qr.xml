@@ -1,16 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="viewModel"
             type="com.ballboycorp.tingting.qr.QRScanViewModel"/>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.qr.QRScanActivity.ClickHandler"/>
     </data>
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:background="@color/colorHomeBackground"
         android:layout_height="match_parent">
-        <include layout="@layout/toolbar"/>
+        <include
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/tb_qr"
+            layout="@layout/toolbar"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/container_qr"
+            app:layout_constraintBottom_toTopOf="@id/text_bottom"
+            app:layout_constraintTop_toBottomOf="@id/tb_qr"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:layout_constraintTop_toBottomOf="@id/tb_qr"
+            android:background="@color/shadowBlack">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:lineSpacingExtra="4sp"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:text="@string/qr_scan_guide"
+                />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:onClick="@{()-> clickHandler.onClickFlash()}"
+                android:background="@drawable/flash_light"/>
+        </RelativeLayout>
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textSize="12sp"
+            android:id="@+id/text_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/colorBlackSecond"
+            android:lineSpacingExtra="0sp"
+            android:gravity="center"
+            android:text="@string/qr_sub_guide" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

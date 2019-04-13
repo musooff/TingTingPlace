@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ballboycorp.tingting">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -11,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        android:hardwareAccelerated="true"
+        tools:targetApi="honeycomb">
         <activity android:name=".splash.SplashActivity"
             android:theme="@style/AppTheme.Fullscreen">
             <intent-filter>

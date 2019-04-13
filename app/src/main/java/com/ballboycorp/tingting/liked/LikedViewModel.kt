@@ -1,4 +1,4 @@
-package com.ballboycorp.tingting.liked.adapter
+package com.ballboycorp.tingting.liked
 
 import androidx.databinding.Bindable
 import com.ballboycorp.tingting.BR

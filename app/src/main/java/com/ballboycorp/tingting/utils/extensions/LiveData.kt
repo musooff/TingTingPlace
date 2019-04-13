@@ -23,3 +23,24 @@ fun MutableLiveData<Boolean>.observeIfTrue(owner: LifecycleOwner, action: (Boole
         }
     })
 }
+
+fun <T> MutableLiveData<ArrayList<T>>.contains(element: T): Boolean {
+    return this.value?.contains(element) ?: false
+
+}
+
+fun <T> MutableLiveData<ArrayList<T>>.add(element: T) {
+    var values = value
+    if (values == null) {
+        values = arrayListOf()
+    }
+    values.add(element)
+    value = values
+}
+
+
+fun <T> MutableLiveData<ArrayList<T>>.remove(element: T) {
+    val values = value
+    if (values?.contains(element) == true) values.remove(element)
+    value = values
+}

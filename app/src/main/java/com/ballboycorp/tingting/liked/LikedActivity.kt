@@ -7,10 +7,10 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityLikedBinding
 import com.ballboycorp.tingting.liked.adapter.LikedAdapter
-import com.ballboycorp.tingting.liked.adapter.LikedViewModel
 import com.ballboycorp.tingting.main.pocha.model.Pocha
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.observe
 import kotlinx.android.synthetic.main.activity_liked.*
 
 /**
@@ -41,18 +41,29 @@ class LikedActivity: BaseActivity() {
         for (i in 1..10) {
             testPochas.add(Pocha())
         }
+
         adapter.submitList(testPochas)
+
+        adapter.selected.observe(this) {
+            button_delete.isEnabled = !it.isNullOrEmpty()
+        }
 
     }
 
     inner class ClickHandler {
 
         fun onClickEdit() {
-            viewModel.isEditMode = !viewModel.isEditMode
-            adapter.editMode(viewModel.isEditMode)
+            switchMode()
         }
 
         fun onClickDelete() {
+            adapter.deleteSelected()
+            switchMode()
+        }
+
+        private fun switchMode() {
+            viewModel.isEditMode = !viewModel.isEditMode
+            adapter.editMode(viewModel.isEditMode)
 
         }
     }

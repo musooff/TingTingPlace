@@ -85,6 +85,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="13dp"
                         android:layout_marginEnd="12dp"
+                        android:onClick="@{() -> clickHandler.onClickQr()}"
                         android:background="@drawable/image_game_button"
                         app:layout_constraintDimensionRatio="H, 360:110"
                         app:layout_constraintTop_toTopOf="parent" />

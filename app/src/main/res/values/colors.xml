@@ -13,4 +13,5 @@
     <color name="colorBlackFifth">#535763</color>
     <color name="colorBlackSixth">#eeeeee</color>
     <color name="colorBlackSeventh">#9b9b9b</color>
+    <color name="shadowBlack">#80000000</color>
 </resources>

@@ -77,5 +77,9 @@ class HomeFragment: BaseFragment() {
         fun onClickMoreLiked() {
             startActivity<LikedActivity>()
         }
+
+        fun onClickQr() {
+            startActivity<QRScanActivity>()
+        }
     }
 }
