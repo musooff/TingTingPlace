@@ -59,6 +59,21 @@ class PochaDetailsViewModel : BaseObservableViewModel() {
             notifyPropertyChanged(BR.location)
         }
 
+    var phone: String? = null
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.phone)
+        }
+
+    var workTime: String? = null
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.workTime)
+        }
+
+
     var rating: String? = null
         @Bindable get() = field
         set(value) {
@@ -92,6 +107,8 @@ class PochaDetailsViewModel : BaseObservableViewModel() {
         isLiked = pocha.isLiked
         description = pocha.description
         descriptionMore = pocha.descriptionMore
+        phone = pocha.phone
+        workTime = pocha.workTime
     }
 
     fun getMenus(): LiveData<List<Menu>> {

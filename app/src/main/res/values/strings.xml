@@ -28,4 +28,8 @@
     <string name="pocha_menu_header">메뉴소개</string>
     <string name="pocha_review_header">리뷰</string>
     <string name="pocha_information_header">매장정보</string>
+    <string name="info_address">주소</string>
+    <string name="button_copy">주소복사</string>
+    <string name="info_phone">전화번호</string>
+    <string name="info_work_time">운영시간</string>
 </resources>
