@@ -35,6 +35,7 @@
         <activity android:name=".pocha.details.PochaDetailsActivity"/>
         <activity android:name=".pocha.PochaActivity"/>
         <activity android:name=".review.ReviewActivity"/>
+        <activity android:name=".profile.create.CreateProfileActivity"/>
     </application>
 
 </manifest>

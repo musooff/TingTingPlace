@@ -3,15 +3,14 @@ package com.ballboycorp.tingting.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProviders
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityMainBinding
 import com.ballboycorp.tingting.main.home.HomeFragment
 import com.ballboycorp.tingting.main.more.MoreFragment
 import com.ballboycorp.tingting.main.pocha.PochaFragment
-import com.ballboycorp.tingting.main.profile.ProfileFragment
-import com.ballboycorp.tingting.pocha.PochaActivity
+import com.ballboycorp.tingting.profile.ProfileFragment
+import com.ballboycorp.tingting.profile.create.CreateProfileActivity
 import com.ballboycorp.tingting.review.ReviewActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
@@ -65,6 +64,6 @@ class MainActivity : BaseActivity() {
         navigation.selectedItemId = R.id.navigation_home
 
 
-        startActivity<ReviewActivity>()
+        //startActivity<CreateProfileActivity>()
     }
 }

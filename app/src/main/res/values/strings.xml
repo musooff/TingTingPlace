@@ -35,4 +35,10 @@
     <string name="button_go_to_location">지도로 찾아가기</string>
     <string name="total_points_text">전체 누적 평점</string>
     <string name="only_photo_checkbox">포토 후기만 보기</string>
+    <string name="button_next">다음</string>
+    <string name="header_nickname">닉네임</string>
+    <string name="header_gender">성별</string>
+    <string name="gender_male">남자</string>
+    <string name="gender_female">여자</string>
+    <string name="guide_nickname">2~8자 사이 한글 또는 영문으로 입력해주세요!</string>
 </resources>

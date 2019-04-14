@@ -15,4 +15,5 @@
     <color name="colorBlackSeventh">#9b9b9b</color>
     <color name="shadowBlack">#80000000</color>
     <color name="colorBlue">#6553db</color>
+    <color name="colorBlueGenderMale">#2e6aa3</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.ballboycorp.tingting.main.profile
+package com.ballboycorp.tingting.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater

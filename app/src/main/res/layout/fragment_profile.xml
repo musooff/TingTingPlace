@@ -5,7 +5,7 @@
     <data>
         <variable
             name="clickHandler"
-            type="com.ballboycorp.tingting.main.profile.ProfileFragment.ClickHandler"/>
+            type="com.ballboycorp.tingting.profile.ProfileFragment.ClickHandler"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

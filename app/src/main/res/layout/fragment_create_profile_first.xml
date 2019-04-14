@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.profile.create.first.CreateProfileFirstViewModel"/>
+
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.profile.create.first.CreateProfileFirstFragment.ClickHandler" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="0sp"
+            android:text="@string/header_nickname"
+            android:textColor="@color/colorBlackFirst"
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp">
+
+            <EditText
+                android:id="@+id/et_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/iv_tick"
+                android:layout_toLeftOf="@id/iv_tick"
+                android:background="@android:color/transparent"
+                android:lineSpacingExtra="0sp"
+                android:textColor="@color/colorBlackFifth"
+                android:textSize="15sp"
+                tools:text="안녕하세요." />
+
+            <ImageView
+                android:id="@+id/iv_tick"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                app:srcCompat="@drawable/ic_tick" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorBlackFourth" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="0sp"
+            android:textColor="@color/colorRed"
+            android:textSize="12sp"
+            android:text="@string/guide_nickname" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:lineSpacingExtra="0sp"
+            android:text="@string/header_gender"
+            android:textColor="@color/colorBlackFirst"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:weightSum="2"
+            android:layout_marginTop="12dp">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()-> clickHandler.onClickGender(0)}">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{viewModel.gender == 0 ? View.INVISIBLE : View.VISIBLE}">
+                    <include
+                        layout="@layout/view_gender_male_default" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{viewModel.gender == 0 ? View.VISIBLE : View.INVISIBLE}">
+                    <include
+                        layout="@layout/view_gender_male_selected" />
+                </FrameLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()-> clickHandler.onClickGender(1)}">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{viewModel.gender == 1 ? View.INVISIBLE : View.VISIBLE}">
+                    <include
+                        layout="@layout/view_gender_female_default" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{viewModel.gender == 1 ? View.VISIBLE : View.INVISIBLE}">
+                    <include
+                        layout="@layout/view_gender_female_selected" />
+                </FrameLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
