@@ -1,16 +1,16 @@
 package com.ballboycorp.tingting.pocha.details
 
 import android.os.Bundle
-import androidx.recyclerview.widget.GridLayoutManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityPochaDetailsBinding
 import com.ballboycorp.tingting.pocha.details.adapter.MenuAdapter
-import com.ballboycorp.tingting.review.model.ReviewViewModel
+import com.ballboycorp.tingting.review.ReviewActivity
+import com.ballboycorp.tingting.review.model.ReviewItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.observe
-import kotlinx.android.synthetic.main.activity_pocha_details.*
+import com.ballboycorp.tingting.utils.extensions.startActivity
 
 /**
  * Created by musooff on 13/04/2019.
@@ -42,10 +42,9 @@ class PochaDetailsActivity: BaseActivity() {
         }
 
         viewModel.getReviews().observe(this) {
-            val reviewViewModel = ReviewViewModel()
+            val reviewViewModel = ReviewItemViewModel(it[0])
             binding.review1.viewModel = reviewViewModel
             binding.review2.viewModel = reviewViewModel
-            reviewViewModel.setData(it[0])
         }
 
 
@@ -59,6 +58,10 @@ class PochaDetailsActivity: BaseActivity() {
 
         fun onClickLike() {
             viewModel.isLiked = !viewModel.isLiked
+        }
+
+        fun onClickMoreReviews() {
+            startActivity<ReviewActivity>()
         }
     }
 }

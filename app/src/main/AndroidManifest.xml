@@ -34,6 +34,7 @@
         <activity android:name=".liked.LikedActivity"/>
         <activity android:name=".pocha.details.PochaDetailsActivity"/>
         <activity android:name=".pocha.PochaActivity"/>
+        <activity android:name=".review.ReviewActivity"/>
     </application>
 
 </manifest>

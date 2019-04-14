@@ -12,6 +12,7 @@ import com.ballboycorp.tingting.main.more.MoreFragment
 import com.ballboycorp.tingting.main.pocha.PochaFragment
 import com.ballboycorp.tingting.main.profile.ProfileFragment
 import com.ballboycorp.tingting.pocha.PochaActivity
+import com.ballboycorp.tingting.review.ReviewActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.startActivity
@@ -64,6 +65,6 @@ class MainActivity : BaseActivity() {
         navigation.selectedItemId = R.id.navigation_home
 
 
-        startActivity<PochaActivity>()
+        startActivity<ReviewActivity>()
     }
 }

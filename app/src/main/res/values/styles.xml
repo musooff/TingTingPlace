@@ -35,4 +35,9 @@
         <item name="android:textColorSecondary">@color/colorWhite</item>
     </style>
 
+    <style name="CheckBox" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/colorBlackSecond</item>
+        <item name="colorControlActivated">@color/colorRed</item>
+    </style>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.ballboycorp.tingting.review
+package com.ballboycorp.tingting.review.model
 
 /**
  * Created by musooff on 14/04/2019.

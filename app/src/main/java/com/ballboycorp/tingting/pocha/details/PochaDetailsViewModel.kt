@@ -9,7 +9,7 @@ import com.ballboycorp.tingting.BR
 import com.ballboycorp.tingting.base.BaseObservableViewModel
 import com.ballboycorp.tingting.main.pocha.model.Pocha
 import com.ballboycorp.tingting.pocha.details.model.Menu
-import com.ballboycorp.tingting.review.Review
+import com.ballboycorp.tingting.review.model.Review
 
 /**
  * Created by musooff on 13/04/2019.

@@ -1,6 +1,7 @@
 package com.ballboycorp.tingting.utils.extensions
 
 import android.app.Activity
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -17,4 +18,8 @@ fun <T: ViewDataBinding> Activity.bind(layoutId: Int): T {
 
 fun <T: ViewDataBinding> Fragment.bind(inflater: LayoutInflater,layoutId: Int, container: ViewGroup?): T {
     return DataBindingUtil.inflate(inflater, layoutId, container, false)
+}
+
+fun <T: ViewDataBinding> ViewGroup.bind(layoutId: Int, viewType: Int): T {
+    return DataBindingUtil.inflate(LayoutInflater.from(this.context), layoutId, this, false)
 }

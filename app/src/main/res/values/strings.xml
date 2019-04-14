@@ -33,4 +33,6 @@
     <string name="info_phone">전화번호</string>
     <string name="info_work_time">운영시간</string>
     <string name="button_go_to_location">지도로 찾아가기</string>
+    <string name="total_points_text">전체 누적 평점</string>
+    <string name="only_photo_checkbox">포토 후기만 보기</string>
 </resources>
