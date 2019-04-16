@@ -6,6 +6,9 @@
         <variable
             name="clickHandler"
             type="com.ballboycorp.tingting.profile.ProfileFragment.ClickHandler"/>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.profile.ProfileViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,14 +42,20 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/shape_circle">
-
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:id="@+id/iv_profile"
+                    app:uri="@{viewModel.thumb}"
+                    app:gender="@{viewModel.gender}"/>
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8.5dp"
-                android:text="닉네임"
+                android:text="@{viewModel.nickname}"
                 android:textColor="@color/colorBlackSecond"
                 android:textSize="15sp" />
 
@@ -54,8 +63,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/shape_rectangle_outline_black_4"
+                android:background="@drawable/shape_rectangle_white_outline_black_4"
                 android:gravity="center"
+                android:onClick="@{()-> clickHandler.onClickEditProfile()}"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -69,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
-                    android:text="프로필 수정"
+                    android:text="@{viewModel.editProfileText}"
                     android:textColor="@color/colorBlackSecond"
                     android:textSize="12sp" />
             </LinearLayout>

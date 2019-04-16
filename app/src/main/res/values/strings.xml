@@ -41,4 +41,7 @@
     <string name="gender_male">남자</string>
     <string name="gender_female">여자</string>
     <string name="guide_nickname">2~8자 사이 한글 또는 영문으로 입력해주세요!</string>
+    <string name="button_done">완료</string>
+    <string name="guide_profile_picture">기본 이미지 또는 내 앨범에서 사진을 선택하세요.</string>
+    <string name="hint_nickname">닉네임을 입력하세요.</string>
 </resources>

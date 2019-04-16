@@ -9,9 +9,13 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentProfileBinding
 import com.ballboycorp.tingting.liked.LikedActivity
+import com.ballboycorp.tingting.profile.create.CreateProfileActivity
 import com.ballboycorp.tingting.recent.RecentActivity
 import com.ballboycorp.tingting.utils.extensions.bind
+import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.startActivity
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 /**
  * Created by musooff on 08/04/2019.
@@ -32,10 +36,18 @@ class ProfileFragment: BaseFragment() {
         }
     }
 
+    private val viewModel by lazy { getViewModel<ProfileViewModel>() }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = bind<FragmentProfileBinding>(inflater, R.layout.fragment_profile, container)
+        binding.viewModel = viewModel
         binding.clickHandler = ClickHandler()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.getUser()
     }
 
     inner class ClickHandler {
@@ -46,6 +58,17 @@ class ProfileFragment: BaseFragment() {
 
         fun onClickLiked() {
             startActivity<LikedActivity>()
+        }
+
+        fun onClickEditProfile() {
+            if (viewModel.user == null) {
+                startActivity<CreateProfileActivity>()
+            }
+            else {
+                viewModel.user = null
+                viewModel.appPref.setUser(null)
+                viewModel.getUser()
+            }
         }
     }
 }

@@ -1,61 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
-            type="com.ballboycorp.tingting.profile.create.CreateProfileViewModel"/>
-        <variable
-            name="clickHandler"
-            type="com.ballboycorp.tingting.profile.create.CreateProfileActivity.ClickHandler"/>
+            type="com.ballboycorp.tingting.profile.create.CreateProfileViewModel" />
     </data>
+
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorWhite">
 
-        <include
-            layout="@layout/toolbar"/>
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <include layout="@layout/toolbar" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2"
-                app:layout_constraintTop_toTopOf="parent">
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorRed"/>
-            </LinearLayout>
-            <androidx.viewpager.widget.ViewPager
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:id="@+id/vp_create"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginBottom="15dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/button_next">
-            </androidx.viewpager.widget.ViewPager>
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <Button
-                android:id="@+id/button_next"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/default_button"
-                android:enabled="@{viewModel.canMoveNext ? true: false }"
-                android:onClick="@{() -> clickHandler.onClickNext()}"
-                android:text="@string/button_next"
-                android:textColor="@color/colorWhite" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_weight="@{viewModel.process}"
+                android:background="@color/colorRed" />
+        </LinearLayout>
+
+        <com.ballboycorp.tingting.profile.create.utils.ViewPagerNoScroll
+            android:id="@+id/vp_create"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 </layout>

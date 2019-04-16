@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentCreateProfileFirstBinding
+import com.ballboycorp.tingting.profile.create.CreateProfileActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 
@@ -28,6 +29,11 @@ class CreateProfileFirstFragment: BaseFragment() {
     inner class ClickHandler {
         fun onClickGender(gender: Int) {
             viewModel.gender = gender
+            viewModel.verifyCanMoveNext()
+        }
+
+        fun onClickNext() {
+            (activity as CreateProfileActivity).onMoveNext(viewModel.nickname!!, viewModel.gender)
         }
     }
 }

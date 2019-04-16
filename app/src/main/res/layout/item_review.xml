@@ -21,7 +21,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:id="@+id/iv_thumb"
-            android:src="@drawable/icon_profile_thumb_man"
+            android:src="@drawable/icon_profile_thumb_male"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintDimensionRatio="1:1"
