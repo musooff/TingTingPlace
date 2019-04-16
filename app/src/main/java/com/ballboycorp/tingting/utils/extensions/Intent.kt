@@ -31,7 +31,7 @@ inline fun <reified T : Activity> Fragment.startActivity(vararg params: Pair<Str
 }
 
 inline fun <reified T : Activity> Fragment.startActivityForResult(requestCode: Int, vararg params: Pair<String, Any?>) {
-    requireActivity().startActivityForResult(createIntent(requireActivity(), T::class.java, params), requestCode)
+    this.startActivityForResult(createIntent(context!!, T::class.java, params), requestCode)
 }
 
 inline fun <reified T : Any> Fragment.intentFor(vararg params: Pair<String, Any?>): Intent =

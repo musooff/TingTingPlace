@@ -4,7 +4,6 @@
     package="com.ballboycorp.tingting">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 
     <application
@@ -37,6 +36,7 @@
         <activity android:name=".pocha.PochaActivity"/>
         <activity android:name=".review.ReviewActivity"/>
         <activity android:name=".profile.create.CreateProfileActivity"/>
+        <activity android:name=".profile.edit.EditProfileActivity"/>
     </application>
 
 </manifest>

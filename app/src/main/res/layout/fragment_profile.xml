@@ -38,10 +38,10 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:background="@drawable/shape_circle">
+                app:cardCornerRadius="35dp">
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -49,7 +49,7 @@
                     android:id="@+id/iv_profile"
                     app:uri="@{viewModel.thumb}"
                     app:gender="@{viewModel.gender}"/>
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,6 +80,35 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:text="@{viewModel.editProfileText}"
+                    android:textColor="@color/colorBlackSecond"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@string/profile_coin_header"
+                    android:textColor="@color/colorBlackSecond"
+                    android:textSize="12sp" />
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ic_coin"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="@{viewModel.coin}"
                     android:textColor="@color/colorBlackSecond"
                     android:textSize="12sp" />
             </LinearLayout>

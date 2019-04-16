@@ -1,5 +1,6 @@
 package com.ballboycorp.tingting.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,12 +11,12 @@ import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentProfileBinding
 import com.ballboycorp.tingting.liked.LikedActivity
 import com.ballboycorp.tingting.profile.create.CreateProfileActivity
+import com.ballboycorp.tingting.profile.edit.EditProfileActivity
 import com.ballboycorp.tingting.recent.RecentActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.startActivity
-import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.fragment_profile.*
+import com.ballboycorp.tingting.utils.extensions.startActivityForResult
 
 /**
  * Created by musooff on 08/04/2019.
@@ -62,13 +63,16 @@ class ProfileFragment: BaseFragment() {
 
         fun onClickEditProfile() {
             if (viewModel.user == null) {
-                startActivity<CreateProfileActivity>()
+                startActivityForResult<CreateProfileActivity>(0)
             }
             else {
-                viewModel.user = null
-                viewModel.appPref.setUser(null)
-                viewModel.getUser()
+                startActivityForResult<EditProfileActivity>(1)
             }
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        viewModel.getUser()
     }
 }

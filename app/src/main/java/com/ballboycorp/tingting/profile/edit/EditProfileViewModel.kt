@@ -1,14 +1,16 @@
-package com.ballboycorp.tingting.profile.create.first
+package com.ballboycorp.tingting.profile.edit
 
+import android.net.Uri
 import androidx.databinding.Bindable
 import com.ballboycorp.tingting.BR
 import com.ballboycorp.tingting.base.BaseObservableViewModel
+import com.ballboycorp.tingting.profile.model.User
 
 /**
- * Created by musooff on 14/04/2019.
+ * Created by musooff on 16/04/2019.
  */
 
-class CreateProfileFirstViewModel : BaseObservableViewModel() {
+class EditProfileViewModel: BaseObservableViewModel() {
 
     var gender: Int = -1
         @Bindable get() = field
@@ -39,12 +41,21 @@ class CreateProfileFirstViewModel : BaseObservableViewModel() {
             notifyPropertyChanged(BR.guide)
         }
 
-    var canMoveNext: Boolean = false
+    var canSave: Boolean = false
         @Bindable get() = field
         set(value) {
             field = value
-            notifyPropertyChanged(BR.canMoveNext)
+            notifyPropertyChanged(BR.canSave)
         }
+
+    var thumb: Uri? = null
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.thumb)
+        }
+
+    var user: User? = null
 
     private fun verifyNickName(string: String?) {
         if (string == null || string.length < 2 || string.length > 8) {
@@ -54,10 +65,28 @@ class CreateProfileFirstViewModel : BaseObservableViewModel() {
             guide = null
             isValidNickname = true
         }
-        verifyCanMoveNext()
+        verifyCanSave()
     }
 
-    fun verifyCanMoveNext() {
-        canMoveNext = gender != -1 && isValidNickname
+    fun verifyCanSave() {
+        canSave = gender != -1 && isValidNickname
+    }
+
+    fun getUser() {
+        user = appPref.getUser()
+        user?.let {
+            nickname = it.nickname
+            thumb = it.thumbnail?.let { Uri.parse(it) }
+            gender = it.gender
+        }
+    }
+
+    fun saveUser() {
+        val newUser = User()
+        newUser.thumbnail = thumb?.toString()
+        newUser.nickname = nickname
+        newUser.gender = gender
+
+        appPref.setUser(newUser)
     }
 }

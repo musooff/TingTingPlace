@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.ballboycorp.tingting.R
+import com.ballboycorp.tingting.utils.PermissionUtils
 import kotlinx.android.synthetic.main.toolbar.view.*
 
 /**
@@ -28,5 +29,11 @@ open class BaseActivity: AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        PermissionUtils.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
     }
 }

@@ -10,11 +10,8 @@ import com.ballboycorp.tingting.main.home.HomeFragment
 import com.ballboycorp.tingting.main.more.MoreFragment
 import com.ballboycorp.tingting.main.pocha.PochaFragment
 import com.ballboycorp.tingting.profile.ProfileFragment
-import com.ballboycorp.tingting.profile.create.CreateProfileActivity
-import com.ballboycorp.tingting.review.ReviewActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
-import com.ballboycorp.tingting.utils.extensions.startActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -63,6 +60,6 @@ class MainActivity : BaseActivity() {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         navigation.selectedItemId = R.id.navigation_profile
 
-        startActivity<CreateProfileActivity>()
+        //startActivity<EditProfileActivity>()
     }
 }

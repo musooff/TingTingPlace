@@ -22,7 +22,7 @@ import com.ballboycorp.tingting.utils.extensions.getViewModel
 class CreateProfileSecondFragment: BaseFragment() {
 
     companion object {
-        private const val REQUEST_CAMERA = 1
+        private const val REQUEST_GALLERY = 1
     }
 
     private val viewModel by lazy { getViewModel<CreateProfileSecondViewModel>() }
@@ -42,16 +42,10 @@ class CreateProfileSecondFragment: BaseFragment() {
         fun onClickImage(selectedImage: Int) {
             when(selectedImage) {
                 0 -> viewModel.selectedImage = selectedImage
-                1 -> PermissionUtils.requestStorage(activity!!, object : PermissionUtils.OnPermissionResult{
-                    override fun onResult(requestCode: Int, granted: Boolean, permissions: Array<String>) {
-                        if (granted) {
-                            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                            startActivityForResult(intent, REQUEST_CAMERA)
-                        }
-
-
-                    }
-                })
+                1 -> {
+                    val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                    startActivityForResult(intent, REQUEST_GALLERY)
+                }
             }
         }
     }
@@ -62,7 +56,7 @@ class CreateProfileSecondFragment: BaseFragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_CAMERA) {
+        if (requestCode == REQUEST_GALLERY) {
             if (resultCode == Activity.RESULT_OK) {
                 viewModel.thumb = data?.data
                 viewModel.selectedImage = 1

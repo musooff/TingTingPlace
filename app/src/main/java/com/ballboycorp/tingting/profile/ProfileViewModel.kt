@@ -54,6 +54,13 @@ class ProfileViewModel: BaseObservableViewModel() {
             notifyPropertyChanged(BR.gender)
         }
 
+    var coin: String = "0"
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.coin)
+        }
+
     var editProfileText: String? = null
         @Bindable get() = field
         set(value) {
@@ -67,6 +74,6 @@ class ProfileViewModel: BaseObservableViewModel() {
         editProfileText = if (user == null) "프로필 등록하기" else "프로필 수정"
         thumb = user?.thumbnail?.let { Uri.parse(it) }
         gender = user?.gender ?: -1
-
+        coin = user?.coin ?: "0"
     }
 }

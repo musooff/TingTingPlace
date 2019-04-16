@@ -1,5 +1,6 @@
 package com.ballboycorp.tingting.qr
 
+import android.app.Activity
 import android.os.Bundle
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
@@ -13,9 +14,13 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView
 import me.dm7.barcodescanner.core.ViewFinderView
 import me.dm7.barcodescanner.core.IViewFinder
 import android.content.Context
+import android.content.Intent
 import androidx.core.content.ContextCompat
 import com.ballboycorp.tingting.pocha.PochaActivity
+import com.ballboycorp.tingting.profile.create.CreateProfileActivity
+import com.ballboycorp.tingting.utils.PermissionUtils
 import com.ballboycorp.tingting.utils.extensions.startActivity
+import com.ballboycorp.tingting.utils.extensions.startActivityForResult
 
 
 /**
@@ -23,6 +28,10 @@ import com.ballboycorp.tingting.utils.extensions.startActivity
  */
 
 class QRScanActivity: BaseActivity(), ZXingScannerView.ResultHandler {
+
+    companion object {
+        private const val REQUEST_CREATE = 1
+    }
 
     private val viewModel by lazy { getViewModel<QRScanViewModel>() }
     private lateinit var mScannerView: ZXingScannerView
@@ -39,6 +48,14 @@ class QRScanActivity: BaseActivity(), ZXingScannerView.ResultHandler {
     }
 
     private fun initialize() {
+        PermissionUtils.requestCamera(this, object : PermissionUtils.OnPermissionResult {
+            override fun onResult(requestCode: Int, granted: Boolean, permissions: Array<out String>) {
+                if (!granted) {
+                    finish()
+                }
+            }
+        })
+
         mScannerView = object : ZXingScannerView(this) {
             override fun createViewFinderView(context: Context): IViewFinder {
                 return ViewFinderView(context)
@@ -54,8 +71,13 @@ class QRScanActivity: BaseActivity(), ZXingScannerView.ResultHandler {
 
     override fun handleResult(rawResult: Result) {
         mScannerView.stopCamera()
-        startActivity<PochaActivity>()
-        finish()
+        if (viewModel.appPref.getUser() == null) {
+            startActivityForResult<CreateProfileActivity>(REQUEST_CREATE)
+        }
+        else {
+            startActivity<PochaActivity>()
+            finish()
+        }
     }
 
     public override fun onResume() {
@@ -73,6 +95,16 @@ class QRScanActivity: BaseActivity(), ZXingScannerView.ResultHandler {
 
         fun onClickFlash() {
             mScannerView.flash = !mScannerView.flash
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CREATE) {
+            if (resultCode == Activity.RESULT_OK) {
+                startActivity<PochaActivity>()
+                finish()
+            }
         }
     }
 }

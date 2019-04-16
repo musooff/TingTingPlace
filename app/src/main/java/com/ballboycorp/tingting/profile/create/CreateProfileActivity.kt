@@ -1,5 +1,6 @@
 package com.ballboycorp.tingting.profile.create
 
+import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
 import android.view.ViewGroup
@@ -38,7 +39,7 @@ class CreateProfileActivity: BaseActivity() {
         customToolbar(toolbar, "프로필 생성", true)
 
         vp_create.adapter = adapter
-        vp_create.currentItem = 1
+        vp_create.currentItem = 0
     }
 
     fun onMoveNext(nickname: String, gender: Int) {
@@ -57,6 +58,7 @@ class CreateProfileActivity: BaseActivity() {
     fun onSignUp(thumb: Uri?) {
         viewModel.user.thumbnail = thumb?.toString()
         viewModel.saveUser()
+        setResult(Activity.RESULT_OK)
         finish()
     }
 

@@ -16,6 +16,7 @@ object PermissionUtils{
     private const val REQUEST_STORAGE = 1
     private const val REQUEST_CAMERA = 2
     private val PERMISSIONS_STORAGE = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+    private val PERMISSION_CAMERA = arrayOf(Manifest.permission.CAMERA)
 
     private var mCallbackMap: MutableMap<Int, OnPermissionResult> = HashMap()
 
@@ -39,7 +40,7 @@ object PermissionUtils{
     }
 
     interface OnPermissionResult {
-        fun onResult(requestCode: Int, granted: Boolean, permissions: Array<String>)
+        fun onResult(requestCode: Int, granted: Boolean, permissions: Array<out String>)
     }
 
 
@@ -47,7 +48,11 @@ object PermissionUtils{
         requestPermissions(activity, REQUEST_STORAGE, PERMISSIONS_STORAGE, cb)
     }
 
-    fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    fun requestCamera(activity: Activity, cb: OnPermissionResult) {
+        requestPermissions(activity, REQUEST_CAMERA, PERMISSION_CAMERA, cb)
+    }
+
+    fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         val cb = mCallbackMap.remove(requestCode)
         var granted = true
         if (cb != null) {

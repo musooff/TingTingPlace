@@ -8,4 +8,5 @@ class User {
     var nickname: String? = null
     var gender: Int = -1
     var thumbnail: String? = null
+    var coin: String? = "20"
 }
