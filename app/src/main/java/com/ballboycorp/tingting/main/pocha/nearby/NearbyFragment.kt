@@ -11,6 +11,9 @@ import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentNearbyBinding
 import com.ballboycorp.tingting.main.pocha.adapter.PochaRecyclerViewAdapter
 import com.ballboycorp.tingting.main.pocha.model.Pocha
+import com.ballboycorp.tingting.main.pocha.nearby.dialog.PochaSortDialog
+import com.ballboycorp.tingting.main.pocha.model.SortType
+import com.ballboycorp.tingting.main.pocha.nearby.dialog.SortDialogListener
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import kotlinx.android.synthetic.main.fragment_nearby.*
@@ -19,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_nearby.*
  * Created by musooff on 12/04/2019.
  */
 
-class NearbyFragment: BaseFragment() {
+class NearbyFragment: BaseFragment(), SortDialogListener {
     private val adapter = PochaRecyclerViewAdapter()
     private val viewModel by lazy { getViewModel<NearbyViewModel>() }
 
@@ -45,9 +48,17 @@ class NearbyFragment: BaseFragment() {
         }
         adapter.submitList(testPochas)
 
+
+    }
+
+    override fun onResult(sortType: SortType) {
+        viewModel.sortType = sortType
     }
 
     inner class ClickHandler {
 
+        fun onClickSortType() {
+            PochaSortDialog.show(childFragmentManager, viewModel.sortType, true)
+        }
     }
 }

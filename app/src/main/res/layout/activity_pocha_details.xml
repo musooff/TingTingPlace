@@ -382,6 +382,7 @@
                     android:background="@color/colorBlackSixth"
                     app:layout_constraintTop_toBottomOf="@id/view_line_information_title"
                     app:layout_constraintDimensionRatio="H, 360:150">
+
                 </FrameLayout>
 
                 <LinearLayout

@@ -11,6 +11,7 @@ import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.observe
 import com.ballboycorp.tingting.utils.extensions.startActivity
+import com.kakao.kakaonavi.Location
 
 /**
  * Created by musooff on 13/04/2019.
@@ -46,6 +47,7 @@ class PochaDetailsActivity: BaseActivity() {
             binding.review1.viewModel = reviewViewModel
             binding.review2.viewModel = reviewViewModel
         }
+
 
 
     }

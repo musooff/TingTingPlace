@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">팅팅플레이스</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="kakao_app_key">4e9c464e9348ef1a868026cb272941c3</string>
     <string name="title_home">홈</string>
     <string name="title_pocha">포차찾기</string>
     <string name="title_profile">내정보</string>
@@ -44,6 +44,8 @@
     <string name="button_done">완료</string>
     <string name="guide_profile_picture">기본 이미지 또는 내 앨범에서 사진을 선택하세요.</string>
     <string name="hint_nickname">닉네임을 입력하세요.</string>
-    <string name="button_save">스정완료</string>
+    <string name="button_save">수정완료</string>
     <string name="profile_coin_header">보유 코인 현황</string>
+    <string name="sort_rating">평점순</string>
+    <string name="dialog_sort_by">정렬기준</string>
 </resources>

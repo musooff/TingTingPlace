@@ -23,3 +23,7 @@ fun <T: ViewDataBinding> Fragment.bind(inflater: LayoutInflater,layoutId: Int, c
 fun <T: ViewDataBinding> ViewGroup.bind(layoutId: Int, viewType: Int): T {
     return DataBindingUtil.inflate(LayoutInflater.from(this.context), layoutId, this, false)
 }
+
+fun <T: ViewDataBinding> Context.bind(layoutId: Int, parent: ViewGroup?): T {
+    return DataBindingUtil.inflate(LayoutInflater.from(this), layoutId, parent, false)
+}

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.ballboycorp.tingting.main.pocha.model.SortType"/>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.main.pocha.nearby.dialog.PochaSortViewModel"/>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.main.pocha.nearby.dialog.PochaSortDialog.ClickHandler"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:onClick="@{()-> clickHandler.onClickExit()}"
+                app:srcCompat="@drawable/ic_exit"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorBlackSecond"
+                android:lineSpacingExtra="0sp"
+                android:gravity="center_horizontal"
+                android:text="@string/dialog_sort_by" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:onClick="@{() -> clickHandler.onClickSort(SortType.RATING)}">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:id="@+id/text_rating"
+                android:textColor="@{viewModel.sortType == SortType.RATING ? @color/colorRed : @color/colorBlackSecond}"
+                android:lineSpacingExtra="0sp"
+                android:layout_centerInParent="true"
+                android:text="@{SortType.RATING.text}"
+                />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:visibility='@{viewModel.sortType == SortType.RATING ? View.VISIBLE : View.INVISIBLE}'
+                android:layout_toRightOf="@id/text_rating"
+                android:layout_toEndOf="@id/text_rating"
+                app:srcCompat="@drawable/ic_tick_popup"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:onClick="@{() -> clickHandler.onClickSort(SortType.REVIEW)}">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:id="@+id/text_review"
+                android:textColor="@{viewModel.sortType == SortType.REVIEW ? @color/colorRed : @color/colorBlackSecond}"
+                android:lineSpacingExtra="0sp"
+                android:layout_centerInParent="true"
+                android:text="@{SortType.REVIEW.text}"
+                />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:visibility='@{viewModel.sortType == SortType.REVIEW ? View.VISIBLE : View.INVISIBLE}'
+                android:layout_toRightOf="@id/text_review"
+                android:layout_toEndOf="@id/text_review"
+                app:srcCompat="@drawable/ic_tick_popup"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:visibility="@{viewModel.hasDistance ? View.VISIBLE : View.GONE}"
+            android:onClick="@{() -> clickHandler.onClickSort(SortType.DISTANCE)}">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:id="@+id/text_distance"
+                android:textColor="@{viewModel.sortType == SortType.DISTANCE ? @color/colorRed : @color/colorBlackSecond}"
+                android:lineSpacingExtra="0sp"
+                android:layout_centerInParent="true"
+                android:text="@{SortType.DISTANCE.text}"
+                />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/text_distance"
+                android:layout_toEndOf="@id/text_distance"
+                android:visibility='@{viewModel.sortType == SortType.DISTANCE ? View.VISIBLE : View.INVISIBLE}'
+                app:srcCompat="@drawable/ic_tick_popup"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

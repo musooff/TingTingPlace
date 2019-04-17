@@ -4,6 +4,7 @@
     package="com.ballboycorp.tingting">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 
     <application
@@ -37,6 +38,13 @@
         <activity android:name=".review.ReviewActivity"/>
         <activity android:name=".profile.create.CreateProfileActivity"/>
         <activity android:name=".profile.edit.EditProfileActivity"/>
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+        <meta-data
+            android:name="com.kakao.sdk.kakaonavi.useWebView"
+            android:value="false" />
     </application>
 
 </manifest>
