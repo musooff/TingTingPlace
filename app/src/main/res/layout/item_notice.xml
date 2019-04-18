@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.ballboycorp.tingting.R"/>
+        <import type="android.view.View"/>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.notice.NoticeActivity.ClickHandler"/>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.notice.model.NoticeItemViewModel"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12sp"
+            android:paddingRight="12sp"
+            android:paddingBottom="8dp"
+            android:paddingTop="10dp"
+            android:onClick="@{() -> clickHandler.onClickItem(viewModel)}"
+            android:background="@color/colorWhite">
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="8dp"
+                android:scaleType="fitXY"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/iv_arrow"
+                android:src="@{viewModel.open ? context.getDrawable(R.drawable.ic_arrow_up_outline_big) : context.getDrawable(R.drawable.ic_arrow_down_outline_big)}"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toStartOf="@id/iv_arrow"
+                android:layout_toLeftOf="@id/iv_arrow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorRed"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@{viewModel.header}"
+                    tools:text="공지"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorBlackFirst"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@{viewModel.title}"
+                    tools:text="팅팅플레이스 서비스 이용약관 안내"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="@color/colorBlackThird"
+                    android:text="@{viewModel.title}"
+                    android:lineSpacingExtra="0sp"
+                    tools:text="2018.05.24"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:visibility="@{viewModel.open ? View.VISIBLE : View.GONE}"
+            android:textColor="@color/colorBlackFirst"
+            android:lineSpacingExtra="6sp"
+            android:paddingTop="9dp"
+            android:paddingBottom="9dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:background="@color/colorHomeBackground"
+            android:text="@{viewModel.content}"
+            tools:text="서비스 이용약관이 변경되었습니다.\n유의하시기 바랍니다.\n고객센터 1588-1688"
+            />
+    </LinearLayout>
+</layout>

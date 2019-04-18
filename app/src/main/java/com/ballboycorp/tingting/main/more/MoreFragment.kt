@@ -9,7 +9,9 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentMoreBinding
+import com.ballboycorp.tingting.notice.NoticeActivity
 import com.ballboycorp.tingting.utils.extensions.bind
+import com.ballboycorp.tingting.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar.view.*
 
@@ -45,7 +47,7 @@ class MoreFragment: BaseFragment() {
 
     inner class ClickHandler {
         fun onClickNotice() {
-
+            startActivity<NoticeActivity>()
         }
 
         fun onClickEvent() {
