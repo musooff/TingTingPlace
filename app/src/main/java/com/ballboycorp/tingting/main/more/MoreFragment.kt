@@ -12,6 +12,7 @@ import com.ballboycorp.tingting.contact.ContactActivity
 import com.ballboycorp.tingting.databinding.FragmentMoreBinding
 import com.ballboycorp.tingting.event.EventActivity
 import com.ballboycorp.tingting.notice.NoticeActivity
+import com.ballboycorp.tingting.settings.SettingsActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.toolbar.*
@@ -62,7 +63,7 @@ class MoreFragment: BaseFragment() {
         }
 
         fun onClickPreference() {
-
+            startActivity<SettingsActivity>()
         }
     }
 }

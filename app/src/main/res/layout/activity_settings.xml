@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.settings.SettingsActivity.ClickHandler"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/toolbar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="@{() -> clickHandler.onClickMessageNot()}">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_message_not"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="14sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/sw_message_not_arrow"
+                    android:layout_toStartOf="@id/sw_message_not_arrow"/>
+                <androidx.appcompat.widget.SwitchCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:theme="@style/Switch"
+                    android:id="@+id/sw_message_not_arrow"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlackFourth" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="@{() -> clickHandler.onClickGameNot()}">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_game_not"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="14sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/sw_game_not_arrow"
+                    android:layout_toStartOf="@id/sw_game_not_arrow"/>
+                <androidx.appcompat.widget.SwitchCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:theme="@style/Switch"
+                    android:id="@+id/sw_game_not_arrow"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlackFourth" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="@{() -> clickHandler.onClickEventNot()}">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_event_not"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="14sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/sw_event_not_arrow"
+                    android:layout_toStartOf="@id/sw_event_not_arrow"/>
+                <androidx.appcompat.widget.SwitchCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:theme="@style/Switch"
+                    android:id="@+id/sw_event_not_arrow"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlackFourth" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

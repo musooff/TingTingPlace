@@ -40,4 +40,9 @@
         <item name="colorControlActivated">@color/colorRed</item>
     </style>
 
+    <style name="Switch" parent="Theme.AppCompat">
+        <item name="thumbTint">@color/colorWhite</item>
+        <item name="trackTint">@color/switch_color</item>
+    </style>
+
 </resources>

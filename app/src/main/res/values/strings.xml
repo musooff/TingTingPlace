@@ -70,4 +70,7 @@
     <string name="toolbar_new_question">새 문의 작성</string>
     <string name="guide_question">티팅 플레이스 이용 중 불편하신 점을 문의주시면 최대한 빠른 시일내에 답변 드리겠습니다.</string>
     <string name="question_hint">문의하실 내용을 10자이상 작성해주세요.</string>
+    <string name="settings_message_not">메세지 알림</string>
+    <string name="settings_game_not">게임 수신</string>
+    <string name="settings_event_not">이벤트 및 공지사항 알림</string>
 </resources>

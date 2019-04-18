@@ -19,6 +19,7 @@ import com.ballboycorp.tingting.pocha.details.map.PochaMapActivity
 import com.ballboycorp.tingting.profile.ProfileFragment
 import com.ballboycorp.tingting.review.add.AddReviewActivity
 import com.ballboycorp.tingting.review.my.MyReviewsActivity
+import com.ballboycorp.tingting.settings.SettingsActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.startActivity
@@ -71,6 +72,5 @@ class MainActivity : BaseActivity() {
         navigation.selectedItemId = R.id.navigation_home
 
         //
-        startActivity<NewQuestionActivity>()
     }
 }
