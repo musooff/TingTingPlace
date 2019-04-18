@@ -140,6 +140,7 @@
                 android:lineSpacingExtra="0sp"
                 android:text="@string/button_delete"
                 android:padding="10dp"
+                android:onClick="@{() -> clickHandler.onClickRemove(viewModel)}"
                 android:background="@drawable/shape_rectangle_outline_red_4"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"

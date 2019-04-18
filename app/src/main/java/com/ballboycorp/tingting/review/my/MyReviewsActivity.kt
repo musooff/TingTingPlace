@@ -9,7 +9,7 @@ import com.ballboycorp.tingting.databinding.ActivityMyReviewsBinding
 import com.ballboycorp.tingting.main.pocha.model.Pocha
 import com.ballboycorp.tingting.main.pocha.model.PochaItemViewModel
 import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
-import com.ballboycorp.tingting.recent.adapter.RecentAdapter
+import com.ballboycorp.tingting.review.add.AddReviewActivity
 import com.ballboycorp.tingting.review.model.Review
 import com.ballboycorp.tingting.review.my.adapter.CanReviewAdapter
 import com.ballboycorp.tingting.review.my.adapter.MyReviewsAdapter
@@ -69,6 +69,13 @@ class MyReviewsActivity: BaseActivity() {
 
         fun onClickCanReviewItem(viewModel: PochaItemViewModel) {
             startActivity<PochaDetailsActivity>()
+        }
+
+        fun onClickReview(viewModel: PochaItemViewModel) {
+            startActivity<AddReviewActivity>()
+        }
+
+        fun onClickRemove(viewModel: PochaItemViewModel) {
 
         }
     }

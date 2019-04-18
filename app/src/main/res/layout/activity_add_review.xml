@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.review.add.AddActivityViewModel"/>
+
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.review.add.AddReviewActivity.ClickHandler" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorWhite">
+        <include
+            layout="@layout/toolbar"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="12dp"
+            android:paddingTop="20dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="15dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_above="@id/button_submit">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/header_rating"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="12sp" />
+
+
+                <RatingBar
+                    android:id="@+id/rating_bar"
+                    android:layout_marginTop="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:rating="@={viewModel.rating}"
+                    android:theme="@style/RatingBar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="0sp"
+                        android:text="@string/header_nickname"
+                        android:textColor="@color/colorBlackFirst"
+                        android:textSize="12sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:textColor="@color/colorBlackThird"
+                        android:lineSpacingExtra="0sp"
+                        android:text="@{viewModel.nickname}"
+                        tools:text="안녕하세요." />
+                </LinearLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="7"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/review_hint"
+                    android:gravity="start"
+                    android:padding="7dp"
+                    android:text="@={viewModel.description}"
+                    android:background="@drawable/shape_rectangle_outline_grey"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="0sp"
+                    android:textColor="@color/colorRed"
+                    android:textSize="12sp"
+                    android:text="@{viewModel.guide}"
+                    tools:text="@string/guide_nickname" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container_recent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <FrameLayout
+                        android:id="@+id/fl_recent_1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/fl_recent_2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:onClick="@{()->clickHandler.onClickImage(0)}">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitXY"
+                            app:loadImageCameraBorder="@{viewModel.pictures.get(0)}"
+                            app:srcCompat="@drawable/ic_camera_border"/>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/fl_recent_2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintLeft_toRightOf="@+id/fl_recent_1"
+                        app:layout_constraintRight_toLeftOf="@+id/fl_recent_3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:onClick="@{()->clickHandler.onClickImage(1)}">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitXY"
+                            app:loadImageCameraBorder="@{viewModel.pictures.get(1)}"
+                            app:srcCompat="@drawable/ic_camera_border"/>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/fl_recent_3"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintLeft_toRightOf="@+id/fl_recent_2"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:onClick="@{()->clickHandler.onClickImage(2)}">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitXY"
+                            app:loadImageCameraBorder="@{viewModel.pictures.get(2)}"
+                            app:srcCompat="@drawable/ic_camera_border"/>
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+
+
+            <Button
+                android:id="@+id/button_submit"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/default_button"
+                android:enabled="@{viewModel.canSubmit ? true: false }"
+                android:onClick="@{() -> clickHandler.onClickSubmit()}"
+                android:text="@string/button_submit"
+                android:textColor="@color/colorWhite" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</layout>

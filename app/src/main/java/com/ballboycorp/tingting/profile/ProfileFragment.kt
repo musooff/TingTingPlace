@@ -13,6 +13,8 @@ import com.ballboycorp.tingting.liked.LikedActivity
 import com.ballboycorp.tingting.profile.create.CreateProfileActivity
 import com.ballboycorp.tingting.profile.edit.EditProfileActivity
 import com.ballboycorp.tingting.recent.RecentActivity
+import com.ballboycorp.tingting.review.my.MyReviewsActivity
+import com.ballboycorp.tingting.review.my.adapter.MyReviewsAdapter
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.startActivity
@@ -59,6 +61,10 @@ class ProfileFragment: BaseFragment() {
 
         fun onClickLiked() {
             startActivity<LikedActivity>()
+        }
+
+        fun onClickMyReviews() {
+            startActivity<MyReviewsActivity>()
         }
 
         fun onClickEditProfile() {

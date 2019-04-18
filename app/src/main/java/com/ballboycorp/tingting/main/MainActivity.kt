@@ -12,6 +12,7 @@ import com.ballboycorp.tingting.main.pocha.PochaFragment
 import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
 import com.ballboycorp.tingting.pocha.details.map.PochaMapActivity
 import com.ballboycorp.tingting.profile.ProfileFragment
+import com.ballboycorp.tingting.review.add.AddReviewActivity
 import com.ballboycorp.tingting.review.my.MyReviewsActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
@@ -64,6 +65,6 @@ class MainActivity : BaseActivity() {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         navigation.selectedItemId = R.id.navigation_pocha
 
-        startActivity<MyReviewsActivity>()
+        startActivity<AddReviewActivity>()
     }
 }

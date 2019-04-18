@@ -59,4 +59,7 @@
     <string name="no_reviewed">작성 가능 리뷰가 없습니다.</string>
     <string name="can_review">작성한 리뷰가 없습니다.</string>
     <string name="can_reviewed_header">작성한 리뷰</string>
+    <string name="header_rating">별점</string>
+    <string name="review_hint">사진과 함께 리뷰 작성시 매우매우 도움이 됩니다. 포차에 대한 솔직한 리뷰를 남겨주세요, (10자 이상).</string>
+    <string name="button_submit">작성완료</string>
 </resources>

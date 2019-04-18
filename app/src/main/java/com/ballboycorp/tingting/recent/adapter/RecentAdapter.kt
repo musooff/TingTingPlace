@@ -5,13 +5,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.ItemRecentBinding
 import com.ballboycorp.tingting.main.pocha.model.PochaItemViewModel
+import com.ballboycorp.tingting.recent.RecentActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 
 /**
  * Created by musooff on 13/04/2019.
  */
 
-class RecentAdapter: RecyclerView.Adapter<RecentAdapter.RecentViewHolder>() {
+class RecentAdapter(private val clickHandler: RecentActivity.ClickHandler) : RecyclerView.Adapter<RecentAdapter.RecentViewHolder>() {
 
     private var mViewModels: List<PochaItemViewModel> = ArrayList()
 
@@ -27,6 +28,7 @@ class RecentAdapter: RecyclerView.Adapter<RecentAdapter.RecentViewHolder>() {
 
     override fun onBindViewHolder(holder: RecentViewHolder, position: Int) {
         holder.binding.viewModel = mViewModels[position]
+        holder.binding.clickHandler = clickHandler
     }
 
     fun submitList(viewModels: List<PochaItemViewModel>) {

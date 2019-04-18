@@ -5,6 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.recent.RecentActivity.ClickHandler"/>
+        <variable
             name="viewModel"
             type="com.ballboycorp.tingting.main.pocha.model.PochaItemViewModel"/>
     </data>
@@ -13,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:onClick="@{() -> clickHandler.onClickItem(viewModel)}"
         android:layout_marginBottom="12dp">
 
         <androidx.cardview.widget.CardView
@@ -135,6 +139,7 @@
                 android:lineSpacingExtra="0sp"
                 android:text="@string/button_review"
                 android:padding="10dp"
+                android:onClick="@{() -> clickHandler.onClickReview(viewModel)}"
                 android:background="@drawable/shape_rectangle_outline_black_4"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"

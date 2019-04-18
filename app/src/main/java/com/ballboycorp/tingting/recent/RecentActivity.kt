@@ -8,10 +8,12 @@ import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityRecentBinding
 import com.ballboycorp.tingting.main.pocha.model.Pocha
 import com.ballboycorp.tingting.main.pocha.model.PochaItemViewModel
+import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
 import com.ballboycorp.tingting.recent.adapter.RecentAdapter
+import com.ballboycorp.tingting.review.add.AddReviewActivity
 import com.ballboycorp.tingting.utils.extensions.bind
+import com.ballboycorp.tingting.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.fragment_search.*
-import kotlinx.android.synthetic.main.toolbar.*
 
 /**
  * Created by musooff on 13/04/2019.
@@ -19,7 +21,8 @@ import kotlinx.android.synthetic.main.toolbar.*
 
 class RecentActivity: BaseActivity() {
 
-    private val adapter = RecentAdapter()
+    private val clickHandler = ClickHandler()
+    private val adapter = RecentAdapter(clickHandler)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,5 +42,15 @@ class RecentActivity: BaseActivity() {
             testPochas.add(PochaItemViewModel(Pocha()))
         }
         adapter.submitList(testPochas)
+    }
+
+    inner class ClickHandler {
+        fun onClickItem(viewModel: PochaItemViewModel) {
+            startActivity<PochaDetailsActivity>()
+        }
+
+        fun onClickReview(viewModel: PochaItemViewModel) {
+            startActivity<AddReviewActivity>()
+        }
     }
 }

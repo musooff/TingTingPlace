@@ -139,6 +139,7 @@
                 android:lineSpacingExtra="0sp"
                 android:text="@string/button_review"
                 android:padding="10dp"
+                android:onClick="@{() -> clickHandler.onClickReview(viewModel)}"
                 android:background="@drawable/shape_rectangle_outline_black_4"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"

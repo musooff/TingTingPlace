@@ -41,6 +41,7 @@
         <activity android:name=".profile.edit.EditProfileActivity"/>
         <activity android:name=".pocha.details.map.PochaMapActivity"/>
         <activity android:name=".review.my.MyReviewsActivity"/>
+        <activity android:name=".review.add.AddReviewActivity"/>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
