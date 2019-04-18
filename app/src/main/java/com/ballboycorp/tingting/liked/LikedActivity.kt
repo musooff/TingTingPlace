@@ -28,8 +28,9 @@ class LikedActivity: BaseActivity() {
         val binding = bind<ActivityLikedBinding>(R.layout.activity_liked)
         binding.viewModel = viewModel
         binding.clickHandler = ClickHandler()
-        customToolbar(toolbar, "찜한 포차",  true)
 
+        setSupportActionBar(toolbar)
+        viewModel.toolbarTitle = "찜한 포차"
 
         rv_main.adapter = adapter
         rv_main.layoutManager = LinearLayoutManager(this)
@@ -64,7 +65,10 @@ class LikedActivity: BaseActivity() {
         private fun switchMode() {
             viewModel.isEditMode = !viewModel.isEditMode
             adapter.editMode(viewModel.isEditMode)
+        }
 
+        fun onClickBack() {
+            onBackPressed()
         }
     }
 }

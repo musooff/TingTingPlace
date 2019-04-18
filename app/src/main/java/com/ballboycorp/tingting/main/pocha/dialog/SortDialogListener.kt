@@ -1,4 +1,4 @@
-package com.ballboycorp.tingting.main.pocha.nearby.dialog
+package com.ballboycorp.tingting.main.pocha.dialog
 
 import com.ballboycorp.tingting.main.pocha.model.SortType
 
@@ -7,6 +7,5 @@ import com.ballboycorp.tingting.main.pocha.model.SortType
  */
 
 interface SortDialogListener {
-
     fun onResult(sortType: SortType)
 }

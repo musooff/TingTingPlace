@@ -48,4 +48,11 @@
     <string name="profile_coin_header">보유 코인 현황</string>
     <string name="sort_rating">평점순</string>
     <string name="dialog_sort_by">정렬기준</string>
+    <string name="text_current_location">현 위치로 재검색</string>
+    <string name="text_dialog_map">지도로 위치 지정</string>
+    <string name="dialog_location">내 위치 지정</string>
+    <string name="text_dialog_share_kakao">카카오톡</string>
+    <string name="text_dialog_share_sms">SMS</string>
+    <string name="text_dialog_share_url">URL 복사</string>
+    <string name="text_dialog_share">공유하기</string>
 </resources>

@@ -1,19 +1,15 @@
 package com.ballboycorp.tingting.profile.edit
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityEditProfileBinding
-import com.ballboycorp.tingting.utils.PermissionUtils
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import kotlinx.android.synthetic.main.toolbar.*
-import java.io.File
 
 /**
  * Created by musooff on 16/04/2019.
@@ -32,7 +28,7 @@ class EditProfileActivity: BaseActivity() {
         binding.viewModel = viewModel
         binding.clickHandler = ClickHandler()
 
-        customToolbar(toolbar, "프로필 수정", true)
+        initToolbar("프로필 수정", true)
 
         viewModel.getUser()
     }

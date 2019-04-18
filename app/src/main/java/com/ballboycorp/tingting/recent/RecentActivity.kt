@@ -24,7 +24,7 @@ class RecentActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
         val binding = bind<ActivityRecentBinding>(R.layout.activity_recent)
 
-        customToolbar(toolbar, "최근 간 포차",  true)
+        initToolbar("최근 간 포차",  true)
 
 
         rv_main.adapter = adapter

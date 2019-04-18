@@ -5,10 +5,10 @@
         <import type="com.ballboycorp.tingting.main.pocha.model.SortType"/>
         <variable
             name="viewModel"
-            type="com.ballboycorp.tingting.main.pocha.nearby.dialog.PochaSortViewModel"/>
+            type="com.ballboycorp.tingting.main.pocha.dialog.PochaSortViewModel"/>
         <variable
             name="clickHandler"
-            type="com.ballboycorp.tingting.main.pocha.nearby.dialog.PochaSortDialog.ClickHandler"/>
+            type="com.ballboycorp.tingting.main.pocha.dialog.PochaSortDialog.ClickHandler"/>
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"

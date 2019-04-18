@@ -11,7 +11,6 @@ import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityCreateProfileBinding
 import com.ballboycorp.tingting.profile.create.first.CreateProfileFirstFragment
 import com.ballboycorp.tingting.profile.create.second.CreateProfileSecondFragment
-import com.ballboycorp.tingting.profile.create.utils.ViewPagerNoScroll
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import kotlinx.android.synthetic.main.activity_create_profile.*
@@ -36,7 +35,8 @@ class CreateProfileActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
         val binding = bind<ActivityCreateProfileBinding>(R.layout.activity_create_profile)
         binding.viewModel = viewModel
-        customToolbar(toolbar, "프로필 생성", true)
+
+        initToolbar("프로필 생성", true)
 
         vp_create.adapter = adapter
         vp_create.currentItem = 0

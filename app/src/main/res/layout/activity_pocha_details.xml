@@ -69,6 +69,7 @@
                         android:layout_marginRight="16dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
+                        android:onClick="@{()-> clickHandler.onClickShare()}"
                         app:srcCompat="@drawable/ic_share_white_24dp"/>
                 </RelativeLayout>
             </androidx.appcompat.widget.Toolbar>

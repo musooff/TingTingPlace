@@ -16,4 +16,11 @@ class LikedViewModel: BaseObservableViewModel() {
         field = value
         notifyPropertyChanged(BR.editMode)
     }
+
+    var toolbarTitle: String? = null
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.toolbarTitle)
+        }
 }

@@ -34,11 +34,13 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:id="@+id/iv_back"
+                    android:onClick="@{() -> clickHandler.onClickBack()}"
                     app:srcCompat="@drawable/ic_arrow_left_black_24dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     tools:text="Title"
+                    android:text="@{viewModel.toolbarTitle}"
                     android:textStyle="bold"
                     android:id="@+id/tb_title"
                     android:gravity="center"

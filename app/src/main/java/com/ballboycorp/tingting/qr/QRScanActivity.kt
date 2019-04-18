@@ -41,7 +41,7 @@ class QRScanActivity: BaseActivity(), ZXingScannerView.ResultHandler {
         val binding = bind<ActivityQrBinding>(R.layout.activity_qr)
         binding.viewModel = viewModel
         binding.clickHandler = ClickHandler()
-        customToolbar(toolbar, "QR코드 스캔", true)
+        initToolbar("QR코드 스캔", true)
 
         initialize()
 

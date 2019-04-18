@@ -28,7 +28,7 @@ class ReviewActivity: BaseActivity() {
         val binding = bind<ActivityReviewBinding>(R.layout.activity_review)
         binding.viewModel = viewModel
 
-        customToolbar(toolbar, "후기(1085개)", true)
+        initToolbar("후기(1085개)", true)
 
         rv_reviews.adapter = adapter
         rv_reviews.layoutManager = LinearLayoutManager(this)

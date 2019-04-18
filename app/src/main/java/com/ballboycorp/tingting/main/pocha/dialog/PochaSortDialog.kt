@@ -1,4 +1,4 @@
-package com.ballboycorp.tingting.main.pocha.nearby.dialog
+package com.ballboycorp.tingting.main.pocha.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater

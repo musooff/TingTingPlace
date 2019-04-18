@@ -8,8 +8,8 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentRegionBinding
 import com.ballboycorp.tingting.main.pocha.model.SortType
-import com.ballboycorp.tingting.main.pocha.nearby.dialog.PochaSortDialog
-import com.ballboycorp.tingting.main.pocha.nearby.dialog.SortDialogListener
+import com.ballboycorp.tingting.main.pocha.dialog.PochaSortDialog
+import com.ballboycorp.tingting.main.pocha.dialog.SortDialogListener
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 

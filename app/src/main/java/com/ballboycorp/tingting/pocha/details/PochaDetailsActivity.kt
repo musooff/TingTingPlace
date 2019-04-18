@@ -5,6 +5,7 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityPochaDetailsBinding
 import com.ballboycorp.tingting.pocha.details.adapter.MenuAdapter
+import com.ballboycorp.tingting.pocha.details.dialog.ShareDialog
 import com.ballboycorp.tingting.review.ReviewActivity
 import com.ballboycorp.tingting.review.model.ReviewItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
@@ -12,6 +13,7 @@ import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.observe
 import com.ballboycorp.tingting.utils.extensions.startActivity
 import com.kakao.kakaonavi.Location
+import kotlinx.android.synthetic.main.activity_liked.*
 
 /**
  * Created by musooff on 13/04/2019.
@@ -31,6 +33,8 @@ class PochaDetailsActivity: BaseActivity() {
         binding = bind(R.layout.activity_pocha_details)
         binding.viewModel = viewModel
         binding.clickHandler = ClickHandler()
+
+        setSupportActionBar(toolbar)
         initialize()
     }
 
@@ -64,6 +68,10 @@ class PochaDetailsActivity: BaseActivity() {
 
         fun onClickMoreReviews() {
             startActivity<ReviewActivity>()
+        }
+
+        fun onClickShare() {
+            ShareDialog.show(supportFragmentManager)
         }
     }
 }
