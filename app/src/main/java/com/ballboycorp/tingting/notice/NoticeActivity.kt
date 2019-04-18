@@ -21,8 +21,6 @@ import kotlinx.android.synthetic.main.activity_notice.*
 
 class NoticeActivity: BaseActivity() {
 
-    private val viewModel by lazy { getViewModel<NoticeViewModel>() }
-
     private val clickHandler = ClickHandler()
     private val adapter =  NoticeAdapter(clickHandler)
 

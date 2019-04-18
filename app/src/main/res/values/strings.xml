@@ -66,4 +66,8 @@
     <string name="more_event">이벤트</string>
     <string name="more_contact">1:1 문의</string>
     <string name="more_preference">환경설정</string>
+    <string name="toolbar_contact">1:1 문의</string>
+    <string name="toolbar_new_question">새 문의 작성</string>
+    <string name="guide_question">티팅 플레이스 이용 중 불편하신 점을 문의주시면 최대한 빠른 시일내에 답변 드리겠습니다.</string>
+    <string name="question_hint">문의하실 내용을 10자이상 작성해주세요.</string>
 </resources>

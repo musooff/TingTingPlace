@@ -5,10 +5,10 @@
         <import type="android.view.View"/>
         <variable
             name="clickHandler"
-            type="com.ballboycorp.tingting.notice.NoticeActivity.ClickHandler"/>
+            type="com.ballboycorp.tingting.contact.ContactActivity.ClickHandler"/>
         <variable
             name="viewModel"
-            type="com.ballboycorp.tingting.notice.model.NoticeItemViewModel"/>
+            type="com.ballboycorp.tingting.contact.model.QuestionItemViewModel"/>
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
@@ -45,7 +45,7 @@
                     android:textColor="@color/colorRed"
                     android:lineSpacingExtra="0sp"
                     android:text="@{viewModel.header}"
-                    tools:text="공지"
+                    tools:text="답변완료"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
                     android:textColor="@color/colorBlackFirst"
                     android:lineSpacingExtra="0sp"
                     android:text="@{viewModel.title}"
-                    tools:text="팅팅플레이스 서비스 이용약관 안내"
+                    tools:text="제가 너무 배가고픈데 어쩌죠?\n너무 배고파서 밥을 먹고 싶습니다."
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:visibility="@{viewModel.open ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewModel.answered ? (viewModel.open ? View.VISIBLE : View.GONE) : View.GONE}"
             android:textColor="@color/colorBlackFirst"
             android:lineSpacingExtra="6sp"
             android:paddingTop="9dp"
@@ -79,7 +79,7 @@
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
             android:background="@color/colorHomeBackground"
-            android:text="@{viewModel.content}"
+            android:text="@{viewModel.answered ? viewModel.answer.title : ``}"
             tools:text="서비스 이용약관이 변경되었습니다.\n유의하시기 바랍니다.\n고객센터 1588-1688"
             />
     </LinearLayout>

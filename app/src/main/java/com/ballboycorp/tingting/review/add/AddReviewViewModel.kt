@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
  * Created by musooff on 18/04/2019.
  */
 
-class AddActivityViewModel: BaseObservableViewModel() {
+class AddReviewViewModel: BaseObservableViewModel() {
 
     companion object {
         @JvmStatic
@@ -83,10 +83,10 @@ class AddActivityViewModel: BaseObservableViewModel() {
             guide = null
             isValidDescription = true
         }
-        verifyCanMoveNext()
+        verifyCanSubmit()
     }
 
-    fun verifyCanMoveNext() {
+    fun verifyCanSubmit() {
         canSubmit = isValidDescription
     }
 

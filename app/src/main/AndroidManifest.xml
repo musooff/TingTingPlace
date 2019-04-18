@@ -45,6 +45,8 @@
         <activity android:name=".notice.NoticeActivity"/>
         <activity android:name=".event.EventActivity"/>
         <activity android:name=".event.viewer.EventViewerActivity"/>
+        <activity android:name=".contact.ContactActivity"/>
+        <activity android:name=".contact.add.NewQuestionActivity"/>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"

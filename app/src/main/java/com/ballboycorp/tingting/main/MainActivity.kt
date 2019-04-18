@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
+import com.ballboycorp.tingting.contact.ContactActivity
+import com.ballboycorp.tingting.contact.add.NewQuestionActivity
 import com.ballboycorp.tingting.databinding.ActivityMainBinding
 import com.ballboycorp.tingting.event.EventActivity
 import com.ballboycorp.tingting.event.viewer.EventViewerActivity
@@ -68,6 +70,7 @@ class MainActivity : BaseActivity() {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         navigation.selectedItemId = R.id.navigation_home
 
-        //startActivity<EventViewerActivity>()
+        //
+        startActivity<NewQuestionActivity>()
     }
 }

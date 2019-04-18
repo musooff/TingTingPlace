@@ -20,7 +20,7 @@ class AddReviewActivity: BaseActivity() {
         private const val REQUEST_GALLERY = 1
     }
 
-    private val viewModel by lazy { getViewModel<AddActivityViewModel>() }
+    private val viewModel by lazy { getViewModel<AddReviewViewModel>() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

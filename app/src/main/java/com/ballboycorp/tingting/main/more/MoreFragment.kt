@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentActivity
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.base.BaseFragment
+import com.ballboycorp.tingting.contact.ContactActivity
 import com.ballboycorp.tingting.databinding.FragmentMoreBinding
 import com.ballboycorp.tingting.event.EventActivity
 import com.ballboycorp.tingting.notice.NoticeActivity
@@ -56,6 +57,7 @@ class MoreFragment: BaseFragment() {
         }
 
         fun onClickContact() {
+            startActivity<ContactActivity>()
 
         }
 
