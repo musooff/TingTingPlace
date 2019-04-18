@@ -63,8 +63,8 @@ class MainActivity : BaseActivity() {
         val binding = bind<ActivityMainBinding>(R.layout.activity_main)
         binding.viewModel = viewModel
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        navigation.selectedItemId = R.id.navigation_pocha
+        navigation.selectedItemId = R.id.navigation_more
 
-        startActivity<AddReviewActivity>()
+        //startActivity<AddReviewActivity>()
     }
 }

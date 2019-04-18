@@ -62,4 +62,8 @@
     <string name="header_rating">별점</string>
     <string name="review_hint">사진과 함께 리뷰 작성시 매우매우 도움이 됩니다. 포차에 대한 솔직한 리뷰를 남겨주세요, (10자 이상).</string>
     <string name="button_submit">작성완료</string>
+    <string name="more_notice">공지사항</string>
+    <string name="more_event">이벤트</string>
+    <string name="more_contact">1:1 문의</string>
+    <string name="more_preference">환경설정</string>
 </resources>

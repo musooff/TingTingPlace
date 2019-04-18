@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import com.ballboycorp.tingting.R
+import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentMoreBinding
 import com.ballboycorp.tingting.utils.extensions.bind
@@ -38,7 +39,25 @@ class MoreFragment: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        toolbar.tb_title.text = "더보기"
+        (activity as BaseActivity).initToolbar("더보기")
 
+    }
+
+    inner class ClickHandler {
+        fun onClickNotice() {
+
+        }
+
+        fun onClickEvent() {
+
+        }
+
+        fun onClickContact() {
+
+        }
+
+        fun onClickPreference() {
+
+        }
     }
 }

@@ -1,9 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.main.more.MoreFragment.ClickHandler"/>
+    </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent">
         <include
             layout="@layout/toolbar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="@{() -> clickHandler.onClickNotice()}">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/more_notice"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="14sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_notice_arrow"
+                    android:layout_toStartOf="@id/iv_notice_arrow"/>
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="12dp"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/iv_notice_arrow"
+                    app:srcCompat="@drawable/ic_arrow_right_24db"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlackFourth" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="@{() -> clickHandler.onClickEvent()}">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/more_event"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="14sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_event_arrow"
+                    android:layout_toStartOf="@id/iv_event_arrow"/>
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="12dp"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/iv_event_arrow"
+                    app:srcCompat="@drawable/ic_arrow_right_24db"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlackFourth" />
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="@{() -> clickHandler.onClickContact()}">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/more_contact"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="14sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_contact_arrow"
+                    android:layout_toStartOf="@id/iv_contact_arrow"/>
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="12dp"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/iv_contact_arrow"
+                    app:srcCompat="@drawable/ic_arrow_right_24db"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlackFourth" />
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="@{() -> clickHandler.onClickPreference()}">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/more_preference"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="14sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_preference_arrow"
+                    android:layout_toStartOf="@id/iv_preference_arrow"/>
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="12dp"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/iv_preference_arrow"
+                    app:srcCompat="@drawable/ic_arrow_right_24db"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlackFourth" />
+
+        </LinearLayout>
     </LinearLayout>
 </layout>
