@@ -1,14 +1,11 @@
 package com.ballboycorp.tingting.recent.adapter
 
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ballboycorp.tingting.R
-import com.ballboycorp.tingting.main.pocha.model.Pocha
-import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
-import com.ballboycorp.tingting.utils.extensions.startActivity
-import kotlinx.android.synthetic.main.item_recent.view.*
+import com.ballboycorp.tingting.databinding.ItemRecentBinding
+import com.ballboycorp.tingting.main.pocha.model.PochaItemViewModel
+import com.ballboycorp.tingting.utils.extensions.bind
 
 /**
  * Created by musooff on 13/04/2019.
@@ -16,35 +13,26 @@ import kotlinx.android.synthetic.main.item_recent.view.*
 
 class RecentAdapter: RecyclerView.Adapter<RecentAdapter.RecentViewHolder>() {
 
-    private var mPochas: List<Pocha> = ArrayList()
+    private var mViewModels: List<PochaItemViewModel> = ArrayList()
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recent, parent, false)
-        return RecentViewHolder(view)
+        val binding = parent.bind<ItemRecentBinding>(R.layout.item_recent, viewType)
+        return RecentViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
-        return mPochas.size
+        return mViewModels.size
     }
 
     override fun onBindViewHolder(holder: RecentViewHolder, position: Int) {
-        holder.bind(mPochas[position])
+        holder.binding.viewModel = mViewModels[position]
     }
 
-    fun submitList(pochas: List<Pocha>) {
-        mPochas = pochas
+    fun submitList(viewModels: List<PochaItemViewModel>) {
+        mViewModels = viewModels
         notifyDataSetChanged()
     }
 
-    inner class RecentViewHolder(val view: View): RecyclerView.ViewHolder(view) {
-        fun bind(pocha: Pocha) {
-            view.text_title.text = pocha.title
-            view.text_rating.text = pocha.rating.toString()
-            view.rating_bar.rating = pocha.rating
-            view.text_review_count.text = "리뷰 ${pocha.reviewCount}"
-            view.text_comment_count.text = "사장님 댓글 ${pocha.commentCount}"
-
-            view.setOnClickListener { view.context.startActivity<PochaDetailsActivity>() }
-        }
-    }
+    inner class RecentViewHolder(val binding: ItemRecentBinding): RecyclerView.ViewHolder(binding.root)
 }

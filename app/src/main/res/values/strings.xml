@@ -55,4 +55,8 @@
     <string name="text_dialog_share_sms">SMS</string>
     <string name="text_dialog_share_url">URL 복사</string>
     <string name="text_dialog_share">공유하기</string>
+    <string name="can_for_review_header">작성 가능 리뷰</string>
+    <string name="no_reviewed">작성 가능 리뷰가 없습니다.</string>
+    <string name="can_review">작성한 리뷰가 없습니다.</string>
+    <string name="can_reviewed_header">작성한 리뷰</string>
 </resources>

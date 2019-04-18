@@ -15,8 +15,11 @@ object PermissionUtils{
 
     private const val REQUEST_STORAGE = 1
     private const val REQUEST_CAMERA = 2
+    private const val REQUEST_LOCATION = 3
     private val PERMISSIONS_STORAGE = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
     private val PERMISSION_CAMERA = arrayOf(Manifest.permission.CAMERA)
+    private val PERMISSION_LOCATION = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
+
 
     private var mCallbackMap: MutableMap<Int, OnPermissionResult> = HashMap()
 
@@ -50,6 +53,10 @@ object PermissionUtils{
 
     fun requestCamera(activity: Activity, cb: OnPermissionResult) {
         requestPermissions(activity, REQUEST_CAMERA, PERMISSION_CAMERA, cb)
+    }
+
+    fun requestLocation(activity: Activity, cb: OnPermissionResult) {
+        requestPermissions(activity, REQUEST_LOCATION, PERMISSION_LOCATION, cb)
     }
 
     fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

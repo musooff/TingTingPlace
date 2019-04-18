@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.review.my.MyReviewsViewModel"/>
+    </data>
+    <androidx.core.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include
+                layout="@layout/toolbar"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorBlackFirst"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/can_for_review_header"
+                    />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rv_can_review"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:textSize="12sp"
+                        android:visibility="@{viewModel.canReviewSize == 0 ? View.VISIBLE : View.GONE}"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorBlackThird"
+                        android:lineSpacingExtra="0sp"
+                        android:gravity="center"
+                        android:text="@string/can_review"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:padding="12dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorBlackFirst"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/can_reviewed_header"
+                    />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rv_reviewed"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:textSize="12sp"
+                        android:visibility="@{viewModel.myReviewsSize == 0 ? View.VISIBLE : View.GONE}"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorBlackThird"
+                        android:lineSpacingExtra="0sp"
+                        android:gravity="center"
+                        android:text="@string/no_reviewed"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -7,6 +7,7 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityRecentBinding
 import com.ballboycorp.tingting.main.pocha.model.Pocha
+import com.ballboycorp.tingting.main.pocha.model.PochaItemViewModel
 import com.ballboycorp.tingting.recent.adapter.RecentAdapter
 import com.ballboycorp.tingting.utils.extensions.bind
 import kotlinx.android.synthetic.main.fragment_search.*
@@ -33,9 +34,9 @@ class RecentActivity: BaseActivity() {
         rv_main.addItemDecoration(DividerItemDecoration(this,
                 DividerItemDecoration.VERTICAL))
 
-        val testPochas = ArrayList<Pocha>()
+        val testPochas = ArrayList<PochaItemViewModel>()
         for (i in 1..10) {
-            testPochas.add(Pocha())
+            testPochas.add(PochaItemViewModel(Pocha()))
         }
         adapter.submitList(testPochas)
     }

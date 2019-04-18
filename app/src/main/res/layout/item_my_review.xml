@@ -5,6 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.review.my.MyReviewsActivity.ClickHandler"/>
+        <variable
             name="viewModel"
             type="com.ballboycorp.tingting.main.pocha.model.PochaItemViewModel"/>
     </data>
@@ -13,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:onClick="@{() -> clickHandler.onClickReviewedItem(viewModel)}"
         android:layout_marginBottom="12dp">
 
         <androidx.cardview.widget.CardView
@@ -38,6 +42,7 @@
             android:layout_marginStart="6dp"
             android:layout_marginLeft="6dp"
             android:orientation="vertical"
+            android:id="@+id/container_pocha"
             app:layout_constraintBottom_toBottomOf="@id/iv_thumb_container"
             app:layout_constraintLeft_toRightOf="@id/iv_thumb_container"
             app:layout_constraintRight_toRightOf="parent"
@@ -131,15 +136,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
-                android:textColor="@color/colorBlackSecond"
+                android:textColor="@color/colorRed"
                 android:lineSpacingExtra="0sp"
-                android:text="@string/button_review"
+                android:text="@string/button_delete"
                 android:padding="10dp"
-                android:background="@drawable/shape_rectangle_outline_black_4"
+                android:background="@drawable/shape_rectangle_outline_red_4"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/colorBlackSeventh"
+            android:lineSpacingExtra="2sp"
+            android:layout_marginTop="12sp"
+            android:text="@{viewModel.myReview.description}"
+            app:layout_constraintTop_toBottomOf="@id/container_pocha"
+            tools:text="분위기 너무 재밌고 매날 가고싶어요!"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
