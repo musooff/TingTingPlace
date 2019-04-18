@@ -20,7 +20,6 @@ open class BaseActivity: AppCompatActivity() {
         setSupportActionBar(toolbar)
         if (withBackButton){
             toolbar.iv_back.visibility = View.VISIBLE
-
             toolbar.iv_back.setOnClickListener { onBackPressed() }
         }
     }

@@ -6,6 +6,8 @@ import android.os.Bundle
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityMainBinding
+import com.ballboycorp.tingting.event.EventActivity
+import com.ballboycorp.tingting.event.viewer.EventViewerActivity
 import com.ballboycorp.tingting.main.home.HomeFragment
 import com.ballboycorp.tingting.main.more.MoreFragment
 import com.ballboycorp.tingting.main.pocha.PochaFragment
@@ -64,8 +66,8 @@ class MainActivity : BaseActivity() {
         val binding = bind<ActivityMainBinding>(R.layout.activity_main)
         binding.viewModel = viewModel
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        navigation.selectedItemId = R.id.navigation_more
+        navigation.selectedItemId = R.id.navigation_home
 
-        startActivity<NoticeActivity>()
+        //startActivity<EventViewerActivity>()
     }
 }

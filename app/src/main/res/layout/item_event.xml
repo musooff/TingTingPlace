@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.ballboycorp.tingting.R"/>
+        <import type="android.view.View"/>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.event.EventActivity.ClickHandler"/>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.event.model.EventItemViewModel"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:onClick="@{() -> clickHandler.onClickItem(viewModel)}"
+        android:background="@color/colorWhite">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/colorBlackFirst"
+            android:lineSpacingExtra="0sp"
+            android:text="@{viewModel.title}"
+            tools:text="3연승 하면 천원 쿠폰준다"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorBlackThird"
+            android:lineSpacingExtra="0sp"
+            android:text="@{viewModel.duration}"
+            tools:text="기간 : 2018.02.07~2018.05.31"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12sp"
+            android:background="@color/colorBlue"/>
+    </LinearLayout>
+</layout>

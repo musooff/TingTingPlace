@@ -43,6 +43,8 @@
         <activity android:name=".review.my.MyReviewsActivity"/>
         <activity android:name=".review.add.AddReviewActivity"/>
         <activity android:name=".notice.NoticeActivity"/>
+        <activity android:name=".event.EventActivity"/>
+        <activity android:name=".event.viewer.EventViewerActivity"/>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"

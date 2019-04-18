@@ -9,6 +9,7 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentMoreBinding
+import com.ballboycorp.tingting.event.EventActivity
 import com.ballboycorp.tingting.notice.NoticeActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.startActivity
@@ -36,13 +37,13 @@ class MoreFragment: BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = bind<FragmentMoreBinding>(inflater, R.layout.fragment_more, container)
+        binding.clickHandler = ClickHandler()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as BaseActivity).initToolbar("더보기")
-
+        tb_title.text = "더보기"
     }
 
     inner class ClickHandler {
@@ -51,7 +52,7 @@ class MoreFragment: BaseFragment() {
         }
 
         fun onClickEvent() {
-
+            startActivity<EventActivity>()
         }
 
         fun onClickContact() {
