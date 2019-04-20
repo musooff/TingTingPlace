@@ -14,6 +14,7 @@ import com.ballboycorp.tingting.main.home.HomeFragment
 import com.ballboycorp.tingting.main.more.MoreFragment
 import com.ballboycorp.tingting.main.pocha.PochaFragment
 import com.ballboycorp.tingting.notice.NoticeActivity
+import com.ballboycorp.tingting.pocha.PochaActivity
 import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
 import com.ballboycorp.tingting.pocha.details.map.PochaMapActivity
 import com.ballboycorp.tingting.profile.ProfileFragment
@@ -72,5 +73,6 @@ class MainActivity : BaseActivity() {
         navigation.selectedItemId = R.id.navigation_home
 
         //
+        startActivity<PochaActivity>()
     }
 }

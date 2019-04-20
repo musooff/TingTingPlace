@@ -73,4 +73,8 @@
     <string name="settings_message_not">메세지 알림</string>
     <string name="settings_game_not">게임 수신</string>
     <string name="settings_event_not">이벤트 및 공지사항 알림</string>
+    <string name="text_zero">0</string>
+    <string name="dialog_text_total">총 %1$d 명</string>
+    <string name="button_confirm">확인</string>
+    <string name="dialog_number_of_people">내 테이블 인원수</string>
 </resources>

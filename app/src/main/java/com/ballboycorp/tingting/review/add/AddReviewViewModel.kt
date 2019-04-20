@@ -86,7 +86,7 @@ class AddReviewViewModel: BaseObservableViewModel() {
         verifyCanSubmit()
     }
 
-    fun verifyCanSubmit() {
+    private fun verifyCanSubmit() {
         canSubmit = isValidDescription
     }
 

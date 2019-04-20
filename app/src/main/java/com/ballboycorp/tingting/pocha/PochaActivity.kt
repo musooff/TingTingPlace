@@ -7,6 +7,7 @@ import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityPochaBinding
 import com.ballboycorp.tingting.pocha.adapter.PochaAdapter
 import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
+import com.ballboycorp.tingting.pocha.dialog.NumberOfPeopleDialog
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.activity_pocha.*
@@ -46,6 +47,8 @@ class PochaActivity: BaseActivity() {
                 setCurrentTab(position)
             }
         })
+
+        //NumberOfPeopleDialog.show(supportFragmentManager)
     }
 
 private fun setCurrentTab(position: Int) {

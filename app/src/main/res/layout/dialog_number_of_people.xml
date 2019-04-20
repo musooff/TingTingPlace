@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.pocha.dialog.NumberOfPeopleViewModel"/>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.pocha.dialog.NumberOfPeopleDialog.ClickHandler"/>
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:onClick="@{()-> clickHandler.onClickExit()}"
+                app:srcCompat="@drawable/ic_exit"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorBlackSecond"
+                android:lineSpacingExtra="0sp"
+                android:gravity="center_horizontal"
+                android:text="@string/dialog_number_of_people" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:padding="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorBlueMaleText"
+                    android:lineSpacingExtra="0sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_male_minus"
+                    android:layout_toStartOf="@id/iv_male_minus"
+                    android:text="@string/gender_male" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/iv_male_plus"
+                    android:onClick="@{() -> viewModel.onClickMaleCount(1)}"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    app:srcCompat="@drawable/ic_plus"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_male_plus"
+                    android:layout_toStartOf="@id/iv_male_plus"
+                    android:textColor="@color/colorBlackSecond"
+                    android:lineSpacingExtra="0sp"
+                    android:id="@+id/text_male_number"
+                    android:gravity="center_horizontal"
+                    android:text="@{``+viewModel.numberOfMale}"
+                    tools:text="@string/text_zero" />
+
+
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/iv_male_minus"
+                    android:onClick="@{() -> viewModel.onClickMaleCount(-1)}"
+                    android:layout_toLeftOf="@id/text_male_number"
+                    android:layout_toStartOf="@id/text_male_number"
+                    app:srcCompat="@drawable/ic_minus"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorRed"
+                    android:lineSpacingExtra="0sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_female_minus"
+                    android:layout_toStartOf="@id/iv_female_minus"
+                    android:text="@string/gender_female" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/iv_female_plus"
+                    android:onClick="@{() -> viewModel.onClickFemaleCount(1)}"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    app:srcCompat="@drawable/ic_plus"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_female_plus"
+                    android:layout_toStartOf="@id/iv_female_plus"
+                    android:textColor="@color/colorBlackSecond"
+                    android:lineSpacingExtra="0sp"
+                    android:id="@+id/text_female_number"
+                    android:gravity="center_horizontal"
+                    android:text="@{``+viewModel.numberOfFemale}"
+                    tools:text="@string/text_zero" />
+
+
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/iv_female_minus"
+                    android:onClick="@{() -> viewModel.onClickFemaleCount(-1)}"
+                    android:layout_toLeftOf="@id/text_female_number"
+                    android:layout_toStartOf="@id/text_female_number"
+                    app:srcCompat="@drawable/ic_minus"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:gravity="end"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/colorBlackSecond"
+                android:lineSpacingExtra="0sp"
+                android:text="@{@string/dialog_text_total(viewModel.total)}" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:id="@+id/button_confirm"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/default_button"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/colorWhite"
+                android:text="@string/button_confirm"
+                android:enabled="@{viewModel.total > 0 ? true : false}"
+                android:onClick="@{() -> clickHandler.onClickConfirm()}"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</layout>
