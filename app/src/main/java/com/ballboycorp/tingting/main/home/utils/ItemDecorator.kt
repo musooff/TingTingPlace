@@ -16,4 +16,10 @@ object ItemDecorator {
         decorator.setDrawable(ContextCompat.getDrawable(context, R.drawable.empty_layout)!!)
         return decorator
     }
+
+    fun emptyVertical(context: Context): DividerItemDecoration {
+        val decorator = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        decorator.setDrawable(ContextCompat.getDrawable(context, R.drawable.empty_layout)!!)
+        return decorator
+    }
 }

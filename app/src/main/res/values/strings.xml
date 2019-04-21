@@ -77,4 +77,22 @@
     <string name="dialog_text_total">총 %1$d 명</string>
     <string name="button_confirm">확인</string>
     <string name="dialog_number_of_people">내 테이블 인원수</string>
+    <string name="button_game">게임하기</string>
+    <string name="text_chat">채팅하기</string>
+    <string name="text_game_request">게임신청</string>
+    <string name="hint_table">테이블 번호 검색</string>
+    <string name="text_by_number">번호 순</string>
+    <string name="text_table_number">%1$d 번 테이블</string>
+    <string name="text_game_gift_details">게임/선물 내역</string>
+    <string name="text_settings">환경설정</string>
+    <string name="text_leave">나가기</string>
+    <string name="text_chat_not">채팅 알림</string>
+    <string name="dialog_pocha_settings">환경설정</string>
+    <string name="text_chatting">채팅하기</string>
+    <string name="text_table_chatting">테이 채팅</string>
+    <string name="text_1_1_chatting">1:1 채팅</string>
+    <string name="text_time">시간</string>
+    <string name="text_item_name">상품명</string>
+    <string name="text_item_kind">수령방식</string>
+    <string name="text_item_price">상품가격</string>
 </resources>

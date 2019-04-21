@@ -48,7 +48,9 @@
         <activity android:name=".contact.ContactActivity"/>
         <activity android:name=".contact.add.NewQuestionActivity"/>
         <activity android:name=".settings.SettingsActivity"/>
-
+        <activity android:name=".table.profile.ProfileActivity"/>
+        <activity android:name=".table.single.SingleProfileActivity"/>
+        <activity android:name=".pocha.home.description.GameGiftDescriptionActivity"/>
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />

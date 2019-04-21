@@ -10,6 +10,7 @@ import com.ballboycorp.tingting.databinding.FragmentCreateProfileFirstBinding
 import com.ballboycorp.tingting.profile.create.CreateProfileActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.hideSoftKeyboard
 
 /**
  * Created by musooff on 14/04/2019.
@@ -30,6 +31,7 @@ class CreateProfileFirstFragment: BaseFragment() {
         fun onClickGender(gender: Int) {
             viewModel.gender = gender
             viewModel.verifyCanMoveNext()
+            activity?.hideSoftKeyboard()
         }
 
         fun onClickNext() {

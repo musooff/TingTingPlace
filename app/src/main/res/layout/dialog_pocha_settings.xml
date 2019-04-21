@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.pocha.home.dialog.settings.SettingsViewModel"/>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.pocha.home.dialog.settings.SettingsDialog.ClickHandler"/>
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:onClick="@{()-> clickHandler.onClickExit()}"
+                app:srcCompat="@drawable/ic_exit"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorBlackSecond"
+                android:lineSpacingExtra="0sp"
+                android:gravity="center_horizontal"
+                android:text="@string/dialog_pocha_settings" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:padding="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorBlackSecond"
+                    android:lineSpacingExtra="0sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/sw_chat_not"
+                    android:layout_toStartOf="@id/sw_chat_not"
+                    android:text="@string/text_chat_not" />
+                <androidx.appcompat.widget.SwitchCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:theme="@style/Switch"
+                    android:id="@+id/sw_chat_not"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorBlackSecond"
+                    android:lineSpacingExtra="0sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/sw_game_not"
+                    android:layout_toStartOf="@id/sw_game_not"
+                    android:text="@string/text_chat_not" />
+                <androidx.appcompat.widget.SwitchCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:theme="@style/Switch"
+                    android:id="@+id/sw_game_not"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

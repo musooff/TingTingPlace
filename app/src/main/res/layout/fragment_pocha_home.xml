@@ -1,8 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.pocha.home.HomeViewModel" />
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.pocha.home.HomeFragment.ClickHandler" />
+    </data>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorHomeBackground">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/container_top"
+                android:background="@color/colorWhite">
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/vp_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="H, 360:150"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabs_vp_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/vp_home"
+                    app:tabBackground="@drawable/tab_selector"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp" />
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintDimensionRatio="H, 360:200"
+                    app:layout_constraintTop_toBottomOf="@id/vp_home"
+                    app:srcCompat="@drawable/shape_home_top"
+                    android:background="@color/colorWhite">
+                </ImageView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/vp_home">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/shape_rectangle_blue_4"
+                        android:id="@+id/button_go_to"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_game_colorized"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorWhite"
+                            android:lineSpacingExtra="0sp"
+                            android:gravity="center_horizontal"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginStart="4dp"
+                            android:text="@string/button_game"
+                            />
+                    </LinearLayout>
+
+                    <include
+                        layout="@layout/view_coin_count"/>
+
+                    <include
+                        android:id="@+id/my_table"
+                        app:clickHandler="@{clickHandler}"
+                        app:viewModel="@{viewModel}"
+                        layout="@layout/view_my_table"/>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/container_top"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/container_search_view"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_toLeftOf="@id/container_drop_down"
+                        android:layout_toStartOf="@id/container_drop_down"
+                        android:background="@drawable/shape_rectangle_outline_black_0"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <EditText
+                            android:id="@+id/et_search"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_toStartOf="@id/ib_search"
+                            android:layout_toLeftOf="@id/ib_search"
+                            android:padding="10dp"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPersonName"
+                            android:hint="@string/hint_table"
+                            android:background="@android:color/transparent" />
+
+                        <ImageButton
+                            android:id="@+id/ib_search"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:padding="10dp"
+                            android:background="@drawable/ic_search_24dp"/>
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:id="@+id/container_drop_down"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/shape_rectangle_outline_black_0">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorAccent"
+                            android:lineSpacingExtra="0sp"
+                            android:text="@string/text_by_number"
+                            />
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            app:srcCompat="@drawable/ic_arrow_down"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_table">
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </layout>

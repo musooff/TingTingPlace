@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            android:id="@+id/tb_top"
+            layout="@layout/toolbar"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:weightSum="4"
+            android:layout_below="@id/tb_top"
+            android:id="@+id/container_table_names"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:textSize="12sp"
+                android:textColor="@color/colorBlackThird"
+                android:lineSpacingExtra="4sp"
+                android:gravity="center"
+                android:text="@string/text_time" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:textSize="12sp"
+                android:textColor="@color/colorBlackThird"
+                android:lineSpacingExtra="4sp"
+                android:gravity="center"
+                android:text="@string/text_item_name" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:textSize="12sp"
+                android:textColor="@color/colorBlackThird"
+                android:lineSpacingExtra="4sp"
+                android:gravity="center"
+                android:text="@string/text_item_kind" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:textSize="12sp"
+                android:textColor="@color/colorBlackThird"
+                android:lineSpacingExtra="4sp"
+                android:gravity="center"
+                android:text="@string/text_item_price" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="4"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:layout_below="@id/container_table_names"
+            android:layout_above="@id/container_total"
+            android:background="@color/colorWhite">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp">
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:id="@+id/iv_new"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_new"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_toRightOf="@id/iv_new"
+                    android:layout_toEndOf="@id/iv_new"
+                    android:textColor="@color/colorBlackSecond"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    tools:text="15:02"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorBlackSecond"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center"
+                    android:text="수박화채"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorBlackSecond"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center"
+                    android:text="선물"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorRed"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center"
+                    android:text="19,000원"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:paddingRight="12dp"
+            android:paddingLeft="12dp"
+            android:id="@+id/container_total"
+            android:background="@color/colorHomeBackground"
+            android:layout_alignParentBottom="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorBlackSecond"
+                android:lineSpacingExtra="0sp"
+                android:text="총 금 액 :"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/colorRed"
+                android:lineSpacingExtra="0sp"
+                android:text="38,000원"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

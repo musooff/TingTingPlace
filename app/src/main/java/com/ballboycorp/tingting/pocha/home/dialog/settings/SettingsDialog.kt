@@ -1,4 +1,4 @@
-package com.ballboycorp.tingting.pocha.dialog
+package com.ballboycorp.tingting.pocha.home.dialog.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,43 +7,36 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.ballboycorp.tingting.R
-import com.ballboycorp.tingting.databinding.DialogNumberOfPeopleBinding
-import com.ballboycorp.tingting.pocha.home.HomeFragment
+import com.ballboycorp.tingting.databinding.DialogPochaSettingsBinding
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 
 /**
- * Created by musooff on 20/04/2019.
+ * Created by musooff on 2019-04-21.
  */
 
-class NumberOfPeopleDialog : DialogFragment() {
+class SettingsDialog: DialogFragment() {
 
     companion object {
 
-        private const val DIALOG_TAG = "NumberOfPeopleDialog"
+        private const val DIALOG_TAG = "SettingsDialog"
 
         fun show(fragmentManager: FragmentManager) {
-            val dialog = NumberOfPeopleDialog()
+            val dialog = SettingsDialog()
             dialog.show(fragmentManager, DIALOG_TAG)
         }
     }
 
-    private val viewModel by lazy { getViewModel<NumberOfPeopleViewModel>() }
+    private val viewModel by lazy { getViewModel<SettingsViewModel>() }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding = bind<DialogNumberOfPeopleBinding>(inflater, R.layout.dialog_number_of_people, container)
+        val binding = bind<DialogPochaSettingsBinding>(inflater, R.layout.dialog_pocha_settings, container)
         binding.viewModel = viewModel
         binding.clickHandler = ClickHandler()
         return binding.root
     }
 
     inner class ClickHandler {
-
-        fun onClickConfirm() {
-            (parentFragment as HomeFragment).onNumberOfPeopleSelected(maleCount = viewModel.numberOfMale, femaleCount = viewModel.numberOfFemale)
-            dismiss()
-        }
-
         fun onClickExit() {
             dismiss()
         }
