@@ -19,13 +19,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:onClick="@{()-> clickHandler.onClickExit()}"
-                app:srcCompat="@drawable/ic_exit"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

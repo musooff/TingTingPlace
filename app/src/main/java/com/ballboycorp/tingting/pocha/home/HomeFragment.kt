@@ -56,8 +56,6 @@ class HomeFragment: BaseFragment() {
             testPochas.add(TableItemViewModel(table))
         }
         adapter.submitList(testPochas)
-
-        NumberOfPeopleDialog.show(childFragmentManager)
     }
 
     fun onNumberOfPeopleSelected(maleCount: Int, femaleCount: Int) {

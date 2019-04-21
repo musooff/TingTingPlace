@@ -8,7 +8,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.DialogNumberOfPeopleBinding
-import com.ballboycorp.tingting.pocha.home.HomeFragment
+import com.ballboycorp.tingting.pocha.PochaActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 
@@ -34,17 +34,14 @@ class NumberOfPeopleDialog : DialogFragment() {
         val binding = bind<DialogNumberOfPeopleBinding>(inflater, R.layout.dialog_number_of_people, container)
         binding.viewModel = viewModel
         binding.clickHandler = ClickHandler()
+        dialog?.setCanceledOnTouchOutside(false)
         return binding.root
     }
 
     inner class ClickHandler {
 
         fun onClickConfirm() {
-            (parentFragment as HomeFragment).onNumberOfPeopleSelected(maleCount = viewModel.numberOfMale, femaleCount = viewModel.numberOfFemale)
-            dismiss()
-        }
-
-        fun onClickExit() {
+            (activity as PochaActivity).onNumberOfPeopleSelected(maleCount = viewModel.numberOfMale, femaleCount = viewModel.numberOfFemale)
             dismiss()
         }
     }
