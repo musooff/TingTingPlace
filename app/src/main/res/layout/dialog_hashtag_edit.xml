@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.pocha.home.dialog.hashtag.HashtagEditViewModel"/>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.pocha.home.dialog.hashtag.HashtagEditDialog.ClickHandler"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:onClick="@{()-> clickHandler.onClickExit()}"
+                app:srcCompat="@drawable/ic_exit"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorBlackSecond"
+                android:lineSpacingExtra="0sp"
+                android:gravity="center_horizontal"
+                android:text="@string/dialog_hashtag" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="0sp"
+                android:text="@string/header_hashtag"
+                android:textColor="@color/colorBlackFirst"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:id="@+id/iv_hashtag"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_hashtag"/>
+                <EditText
+                    android:id="@+id/et_nickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/iv_hashtag"
+                    android:layout_toEndOf="@id/iv_hashtag"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:lineSpacingExtra="0sp"
+                    android:textColor="@color/colorBlackFifth"
+                    android:textSize="12sp"
+                    android:inputType="textPersonName"
+                    android:text="@={viewModel.hashtag}"
+                    tools:text="제목 입력."
+                    android:maxLength="20"
+                    android:hint="@string/guide_hashtag" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorPrimary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="@{viewModel.charCount + `/20`}"
+                    tools:text="12/20"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/colorGrey" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:onClick="@{() -> clickHandler.onClickConfirm()}"
+            android:textColor="@color/colorBlue"
+            android:text="@string/button_confirm"/>
+
+    </LinearLayout>
+</layout>

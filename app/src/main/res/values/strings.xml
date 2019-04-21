@@ -95,4 +95,7 @@
     <string name="text_item_name">상품명</string>
     <string name="text_item_kind">수령방식</string>
     <string name="text_item_price">상품가격</string>
+    <string name="dialog_hashtag">제목 입력</string>
+    <string name="guide_hashtag">제목 입력</string>
+    <string name="header_hashtag">해시 태그</string>
 </resources>

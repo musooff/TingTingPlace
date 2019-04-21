@@ -22,7 +22,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> clickHandler.onItemClick(viewModel)}"
+            android:onClick="@{() -> clickHandler.onClickItem(viewModel)}"
             app:backgroundResource="@{viewModel.backgroundRecourseId}">
             <LinearLayout
                 android:layout_width="wrap_content"

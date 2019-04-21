@@ -92,6 +92,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
+                        android:onClick="@{() -> clickHandler.onClickHashtag()}"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp">
                         <ImageView
@@ -125,7 +126,7 @@
                         android:lineSpacingExtra="0sp"
                         android:gravity="center_horizontal"
                         android:text="@string/text_game_gift_details"
-                        android:onClick="@{() -> clickHandler.onGameGiftDescriptionClick()}"
+                        android:onClick="@{() -> clickHandler.onClickGameGiftDescription()}"
                         />
 
                     <TextView

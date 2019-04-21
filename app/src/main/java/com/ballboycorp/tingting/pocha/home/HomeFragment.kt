@@ -12,6 +12,7 @@ import com.ballboycorp.tingting.main.home.utils.ItemDecorator
 import com.ballboycorp.tingting.pocha.dialog.NumberOfPeopleDialog
 import com.ballboycorp.tingting.pocha.home.adapter.TableAdapter
 import com.ballboycorp.tingting.pocha.home.description.GameGiftDescriptionActivity
+import com.ballboycorp.tingting.pocha.home.dialog.hashtag.HashtagEditDialog
 import com.ballboycorp.tingting.pocha.home.dialog.settings.SettingsDialog
 import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.table.model.TableItemViewModel
@@ -68,18 +69,25 @@ class HomeFragment: BaseFragment() {
 
     }
 
+    fun onHashtagChanged() {
+    }
+
     inner class ClickHandler {
 
         fun onClickSettings() {
             SettingsDialog.show(childFragmentManager)
         }
 
-        fun onItemClick(tableItemViewModel: TableItemViewModel) {
+        fun onClickItem(tableItemViewModel: TableItemViewModel) {
             startActivity<ProfileActivity>(ProfileActivity.TABLE to tableItemViewModel.table)
         }
 
-        fun onGameGiftDescriptionClick() {
+        fun onClickGameGiftDescription() {
             startActivity<GameGiftDescriptionActivity>()
+        }
+
+        fun onClickHashtag() {
+            HashtagEditDialog.show(childFragmentManager)
         }
     }
 }

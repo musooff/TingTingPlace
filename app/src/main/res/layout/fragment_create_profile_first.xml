@@ -52,6 +52,7 @@
                     android:lineSpacingExtra="0sp"
                     android:textColor="@color/colorBlackFifth"
                     android:textSize="15sp"
+                    android:layout_centerVertical="true"
                     android:inputType="textPersonName"
                     android:text="@={viewModel.nickname}"
                     tools:text="안녕하세요."

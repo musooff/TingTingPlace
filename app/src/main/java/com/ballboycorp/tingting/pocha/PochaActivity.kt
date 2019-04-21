@@ -13,6 +13,7 @@ import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
 import com.ballboycorp.tingting.pocha.dialog.NumberOfPeopleDialog
 import com.ballboycorp.tingting.pocha.game.GameFragment
 import com.ballboycorp.tingting.pocha.home.HomeFragment
+import com.ballboycorp.tingting.pocha.home.dialog.hashtag.HashtagEditDialog
 import com.ballboycorp.tingting.pocha.message.MessageFragment
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.startActivity
@@ -57,6 +58,7 @@ class PochaActivity : BaseActivity() {
         })
 
         NumberOfPeopleDialog.show(supportFragmentManager)
+        //HashtagEditDialog.show(supportFragmentManager)
     }
 
     fun onNumberOfPeopleSelected(maleCount: Int, femaleCount: Int) {

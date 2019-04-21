@@ -23,6 +23,7 @@ class ApplicationPreference(context: Context) {
         private const val USER_NICKNAME = "nickname"
         private const val USER_GENDER = "gender"
         private const val USER_THUMB = "thumbnail"
+        private const val HASHTAG = "hashtag"
     }
 
     private val sharedPreferences = context.getSharedPreferences("TinTing", 0)
@@ -51,5 +52,12 @@ class ApplicationPreference(context: Context) {
                     .putInt(USER_GENDER, user.gender)
                     .putString(USER_THUMB, user.thumbnail)
                     .apply()
+    }
+
+    fun getHashtag() = sharedPreferences.getString(HASHTAG, null)
+
+    fun setHashtag(hashtag: String?) {
+        editor.putString(HASHTAG, hashtag)
+                .apply()
     }
 }
