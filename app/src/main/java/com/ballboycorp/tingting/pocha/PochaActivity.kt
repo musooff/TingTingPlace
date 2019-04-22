@@ -40,6 +40,7 @@ class PochaActivity : BaseActivity() {
 
         adapter = PochaAdapter(supportFragmentManager)
         vp_pocha.adapter = adapter
+        vp_pocha.offscreenPageLimit = 2
         tabs_vp_pocha.setupWithViewPager(vp_pocha)
         tabs_vp_pocha.getTabAt(0)?.setIcon(R.drawable.ic_home_black)
         tabs_vp_pocha.getTabAt(1)?.setIcon(R.drawable.ic_game)

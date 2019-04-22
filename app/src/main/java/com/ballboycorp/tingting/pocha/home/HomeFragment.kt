@@ -9,7 +9,6 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentPochaHomeBinding
 import com.ballboycorp.tingting.main.home.utils.ItemDecorator
-import com.ballboycorp.tingting.pocha.dialog.NumberOfPeopleDialog
 import com.ballboycorp.tingting.pocha.home.adapter.TableAdapter
 import com.ballboycorp.tingting.pocha.home.description.GameGiftDescriptionActivity
 import com.ballboycorp.tingting.pocha.home.dialog.hashtag.HashtagEditDialog
@@ -78,8 +77,12 @@ class HomeFragment: BaseFragment() {
             SettingsDialog.show(childFragmentManager)
         }
 
-        fun onClickItem(tableItemViewModel: TableItemViewModel) {
-            startActivity<ProfileActivity>(ProfileActivity.TABLE to tableItemViewModel.table)
+        fun onClickItem(tableItemViewModel: TableItemViewModel, isChatMode: Boolean, isGameMode: Boolean) {
+            startActivity<ProfileActivity>(
+                    ProfileActivity.TABLE to tableItemViewModel.table,
+                    ProfileActivity.CHAT_SELECTION_MODE to isChatMode,
+                    ProfileActivity.GAME_SELECTION_MODE to isGameMode
+            )
         }
 
         fun onClickGameGiftDescription() {

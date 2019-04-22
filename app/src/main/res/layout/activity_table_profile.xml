@@ -4,17 +4,18 @@
     <data>
         <import type="android.view.View" />
         <variable
-            name="tableViewModel"
-            type="com.ballboycorp.tingting.table.model.TableItemViewModel" />
+            name="viewModel"
+            type="com.ballboycorp.tingting.table.profile.ProfileViewModel" />
         <variable
             name="clickHandler"
             type="com.ballboycorp.tingting.table.profile.ProfileActivity.ClickHandler" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -40,7 +41,7 @@
                     android:layout_height="match_parent"
                     tools:text="Title"
 
-                    android:text="@{@string/text_table_number(tableViewModel.tableNumber)}"                    android:textStyle="bold"
+                    android:text="@{@string/text_table_number(viewModel.tableItemViewModel.tableNumber)}"                    android:textStyle="bold"
                     android:id="@+id/tb_title"
                     android:gravity="center"
                     android:textSize="16sp"
@@ -56,7 +57,8 @@
                     android:layout_marginRight="16dp"
                     android:gravity="end"
                     android:lineSpacingExtra="0sp"
-                    android:onClick="@{() -> clickHandler.onClickCancel()}"
+                    android:visibility="@{(viewModel.chatSelectionMode || viewModel.gameSelectionMode) ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{() -> viewModel.onClickCancel()}"
                     android:text='@string/button_cancel'
                     android:textColor="#333333"
                     android:textSize="14sp" />
@@ -64,293 +66,28 @@
         </androidx.appcompat.widget.Toolbar>
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="64dp"
+            android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
-            app:layout_constraintBottom_toTopOf="@id/container_bottom_buttons">
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:textColor="@color/colorBlackThird"
+            android:lineSpacingExtra="4sp"
+            android:gravity="center"
+            android:id="@+id/text_guide"
+            android:visibility="@{(viewModel.chatSelectionMode || viewModel.gameSelectionMode) ? View.VISIBLE : View.GONE}"
+            android:background="@color/colorHomeBackground"
+            android:text="@{viewModel.guide}" />
 
-            <FrameLayout
-                android:id="@+id/fl_profile_1"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/fl_profile_3"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/fl_profile_2">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <RelativeLayout
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:layout_centerInParent="true"
-                        android:id="@+id/container_thumb_0">
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            app:cardCornerRadius="60dp"
-                            app:cardElevation="0dp"
-                            android:onClick="@{()-> clickHandler.onClickProfile(0)}">
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                app:profileThumb="@{tableViewModel.people.size() > 0 ? tableViewModel.people.get(0) : null}"/>
-                        </androidx.cardview.widget.CardView>
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            app:cardCornerRadius="20dp"
-                            app:cardElevation="0dp"
-                            app:cardBackgroundColor="@color/colorGrey"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentBottom="true">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="38dp"
-                                android:layout_height="38dp"
-                                app:cardCornerRadius="19dp"
-                                android:layout_margin="1dp"
-                                app:cardElevation="0dp">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_margin="10dp"
-                                    app:gender="@{tableViewModel.people.size() > 0 ? tableViewModel.people.get(0).gender : -1}"/>
-                            </androidx.cardview.widget.CardView>
-                        </androidx.cardview.widget.CardView>
-
-                    </RelativeLayout>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/colorBlackSecond"
-                        android:lineSpacingExtra="4sp"
-                        android:layout_marginTop="12dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@id/container_thumb_0"
-                        android:text="@{tableViewModel.people.size() > 0 ? tableViewModel.people.get(0).nickname : null}"
-                        tools:text="닉네임" />
-
-                </RelativeLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/fl_profile_2"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintLeft_toRightOf="@id/fl_profile_1"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/fl_profile_4">
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="@{tableViewModel.people.size() > 1 ? View.VISIBLE : View.GONE}">
-                    <RelativeLayout
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:layout_centerInParent="true"
-                        android:id="@+id/container_thumb_1">
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            app:cardCornerRadius="60dp"
-                            app:cardElevation="0dp"
-                            android:onClick="@{()-> clickHandler.onClickProfile(1)}">
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                app:profileThumb="@{tableViewModel.people.size() > 1 ? tableViewModel.people.get(1) : null}"/>
-                        </androidx.cardview.widget.CardView>
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            app:cardCornerRadius="20dp"
-                            app:cardElevation="0dp"
-                            app:cardBackgroundColor="@color/colorGrey"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentBottom="true">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="38dp"
-                                android:layout_height="38dp"
-                                app:cardCornerRadius="19dp"
-                                android:layout_margin="1dp"
-                                app:cardElevation="0dp">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_margin="10dp"
-                                    app:gender="@{tableViewModel.people.size() > 1 ? tableViewModel.people.get(1).gender : -1}"/>
-                            </androidx.cardview.widget.CardView>
-                        </androidx.cardview.widget.CardView>
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/colorBlackSecond"
-                        android:lineSpacingExtra="4sp"
-                        android:layout_marginTop="12dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@id/container_thumb_1"
-                        android:text="@{tableViewModel.people.size() > 1 ? tableViewModel.people.get(1).nickname : null}"
-                        tools:text="닉네임" />
-
-                </RelativeLayout>
-            </FrameLayout>
-            <FrameLayout
-                android:id="@+id/fl_profile_3"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/fl_profile_2"
-                app:layout_constraintTop_toBottomOf="@id/fl_profile_1"
-                app:layout_constraintBottom_toBottomOf="parent">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="@{tableViewModel.people.size() > 2 ? View.VISIBLE : View.GONE}">
-                    <RelativeLayout
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/container_thumb_2">
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            app:cardCornerRadius="60dp"
-                            app:cardElevation="0dp"
-                            android:onClick="@{()-> clickHandler.onClickProfile(2)}">
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                app:profileThumb="@{tableViewModel.people.size() > 2 ? tableViewModel.people.get(2) : null}"/>
-                        </androidx.cardview.widget.CardView>
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            app:cardCornerRadius="20dp"
-                            app:cardElevation="0dp"
-                            app:cardBackgroundColor="@color/colorGrey"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentBottom="true">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="38dp"
-                                android:layout_height="38dp"
-                                app:cardCornerRadius="19dp"
-                                android:layout_margin="1dp"
-                                app:cardElevation="0dp">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_margin="10dp"
-                                    app:gender="@{tableViewModel.people.size() > 2 ? tableViewModel.people.get(2).gender : -1}"/>
-                            </androidx.cardview.widget.CardView>
-                        </androidx.cardview.widget.CardView>
-
-                    </RelativeLayout>
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/colorBlackSecond"
-                        android:lineSpacingExtra="4sp"
-                        android:layout_marginTop="12dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@id/container_thumb_2"
-                        android:text="@{tableViewModel.people.size() > 2 ? tableViewModel.people.get(2).nickname : null}"
-                        tools:text="닉네임" />
-                </RelativeLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/fl_profile_4"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintLeft_toRightOf="@id/fl_profile_1"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fl_profile_2"
-                app:layout_constraintBottom_toBottomOf="parent">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="@{tableViewModel.people.size() > 3 ? View.VISIBLE : View.GONE}">
-                    <RelativeLayout
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/container_thumb_3">
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            app:cardCornerRadius="60dp"
-                            app:cardElevation="0dp"
-                            android:onClick="@{()-> clickHandler.onClickProfile(3)}">
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                app:profileThumb="@{tableViewModel.people.size() > 3 ? tableViewModel.people.get(3) : null}"/>
-                        </androidx.cardview.widget.CardView>
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            app:cardCornerRadius="20dp"
-                            app:cardElevation="0dp"
-                            app:cardBackgroundColor="@color/colorGrey"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentBottom="true">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="38dp"
-                                android:layout_height="38dp"
-                                app:cardCornerRadius="19dp"
-                                android:layout_margin="1dp"
-                                app:cardElevation="0dp">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_margin="10dp"
-                                    app:gender="@{tableViewModel.people.size() > 3 ? tableViewModel.people.get(3).gender : -1}"/>
-                            </androidx.cardview.widget.CardView>
-                        </androidx.cardview.widget.CardView>
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/colorBlackSecond"
-                        android:lineSpacingExtra="4sp"
-                        android:layout_marginTop="12dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@id/container_thumb_3"
-                        android:text="@{tableViewModel.people.size() > 3 ? tableViewModel.people.get(3).nickname : null}"
-                        tools:text="닉네임" />
-
-                </RelativeLayout>
-            </FrameLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/text_guide"
+            android:id="@+id/rv_table_people"
+            app:layout_constraintBottom_toTopOf="@id/container_bottom_buttons"
+            android:layout_height="0dp">
+        </androidx.recyclerview.widget.RecyclerView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -372,10 +109,10 @@
                 android:background="@drawable/shape_rectangle_outline_black_4"
                 android:textColor="@color/colorAccent"
                 android:lineSpacingExtra="0sp"
-                android:onClick="@{() -> clickHandler.onClickChatting()}"
+                android:visibility="@{(viewModel.chatSelectionMode || viewModel.gameSelectionMode) ? View.GONE : View.VISIBLE}"
+                android:onClick="@{() -> viewModel.onClickChat()}"
                 android:gravity="center"
-                android:text="@string/text_table_chatting"
-                />
+                android:text="@string/text_chatting"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="46dp"
@@ -389,7 +126,8 @@
                 android:lineSpacingExtra="0sp"
                 android:gravity="center"
                 android:text="@string/text_game_request"
-                android:onClick="@{() -> clickHandler.onClickGameRequest()}"
+                android:visibility="@{(viewModel.chatSelectionMode || viewModel.gameSelectionMode) ? View.GONE : View.VISIBLE}"
+                android:onClick="@{() -> viewModel.onClickGame()}"
                 />
         </LinearLayout>
 
