@@ -9,12 +9,14 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentPochaHomeBinding
 import com.ballboycorp.tingting.main.home.utils.ItemDecorator
+import com.ballboycorp.tingting.pocha.home.adapter.NearbyTableAdapter
 import com.ballboycorp.tingting.pocha.home.adapter.TableAdapter
 import com.ballboycorp.tingting.pocha.home.description.GameGiftDescriptionActivity
 import com.ballboycorp.tingting.pocha.home.dialog.hashtag.HashtagEditDialog
 import com.ballboycorp.tingting.pocha.home.dialog.settings.SettingsDialog
 import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.table.model.TableItemViewModel
+import com.ballboycorp.tingting.table.nearby.profile.NearbyProfileActivity
 import com.ballboycorp.tingting.table.profile.ProfileActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
@@ -30,7 +32,8 @@ class HomeFragment: BaseFragment() {
     private lateinit var binding: FragmentPochaHomeBinding
 
     private val clickHandler = ClickHandler()
-    private var adapter = TableAdapter(clickHandler)
+    private var tableAdapter = TableAdapter(clickHandler)
+    private var nearbyTableAdapter = NearbyTableAdapter(clickHandler)
 
     private val viewModel by lazy { getViewModel<HomeViewModel>() }
 
@@ -45,7 +48,7 @@ class HomeFragment: BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        rv_table.adapter = adapter
+        rv_table.adapter = tableAdapter
         rv_table.layoutManager = LinearLayoutManager(context)
         rv_table.addItemDecoration(ItemDecorator.emptyVertical(context!!))
 
@@ -55,7 +58,13 @@ class HomeFragment: BaseFragment() {
             table.addTestPeople()
             testPochas.add(TableItemViewModel(table))
         }
-        adapter.submitList(testPochas)
+        tableAdapter.submitList(testPochas)
+
+        rv_table_nearby.adapter = nearbyTableAdapter
+        rv_table_nearby.layoutManager = LinearLayoutManager(context)
+        rv_table_nearby.addItemDecoration(ItemDecorator.emptyVertical(context!!))
+
+        nearbyTableAdapter.submitList(testPochas)
     }
 
     fun onNumberOfPeopleSelected(maleCount: Int, femaleCount: Int) {
@@ -84,6 +93,13 @@ class HomeFragment: BaseFragment() {
                     ProfileActivity.GAME_SELECTION_MODE to isGameMode
             )
         }
+        fun onClickNearbyItem(tableItemViewModel: TableItemViewModel, isChatMode: Boolean) {
+            startActivity<NearbyProfileActivity>(
+                    NearbyProfileActivity.TABLE to tableItemViewModel.table,
+                    NearbyProfileActivity.CHAT_SELECTION_MODE to isChatMode
+            )
+        }
+
 
         fun onClickGameGiftDescription() {
             startActivity<GameGiftDescriptionActivity>()

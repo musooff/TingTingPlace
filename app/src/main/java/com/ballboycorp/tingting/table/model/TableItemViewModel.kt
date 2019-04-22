@@ -2,6 +2,7 @@ package com.ballboycorp.tingting.table.model
 
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseObservableViewModel
+import com.ballboycorp.tingting.main.pocha.model.PochaItemViewModel
 import com.ballboycorp.tingting.profile.model.User
 import com.ballboycorp.tingting.profile.model.UserViewModel
 
@@ -10,7 +11,7 @@ import com.ballboycorp.tingting.profile.model.UserViewModel
  */
 
 class TableItemViewModel(val table: Table): BaseObservableViewModel() {
-
+    var pocha: PochaItemViewModel = PochaItemViewModel(table.pocha)
     var tableNumber: Int = table.tableNumber
     var maleCount: Int = table.maleCount
     var femaleCount: Int = table.femaleCount

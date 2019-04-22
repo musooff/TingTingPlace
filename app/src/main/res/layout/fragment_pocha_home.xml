@@ -170,6 +170,24 @@
                     android:id="@+id/rv_table">
                 </androidx.recyclerview.widget.RecyclerView>
 
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/header_nearby"
+                    android:textColor="@color/colorBlackFirst"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_table_nearby">
+                </androidx.recyclerview.widget.RecyclerView>
+
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

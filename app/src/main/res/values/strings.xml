@@ -99,4 +99,5 @@
     <string name="guide_hashtag">제목 입력</string>
     <string name="header_hashtag">해시 태그</string>
     <string name="text_send_gift">선물보내기</string>
+    <string name="header_nearby">다른 술집 현황</string>
 </resources>
