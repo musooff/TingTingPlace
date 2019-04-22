@@ -154,6 +154,7 @@
                         android:lineSpacingExtra="0sp"
                         android:gravity="center_horizontal"
                         android:text="@string/text_leave"
+                        android:onClick="@{() -> clickHandler.onClickExit()}"
                         />
                 </LinearLayout>
             </LinearLayout>

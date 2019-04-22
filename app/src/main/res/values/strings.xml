@@ -100,4 +100,8 @@
     <string name="header_hashtag">해시 태그</string>
     <string name="text_send_gift">선물보내기</string>
     <string name="header_nearby">다른 술집 현황</string>
+    <string name="text_no">아니오</string>
+    <string name="text_yes">예</string>
+    <string name="exit_message">나가기 이후 게임, 채팅, 선물 등 이용이 불가능합니다. 재입장시 QR코드 촬영이 다시 필요합니다.\n나가시겠습니까?</string>
+    <string name="exit_title">나가기</string>
 </resources>

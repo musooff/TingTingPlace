@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
+import com.ballboycorp.tingting.common.dialog.YesNoDialog
 import com.ballboycorp.tingting.databinding.FragmentPochaHomeBinding
 import com.ballboycorp.tingting.main.home.utils.ItemDecorator
 import com.ballboycorp.tingting.pocha.home.adapter.NearbyTableAdapter
@@ -107,6 +108,10 @@ class HomeFragment: BaseFragment() {
 
         fun onClickHashtag() {
             HashtagEditDialog.show(childFragmentManager)
+        }
+
+        fun onClickExit() {
+            YesNoDialog.show(childFragmentManager, getString(R.string.exit_title), getString(R.string.exit_message))
         }
     }
 }

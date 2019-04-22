@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.common.dialog.YesNoViewModel"/>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.common.dialog.YesNoDialog.ClickHandler"/>
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorBlackSecond"
+                android:lineSpacingExtra="0sp"
+                android:gravity="center_horizontal"
+                android:text="@{viewModel.title}" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/colorBlackSecond"
+            android:lineSpacingExtra="0sp"
+            android:gravity="center_horizontal"
+            android:text="@{viewModel.text}" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:weightSum="2">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:padding="10dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_rectangle_outline_grey_4"
+                android:textColor="@color/colorGrey"
+                android:lineSpacingExtra="0sp"
+                android:onClick="@{() -> clickHandler.onClickNo()}"
+                android:gravity="center_horizontal"
+                android:text="@string/text_no"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/shape_rectangle_red_4"
+                android:textColor="@color/colorWhite"
+                android:lineSpacingExtra="0sp"
+                android:onClick="@{() -> clickHandler.onClickYes()}"
+                android:gravity="center_horizontal"
+                android:text="@string/text_yes"
+                />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</layout>
