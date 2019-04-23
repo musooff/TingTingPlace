@@ -12,21 +12,21 @@ import com.ballboycorp.tingting.utils.extensions.bind
  * Created by musooff on 2019-04-23.
  */
 
-class NearbyTablePeopleAdapter(private val clickHandler: NearbyProfileActivity.ClickHandler) : RecyclerView.Adapter<NearbyTablePeopleAdapter.NearbyTablePeopleViewModel>() {
+class NearbyTablePeopleAdapter(private val clickHandler: NearbyProfileActivity.ClickHandler) : RecyclerView.Adapter<NearbyTablePeopleAdapter.NearbyTablePeopleViewHolder>() {
 
     private var mViewModel: TableItemViewModel? = null
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NearbyTablePeopleViewModel {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NearbyTablePeopleViewHolder {
         val binding = parent.bind<ItemNearbyTableProfileBinding>(R.layout.item_nearby_table_profile, viewType)
-        return NearbyTablePeopleViewModel(binding)
+        return NearbyTablePeopleViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return mViewModel?.people?.size ?: 0
     }
 
-    override fun onBindViewHolder(holder: NearbyTablePeopleViewModel, position: Int) {
+    override fun onBindViewHolder(holder: NearbyTablePeopleViewHolder, position: Int) {
         holder.binding.tableViewModel = mViewModel
         holder.binding.userIndex = position
         holder.binding.clickHandler = clickHandler
@@ -37,5 +37,5 @@ class NearbyTablePeopleAdapter(private val clickHandler: NearbyProfileActivity.C
         notifyDataSetChanged()
     }
 
-    inner class NearbyTablePeopleViewModel(val binding: ItemNearbyTableProfileBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class NearbyTablePeopleViewHolder(val binding: ItemNearbyTableProfileBinding) : RecyclerView.ViewHolder(binding.root)
 }

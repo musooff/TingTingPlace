@@ -12,21 +12,21 @@ import com.ballboycorp.tingting.utils.extensions.bind
  * Created by musooff on 2019-04-22.
  */
 
-class TablePeopleAdapter(private val clickHandler: ProfileActivity.ClickHandler) : RecyclerView.Adapter<TablePeopleAdapter.TablePeopleViewModel>() {
+class TablePeopleAdapter(private val clickHandler: ProfileActivity.ClickHandler) : RecyclerView.Adapter<TablePeopleAdapter.TablePeopleViewHolder>() {
 
     private var mViewModel: TableItemViewModel? = null
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TablePeopleViewModel {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TablePeopleViewHolder {
         val binding = parent.bind<ItemTableProfileBinding>(R.layout.item_table_profile, viewType)
-        return TablePeopleViewModel(binding)
+        return TablePeopleViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return mViewModel?.people?.size ?: 0
     }
 
-    override fun onBindViewHolder(holder: TablePeopleViewModel, position: Int) {
+    override fun onBindViewHolder(holder: TablePeopleViewHolder, position: Int) {
         holder.binding.tableViewModel = mViewModel
         holder.binding.userIndex = position
         holder.binding.clickHandler = clickHandler
@@ -37,5 +37,5 @@ class TablePeopleAdapter(private val clickHandler: ProfileActivity.ClickHandler)
         notifyDataSetChanged()
     }
 
-    inner class TablePeopleViewModel(val binding: ItemTableProfileBinding): RecyclerView.ViewHolder(binding.root)
+    inner class TablePeopleViewHolder(val binding: ItemTableProfileBinding): RecyclerView.ViewHolder(binding.root)
 }

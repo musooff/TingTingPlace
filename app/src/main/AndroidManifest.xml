@@ -52,6 +52,7 @@
         <activity android:name=".table.single.SingleProfileActivity"/>
         <activity android:name=".pocha.home.description.GameGiftDescriptionActivity"/>
         <activity android:name=".table.nearby.profile.NearbyProfileActivity"/>
+        <activity android:name=".table.my.MyTableProfileActivity"/>
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />

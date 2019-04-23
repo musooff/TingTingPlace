@@ -17,6 +17,7 @@ import com.ballboycorp.tingting.pocha.home.dialog.hashtag.HashtagEditDialog
 import com.ballboycorp.tingting.pocha.home.dialog.settings.SettingsDialog
 import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.table.model.TableItemViewModel
+import com.ballboycorp.tingting.table.my.MyTableProfileActivity
 import com.ballboycorp.tingting.table.nearby.profile.NearbyProfileActivity
 import com.ballboycorp.tingting.table.profile.ProfileActivity
 import com.ballboycorp.tingting.utils.extensions.bind
@@ -74,7 +75,8 @@ class HomeFragment: BaseFragment() {
                 femaleCount = femaleCount
         )
         table.addTestPeople()
-        binding.myTable.itemViewModel = TableItemViewModel(table)
+        viewModel.myTableItemViewModel = TableItemViewModel(table)
+        binding.myTable.itemViewModel = viewModel.myTableItemViewModel
 
     }
 
@@ -112,6 +114,12 @@ class HomeFragment: BaseFragment() {
 
         fun onClickExit() {
             YesNoDialog.show(childFragmentManager, getString(R.string.exit_title), getString(R.string.exit_message))
+        }
+
+        fun onClickMyTable() {
+            startActivity<MyTableProfileActivity>(
+                    MyTableProfileActivity.TABLE to viewModel.myTableItemViewModel?.table
+            )
         }
     }
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.table.my.MyTableProfileActivity.ClickHandler" />
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.table.my.MyTableProfileViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <include
+            android:id="@+id/tv_main"
+            layout="@layout/toolbar"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_main"
+            android:id="@+id/rv_table_people"
+            app:layout_constraintBottom_toTopOf="@id/container_bottom_buttons"
+            android:layout_height="0dp">
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/container_bottom_buttons"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="46dp"
+                android:textSize="12sp"
+                android:padding="10dp"
+                android:background="@drawable/shape_rectangle_outline_black_4"
+                android:textColor="@color/colorAccent"
+                android:lineSpacingExtra="0sp"
+                android:onClick="@{() -> clickHandler.onClickEditMyProfile()}"
+                android:gravity="center"
+                android:text="@string/text_my_profile_exit"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
