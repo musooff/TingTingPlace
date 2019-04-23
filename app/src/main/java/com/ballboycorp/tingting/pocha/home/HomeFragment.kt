@@ -10,6 +10,7 @@ import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.common.dialog.YesNoDialog
 import com.ballboycorp.tingting.databinding.FragmentPochaHomeBinding
 import com.ballboycorp.tingting.main.home.utils.ItemDecorator
+import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog
 import com.ballboycorp.tingting.pocha.home.adapter.NearbyTableAdapter
 import com.ballboycorp.tingting.pocha.home.adapter.TableAdapter
 import com.ballboycorp.tingting.pocha.home.description.GameGiftDescriptionActivity
@@ -120,6 +121,10 @@ class HomeFragment: BaseFragment() {
             startActivity<MyTableProfileActivity>(
                     MyTableProfileActivity.TABLE to viewModel.myTableItemViewModel?.table
             )
+        }
+
+        fun onClickGame() {
+            CreateRoomDialog.show(childFragmentManager)
         }
     }
 }

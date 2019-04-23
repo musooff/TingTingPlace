@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="com.ballboycorp.tingting.R" />
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.pocha.dialog.room.model.game.GameViewModel" />
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog.ClickHandler" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp"
+            android:onClick="@{() -> clickHandler.onClickGameKind(viewModel)}"
+            app:cardBackgroundColor="@{viewModel.selected ? context.getColor(R.color.colorRed) : context.getColor(R.color.colorWhite)}">
+        <androidx.cardview.widget.CardView
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:layout_margin="2dp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="0dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/placeholder_thumb"/>
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_marginTop="4dp"
+            android:textColor="#333333"
+            android:lineSpacingExtra="0sp"
+            android:gravity="center"
+            android:text="@{viewModel.title}"
+            tools:text="가위바위보"
+            tools:ignore="SmallSp" />
+
+    </LinearLayout>
+</layout>

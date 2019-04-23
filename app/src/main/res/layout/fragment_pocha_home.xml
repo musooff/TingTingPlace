@@ -66,6 +66,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         android:background="@drawable/shape_rectangle_blue_4"
                         android:id="@+id/button_go_to"
+                        android:onClick="@{() -> clickHandler.onClickGame()}"
                         android:gravity="center">
                         <ImageView
                             android:layout_width="24dp"
