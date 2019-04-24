@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.gift.GiftFragment.ClickHandler" />
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftItemViewModel" />
+    </data>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp"
+            android:id="@+id/cv_thumb">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/placeholder_thumb"/>
+        </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_toLeftOf="@id/iv_gift_minus"
+            android:layout_toStartOf="@id/iv_gift_minus"
+            android:layout_toRightOf="@id/cv_thumb"
+            android:layout_toEndOf="@id/cv_thumb"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorAccent"
+                android:lineSpacingExtra="0sp"
+                android:text="@{viewModel.title}"
+                tools:text="수박화채"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/colorBlackThird"
+                android:lineSpacingExtra="0sp"
+                android:layout_marginTop="8dp"
+                android:text="@{viewModel.price}"
+                tools:text="19,000원"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:id="@+id/iv_gift_plus"
+            android:onClick="@{() -> clickHandler.onClickAdd(viewModel)}"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/ic_plus"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/iv_gift_plus"
+            android:layout_toStartOf="@id/iv_gift_plus"
+            android:textColor="@color/colorBlackSecond"
+            android:lineSpacingExtra="0sp"
+            android:id="@+id/text_gift_number"
+            android:gravity="center_horizontal"
+            android:text="@{``+viewModel.count}"
+            tools:text="@string/text_zero" />
+
+
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:id="@+id/iv_gift_minus"
+            android:layout_centerVertical="true"
+            android:onClick="@{() -> clickHandler.onClickRemove(viewModel)}"
+            android:layout_toLeftOf="@id/text_gift_number"
+            android:layout_toStartOf="@id/text_gift_number"
+            app:srcCompat="@drawable/ic_minus"/>
+    </RelativeLayout>
+</layout>

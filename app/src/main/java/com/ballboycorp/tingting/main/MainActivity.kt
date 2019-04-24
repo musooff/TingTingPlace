@@ -10,9 +10,11 @@ import com.ballboycorp.tingting.contact.add.NewQuestionActivity
 import com.ballboycorp.tingting.databinding.ActivityMainBinding
 import com.ballboycorp.tingting.event.EventActivity
 import com.ballboycorp.tingting.event.viewer.EventViewerActivity
+import com.ballboycorp.tingting.gift.GiftActivity
 import com.ballboycorp.tingting.main.home.HomeFragment
 import com.ballboycorp.tingting.main.more.MoreFragment
 import com.ballboycorp.tingting.main.pocha.PochaFragment
+import com.ballboycorp.tingting.main.pocha.model.Pocha
 import com.ballboycorp.tingting.notice.NoticeActivity
 import com.ballboycorp.tingting.pocha.PochaActivity
 import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
@@ -80,6 +82,6 @@ class MainActivity : BaseActivity() {
                 femaleCount = 1
         )
         table.addTestPeople()
-        startActivity<PochaActivity>()
+        startActivity<GiftActivity>()
     }
 }

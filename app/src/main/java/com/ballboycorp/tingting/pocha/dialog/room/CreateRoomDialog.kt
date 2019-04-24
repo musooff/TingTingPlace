@@ -16,7 +16,7 @@ import com.ballboycorp.tingting.pocha.dialog.room.adapter.GiftKindAdapter
 import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
 import com.ballboycorp.tingting.pocha.dialog.room.model.game.GameViewModel
 import com.ballboycorp.tingting.pocha.dialog.room.model.gift.Gift
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftViewModel
+import com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getScreenWidth
 import com.ballboycorp.tingting.utils.extensions.getViewModel
@@ -76,11 +76,11 @@ class CreateRoomDialog : DialogFragment() {
         rv_gift_kind.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
         rv_gift_kind.adapter = giftKindAdapter
 
-        val testPochas1 = ArrayList<GiftViewModel>()
+        val testPochas1 = ArrayList<GiftItemViewModel>()
         for (i in 1..10) {
             val game = Gift()
                     .apply { id = i }
-            testPochas1.add(GiftViewModel(game))
+            testPochas1.add(GiftItemViewModel(game))
         }
         giftKindAdapter.submitList(testPochas1)
     }
@@ -101,9 +101,9 @@ class CreateRoomDialog : DialogFragment() {
             viewModel.verifyCanCreateRoon()
         }
 
-        fun onClickGiftKind(giftViewModel: GiftViewModel) {
-            giftKindAdapter.onClickItem(giftViewModel)
-            viewModel.selectedGiftId = giftViewModel.id
+        fun onClickGiftKind(giftItemViewModel: GiftItemViewModel) {
+            giftKindAdapter.onClickItem(giftItemViewModel)
+            viewModel.selectedGiftId = giftItemViewModel.id
             viewModel.verifyCanCreateRoon()
         }
     }

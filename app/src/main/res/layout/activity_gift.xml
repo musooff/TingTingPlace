@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.gift.GiftViewModel" />
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.gift.GiftActivity.ClickHandler" />
+    </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <include layout="@layout/toolbar"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:id="@+id/tabs_vp_gift"
+                app:tabInlineLabel="true"
+                app:tabIndicatorColor="@color/colorBlackSecond"/>
+            <androidx.viewpager.widget.ViewPager
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/vp_gift"/>
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/bottom_sheet_gift"
+            app:viewModel="@{viewModel}"
+            app:clickHandler="@{clickHandler}" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

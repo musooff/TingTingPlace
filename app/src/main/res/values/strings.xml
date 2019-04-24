@@ -110,4 +110,7 @@
     <string name="text_help">도움말 보기</string>
     <string name="header_game_kind">게임종류</string>
     <string name="button_create_room">방만들기</string>
+    <string name="text_basket">장바구니</string>
+    <string name="text_total_amount">총 금 액 :</string>
+    <string name="button_gift">선물하기</string>
 </resources>

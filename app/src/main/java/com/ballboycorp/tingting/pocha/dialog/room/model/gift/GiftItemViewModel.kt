@@ -8,7 +8,7 @@ import com.ballboycorp.tingting.base.BaseObservableViewModel
  * Created by musooff on 2019-04-23.
  */
 
-class GiftViewModel(gift: Gift): BaseObservableViewModel() {
+class GiftItemViewModel(val gift: Gift): BaseObservableViewModel() {
 
     var id: Int = gift.id
         @Bindable get() = field
@@ -36,5 +36,12 @@ class GiftViewModel(gift: Gift): BaseObservableViewModel() {
         set(value) {
             field = value
             notifyPropertyChanged(BR.selected)
+        }
+
+    var count: Int = 0
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.count)
         }
 }
