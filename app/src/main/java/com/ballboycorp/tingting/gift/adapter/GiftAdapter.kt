@@ -16,7 +16,6 @@ class GiftAdapter(private val clickHandler: GiftFragment.ClickHandler) : Recycle
 
     private var mViewModels: List<GiftItemViewModel> = ArrayList()
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GiftViewHolder {
         val binding = parent.bind<ItemGiftBinding>(R.layout.item_gift, viewType)
         return GiftViewHolder(binding)
@@ -33,6 +32,11 @@ class GiftAdapter(private val clickHandler: GiftFragment.ClickHandler) : Recycle
 
     fun submitList(viewModels: List<GiftItemViewModel>) {
         mViewModels = viewModels
+        notifyDataSetChanged()
+    }
+
+    fun restoreEverything() {
+        mViewModels.forEach { it.count = 0 }
         notifyDataSetChanged()
     }
 

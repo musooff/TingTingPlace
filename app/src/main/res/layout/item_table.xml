@@ -138,6 +138,7 @@
                         android:background="@drawable/shape_rectangle_outline_blue_4"
                         android:textColor="@color/colorBlue"
                         android:lineSpacingExtra="0sp"
+                        android:onClick="@{() -> clickHandler.onClickGift(viewModel)}"
                         android:gravity="center_horizontal"
                         android:text="@string/text_send_gift"
                         />

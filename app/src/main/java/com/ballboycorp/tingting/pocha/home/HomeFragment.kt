@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
+import com.ballboycorp.tingting.common.dialog.YesNoCallback
 import com.ballboycorp.tingting.common.dialog.YesNoDialog
 import com.ballboycorp.tingting.databinding.FragmentPochaHomeBinding
+import com.ballboycorp.tingting.gift.GiftActivity
 import com.ballboycorp.tingting.main.home.utils.ItemDecorator
 import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog
 import com.ballboycorp.tingting.pocha.home.adapter.NearbyTableAdapter
@@ -23,6 +25,7 @@ import com.ballboycorp.tingting.table.nearby.profile.NearbyProfileActivity
 import com.ballboycorp.tingting.table.profile.ProfileActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.showDialog
 import com.ballboycorp.tingting.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.fragment_pocha_home.*
 
@@ -30,7 +33,11 @@ import kotlinx.android.synthetic.main.fragment_pocha_home.*
  * Created by musooff on 20/04/2019.
  */
 
-class HomeFragment: BaseFragment() {
+class HomeFragment: BaseFragment(), YesNoCallback{
+
+    companion object {
+        private const val ALERT_EXIT = "alert_exit"
+    }
 
     private lateinit var binding: FragmentPochaHomeBinding
 
@@ -82,6 +89,13 @@ class HomeFragment: BaseFragment() {
     }
 
     fun onHashtagChanged() {
+
+    }
+
+    override fun onYes(reason: String) {
+        if (reason == ALERT_EXIT) {
+            activity?.onBackPressed()
+        }
     }
 
     inner class ClickHandler {
@@ -97,6 +111,14 @@ class HomeFragment: BaseFragment() {
                     ProfileActivity.GAME_SELECTION_MODE to isGameMode
             )
         }
+
+        fun onClickGift(tableItemViewModel: TableItemViewModel) {
+            startActivity<GiftActivity>(
+                    GiftActivity.TABLE to tableItemViewModel.table
+            )
+        }
+
+
         fun onClickNearbyItem(tableItemViewModel: TableItemViewModel, isChatMode: Boolean) {
             startActivity<NearbyProfileActivity>(
                     NearbyProfileActivity.TABLE to tableItemViewModel.table,
@@ -114,7 +136,11 @@ class HomeFragment: BaseFragment() {
         }
 
         fun onClickExit() {
-            YesNoDialog.show(childFragmentManager, getString(R.string.exit_title), getString(R.string.exit_message))
+            showDialog(
+                    ::YesNoDialog,
+                    YesNoDialog.REASON to ALERT_EXIT,
+                    YesNoDialog.TITLE to getString(R.string.exit_title),
+                    YesNoDialog.TEXT to getString(R.string.exit_message))
         }
 
         fun onClickMyTable() {

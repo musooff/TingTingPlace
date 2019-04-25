@@ -1,5 +1,6 @@
 package com.ballboycorp.tingting.common.dialog
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,8 +21,9 @@ class YesNoDialog: DialogFragment() {
     companion object {
 
         private const val DIALOG_TAG = "YesNoDialog"
-        private const val TITLE = "title"
-        private const val TEXT = "text"
+        const val REASON = "reason"
+        const val TITLE = "title"
+        const val TEXT = "text"
 
         fun show(fragmentManager: FragmentManager, title: String, text: String) {
             val dialog = YesNoDialog()
@@ -33,7 +35,16 @@ class YesNoDialog: DialogFragment() {
         }
     }
 
+    private lateinit var yesNoCallback: YesNoCallback
+    private lateinit var reason: String
+
+
     private val viewModel by lazy { getViewModel<YesNoViewModel>() }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        yesNoCallback = context as YesNoCallback
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = bind<DialogYesNoBinding>(inflater, R.layout.dialog_yes_no, container)
@@ -46,6 +57,7 @@ class YesNoDialog: DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let {
+            reason = it.getString(REASON)!!
             viewModel.title = it.getString(TITLE)
             viewModel.text = it.getString(TEXT)
         }
@@ -54,10 +66,12 @@ class YesNoDialog: DialogFragment() {
     inner class ClickHandler {
 
         fun onClickNo() {
+            yesNoCallback.onNo(reason)
             dismiss()
         }
 
         fun onClickYes() {
+            yesNoCallback.onYes(reason)
             dismiss()
         }
     }

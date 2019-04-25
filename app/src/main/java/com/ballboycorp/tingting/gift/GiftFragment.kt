@@ -44,6 +44,10 @@ class GiftFragment : BaseFragment() {
         adapter.submitList(testPochas)
     }
 
+    fun restoreEverything() {
+        adapter.restoreEverything()
+    }
+
     inner class ClickHandler {
 
         fun onClickAdd(viewModel: GiftItemViewModel) {

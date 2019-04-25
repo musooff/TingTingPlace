@@ -5,5 +5,8 @@ package com.ballboycorp.tingting.common.dialog
  */
 
 interface YesNoCallback {
-    fun onYes()
+
+    fun onYes(reason: String)
+
+    fun onNo(reason: String) {}
 }

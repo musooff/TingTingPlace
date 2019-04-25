@@ -2,18 +2,22 @@ package com.ballboycorp.tingting.gift
 
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
+import com.ballboycorp.tingting.common.dialog.YesNoCallback
+import com.ballboycorp.tingting.common.dialog.YesNoDialog
 import com.ballboycorp.tingting.databinding.ActivityGiftBinding
 import com.ballboycorp.tingting.gift.adapter.SelectedGiftAdapter
 import com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftItemViewModel
+import com.ballboycorp.tingting.table.model.Table
+import com.ballboycorp.tingting.table.model.TableItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.showDialog
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.activity_gift.*
 import kotlinx.android.synthetic.main.bottom_sheet_gift.*
@@ -22,7 +26,12 @@ import kotlinx.android.synthetic.main.bottom_sheet_gift.*
  * Created by musooff on 2019-04-24.
  */
 
-class GiftActivity: BaseActivity() {
+class GiftActivity: BaseActivity(), YesNoCallback {
+
+    companion object {
+        const val TABLE = "table"
+        private const val ALERT_SEND_GIFT = "alert_send_gift"
+    }
 
     private lateinit var pagerAdapter: GiftViewPagerAdapter
 
@@ -34,6 +43,7 @@ class GiftActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
         val binding = bind<ActivityGiftBinding>(R.layout.activity_gift)
         binding.viewModel = viewModel
+        binding.clickHandler = ClickHandler()
 
         initToolbar("선물하기", true)
 
@@ -59,6 +69,10 @@ class GiftActivity: BaseActivity() {
 
     private fun initialize() {
 
+        intent.extras?.let {
+            viewModel.table = it.getParcelable(TABLE)
+        }
+
         BottomSheetBehavior.from(bottom_sheet)
                 .setBottomSheetCallback(object :BottomSheetBehavior.BottomSheetCallback(){
                     override fun onSlide(bottomSheet: View, slideOffset: Float) {}
@@ -73,7 +87,23 @@ class GiftActivity: BaseActivity() {
     }
 
     inner class ClickHandler {
+        fun onClickSendGift() {
+            showDialog(
+                    ::YesNoDialog,
+                    YesNoDialog.REASON to ALERT_SEND_GIFT,
+                    YesNoDialog.TITLE to getString(R.string.text_send_gift),
+                    YesNoDialog.TEXT to String.format(getString(R.string.confirm_send_gift), viewModel.table?.tableNumber))
 
+        }
+    }
+
+    override fun onYes(reason: String) {
+        if (reason == ALERT_SEND_GIFT) {
+            viewModel.selectedGifts = mutableListOf()
+            selectedAdapter.removeGifts()
+            viewModel.updateTotal()
+            pagerAdapter.snackFragment?.restoreEverything()
+        }
     }
 
     inner class GiftViewPagerAdapter(fragmentManager: FragmentManager): FragmentPagerAdapter(fragmentManager) {
@@ -86,28 +116,17 @@ class GiftActivity: BaseActivity() {
         override fun getItem(position: Int): Fragment {
             return when(position) {
                 0 -> GiftFragment()
+                        .also { snackFragment = it }
                 1 -> GiftFragment()
+                        .also { liquorFragment = it }
                 2 -> GiftFragment()
+                        .also { drinkFragment = it }
                 else -> Fragment()
             }
         }
 
         override fun getCount(): Int {
             return 3
-        }
-
-
-        override fun getItemPosition(`object`: Any): Int {
-            return super.getItemPosition(`object`)
-        }
-
-        override fun setPrimaryItem(container: ViewGroup, position: Int, `object`: Any) {
-            when (position) {
-                0 -> snackFragment = `object` as GiftFragment
-                1 -> liquorFragment = `object` as GiftFragment
-                2 -> drinkFragment = `object` as GiftFragment
-            }
-            super.setPrimaryItem(container, position, `object`)
         }
 
         override fun getPageTitle(position: Int): CharSequence? {

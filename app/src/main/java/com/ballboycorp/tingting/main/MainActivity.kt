@@ -82,6 +82,6 @@ class MainActivity : BaseActivity() {
                 femaleCount = 1
         )
         table.addTestPeople()
-        startActivity<GiftActivity>()
+        startActivity<PochaActivity>()
     }
 }

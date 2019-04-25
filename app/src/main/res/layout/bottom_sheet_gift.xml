@@ -16,7 +16,9 @@
         android:orientation="vertical"
         app:behavior_hideable="false"
         app:behavior_peekHeight="80dp"
-        android:background="@color/colorHomeBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/bottom_sheet_background"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <RelativeLayout
@@ -97,6 +99,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/default_button"
             android:id="@+id/button_gift"
+            android:onClick="@{() -> clickHandler.onClickSendGift()}"
             android:gravity="center">
             <ImageView
                 android:layout_width="24dp"

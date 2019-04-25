@@ -38,5 +38,10 @@ class SelectedGiftAdapter : RecyclerView.Adapter<SelectedGiftAdapter.SelectedGif
         notifyDataSetChanged()
     }
 
+    fun removeGifts() {
+        mViewModels = mutableListOf()
+        notifyDataSetChanged()
+    }
+
     inner class SelectedGiftViewHolder(val binding: ItemSelectedGiftBinding): RecyclerView.ViewHolder(binding.root)
 }

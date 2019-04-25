@@ -4,6 +4,8 @@ import androidx.databinding.Bindable
 import com.ballboycorp.tingting.BR
 import com.ballboycorp.tingting.base.BaseObservableViewModel
 import com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftItemViewModel
+import com.ballboycorp.tingting.table.model.Table
+import com.ballboycorp.tingting.table.model.TableItemViewModel
 import java.math.BigDecimal
 import java.util.*
 
@@ -13,7 +15,9 @@ import java.util.*
 
 class GiftViewModel: BaseObservableViewModel() {
 
-    val selectedGifts: MutableList<GiftItemViewModel> = mutableListOf()
+    var table: Table? = null
+
+    var selectedGifts: MutableList<GiftItemViewModel> = mutableListOf()
 
     var isBottomSheepOpen: Boolean = false
         @Bindable get() = field
