@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.table.profile.dialog.PreGameViewModel" />
+
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.table.profile.dialog.PreGameDialog.ClickHandler" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="12dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:paddingRight="12dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="0sp"
+                android:text="@{viewModel.title}"
+                android:textColor="@color/colorBlackSecond"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="0sp"
+            android:text="@{viewModel.requestKind ? @string/pre_game_request_text : @string/pre_game_notice_text}"
+            android:textColor="@color/colorBlackSecond"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="2dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/placeholder_thumb" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="0sp"
+                        android:text="@{viewModel.game.title}"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp"
+                        tools:text="가위바위보" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:padding="2dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/placeholder_thumb" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="0sp"
+                        android:text="@{viewModel.gift.title}"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp"
+                        tools:text="가위바위보" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="0dp"
+                android:visibility="@{viewModel.loading ? View.VISIBLE : View.INVISIBLE}"
+                android:layout_centerInParent="true">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    tools:text="10"
+                    android:text="@{``+ viewModel.countDownTime}"
+                    android:background="@drawable/shape_ring_primary_color"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary">
+
+                </TextView>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_rectangle_outline_grey_4"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="0sp"
+                    android:onClick="@{() -> clickHandler.onClickNo()}"
+                    android:padding="10dp"
+                    android:text="@{viewModel.requestKind ? @string/pre_game_request_negative : @string/pre_game_notice_negative}"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_rectangle_red_4"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="0sp"
+                    android:onClick="@{() -> clickHandler.onClickYes()}"
+                    android:padding="10dp"
+                    android:text="@{viewModel.requestKind ? @string/pre_game_request_positive : @string/pre_game_notice_positive}"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}"
+                android:background="@drawable/shape_rectangle_outline_grey_4"
+                android:gravity="center"
+                android:lineSpacingExtra="0sp"
+                android:onClick="@{() -> clickHandler.onClickCancel()}"
+                android:padding="10dp"
+                android:text="@string/button_cancel"
+                android:textColor="@color/colorGrey"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+</layout>

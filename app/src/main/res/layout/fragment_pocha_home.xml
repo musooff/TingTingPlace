@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="android.view.View" />
         <variable
             name="viewModel"
             type="com.ballboycorp.tingting.pocha.home.HomeViewModel" />
@@ -26,17 +27,17 @@
                 android:id="@+id/container_top"
                 android:background="@color/colorWhite">
                 <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/vp_home"
+                    android:id="@+id/vp_pocha_home"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     app:layout_constraintDimensionRatio="H, 360:150"
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabs_vp_main"
+                    android:id="@+id/tabs_vp_pocha_home"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@id/vp_home"
+                    app:layout_constraintBottom_toBottomOf="@id/vp_pocha_home"
                     app:tabBackground="@drawable/tab_selector"
                     app:tabGravity="center"
                     app:tabIndicatorHeight="0dp" />
@@ -47,7 +48,7 @@
                     android:layout_height="0dp"
                     android:scaleType="fitXY"
                     app:layout_constraintDimensionRatio="H, 360:200"
-                    app:layout_constraintTop_toBottomOf="@id/vp_home"
+                    app:layout_constraintTop_toBottomOf="@id/vp_pocha_home"
                     app:srcCompat="@drawable/shape_home_top"
                     android:background="@color/colorWhite">
                 </ImageView>
@@ -56,7 +57,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintTop_toBottomOf="@id/vp_home">
+                    app:layout_constraintTop_toBottomOf="@id/vp_pocha_home">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="46dp"
@@ -71,6 +72,7 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
+                            android:visibility="@{viewModel.gameCreated ? View.GONE : View.VISIBLE}"
                             android:src="@drawable/ic_game_colorized"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -81,8 +83,7 @@
                             android:gravity="center_horizontal"
                             android:layout_marginLeft="4dp"
                             android:layout_marginStart="4dp"
-                            android:text="@string/button_game"
-                            />
+                            android:text="@{viewModel.gameCreated ? @string/button_matching :@string/button_game}" />
                     </LinearLayout>
 
                     <include

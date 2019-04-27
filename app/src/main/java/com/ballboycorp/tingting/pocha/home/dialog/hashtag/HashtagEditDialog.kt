@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.DialogHashtagEditBinding
 import com.ballboycorp.tingting.pocha.home.HomeFragment
@@ -17,16 +16,6 @@ import com.ballboycorp.tingting.utils.extensions.getViewModel
  */
 
 class HashtagEditDialog: DialogFragment() {
-
-    companion object {
-
-        private const val DIALOG_TAG = "HashtagEditDialog"
-
-        fun show(fragmentManager: FragmentManager) {
-            val dialog = HashtagEditDialog()
-            dialog.show(fragmentManager, DIALOG_TAG)
-        }
-    }
 
     private val viewModel by lazy { getViewModel<HashtagEditViewModel>() }
 

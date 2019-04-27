@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.DialogCreateRoomBinding
@@ -31,13 +30,7 @@ import kotlinx.android.synthetic.main.dialog_create_room.*
 class CreateRoomDialog : DialogFragment() {
 
     companion object {
-
-        private const val DIALOG_TAG = "CreateRoomDialog"
-
-        fun show(fragmentManager: FragmentManager) {
-            val dialog = CreateRoomDialog()
-            dialog.show(fragmentManager, DIALOG_TAG)
-        }
+        const val RANDOM_ROOM = "random_room"
     }
 
     private val viewModel by lazy { getViewModel<CreateRoomViewModel>() }
@@ -45,6 +38,9 @@ class CreateRoomDialog : DialogFragment() {
     private val clickHandler = ClickHandler()
     private val gameKindAdapter = GameKindAdapter(clickHandler)
     private val giftKindAdapter = GiftKindAdapter(clickHandler)
+
+    private var testPochas = arrayListOf<GameViewModel>()
+    private var testPochas1 = arrayListOf<GiftItemViewModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = bind<DialogCreateRoomBinding>(inflater, R.layout.dialog_create_room, container)
@@ -62,10 +58,11 @@ class CreateRoomDialog : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        arguments?.let { viewModel.isRandomRoom = it.getBoolean(RANDOM_ROOM) }
+
         rv_game_kind.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
         rv_game_kind.adapter = gameKindAdapter
 
-        val testPochas = ArrayList<GameViewModel>()
         for (i in 1..10) {
             val game = Game()
                     .apply { id = i }
@@ -76,7 +73,6 @@ class CreateRoomDialog : DialogFragment() {
         rv_gift_kind.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
         rv_gift_kind.adapter = giftKindAdapter
 
-        val testPochas1 = ArrayList<GiftItemViewModel>()
         for (i in 1..10) {
             val game = Gift()
                     .apply { id = i }
@@ -92,19 +88,30 @@ class CreateRoomDialog : DialogFragment() {
         }
 
         fun onClickCreateRoom() {
+            val callback: CreateRoomCallback = if (targetFragment != null) {
+                targetFragment as CreateRoomCallback
+            } else {
+                activity as CreateRoomCallback
+            }
+
+            callback.onCreateRoom(
+                    testPochas[viewModel.selectedGameId].game,
+                    testPochas1[viewModel.selectedGiftId].gift,
+                    viewModel.isRandomJoin
+            )
             dismiss()
         }
 
         fun onClickGameKind(gameViewModel: GameViewModel) {
             gameKindAdapter.onClickItem(gameViewModel)
             viewModel.selectedGameId = gameViewModel.id
-            viewModel.verifyCanCreateRoon()
+            viewModel.verifyCanCreateRoom()
         }
 
         fun onClickGiftKind(giftItemViewModel: GiftItemViewModel) {
             giftKindAdapter.onClickItem(giftItemViewModel)
             viewModel.selectedGiftId = giftItemViewModel.id
-            viewModel.verifyCanCreateRoon()
+            viewModel.verifyCanCreateRoom()
         }
     }
 }

@@ -11,8 +11,13 @@ import com.ballboycorp.tingting.common.dialog.YesNoCallback
 import com.ballboycorp.tingting.common.dialog.YesNoDialog
 import com.ballboycorp.tingting.databinding.FragmentPochaHomeBinding
 import com.ballboycorp.tingting.gift.GiftActivity
+import com.ballboycorp.tingting.main.home.adapter.ViewPagerAdapter
 import com.ballboycorp.tingting.main.home.utils.ItemDecorator
+import com.ballboycorp.tingting.pocha.PochaActivity
+import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomCallback
 import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog
+import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
+import com.ballboycorp.tingting.pocha.dialog.room.model.gift.Gift
 import com.ballboycorp.tingting.pocha.home.adapter.NearbyTableAdapter
 import com.ballboycorp.tingting.pocha.home.adapter.TableAdapter
 import com.ballboycorp.tingting.pocha.home.description.GameGiftDescriptionActivity
@@ -23,17 +28,16 @@ import com.ballboycorp.tingting.table.model.TableItemViewModel
 import com.ballboycorp.tingting.table.my.MyTableProfileActivity
 import com.ballboycorp.tingting.table.nearby.profile.NearbyProfileActivity
 import com.ballboycorp.tingting.table.profile.ProfileActivity
-import com.ballboycorp.tingting.utils.extensions.bind
-import com.ballboycorp.tingting.utils.extensions.getViewModel
-import com.ballboycorp.tingting.utils.extensions.showDialog
-import com.ballboycorp.tingting.utils.extensions.startActivity
+import com.ballboycorp.tingting.utils.extensions.*
 import kotlinx.android.synthetic.main.fragment_pocha_home.*
 
 /**
  * Created by musooff on 20/04/2019.
  */
 
-class HomeFragment: BaseFragment(), YesNoCallback{
+class HomeFragment: BaseFragment(),
+        YesNoCallback
+{
 
     companion object {
         private const val ALERT_EXIT = "alert_exit"
@@ -44,6 +48,8 @@ class HomeFragment: BaseFragment(), YesNoCallback{
     private val clickHandler = ClickHandler()
     private var tableAdapter = TableAdapter(clickHandler)
     private var nearbyTableAdapter = NearbyTableAdapter(clickHandler)
+    private val viewPagerAdapter = ViewPagerAdapter()
+
 
     private val viewModel by lazy { getViewModel<HomeViewModel>() }
 
@@ -75,6 +81,10 @@ class HomeFragment: BaseFragment(), YesNoCallback{
         rv_table_nearby.addItemDecoration(ItemDecorator.emptyVertical(context!!))
 
         nearbyTableAdapter.submitList(testPochas)
+
+
+        vp_pocha_home.adapter = viewPagerAdapter
+        tabs_vp_pocha_home.setupWithViewPager(vp_pocha_home)
     }
 
     fun onNumberOfPeopleSelected(maleCount: Int, femaleCount: Int) {
@@ -96,6 +106,10 @@ class HomeFragment: BaseFragment(), YesNoCallback{
         if (reason == ALERT_EXIT) {
             activity?.onBackPressed()
         }
+    }
+
+    fun onCreateRoom(game: Game, gift: Gift, isRandomJoin: Boolean) {
+        viewModel.isGameCreated = true
     }
 
     inner class ClickHandler {
@@ -132,11 +146,11 @@ class HomeFragment: BaseFragment(), YesNoCallback{
         }
 
         fun onClickHashtag() {
-            HashtagEditDialog.show(childFragmentManager)
+            showDialog(::HashtagEditDialog)
         }
 
         fun onClickExit() {
-            showDialog(
+            showDialogOnActivity(
                     ::YesNoDialog,
                     YesNoDialog.REASON to ALERT_EXIT,
                     YesNoDialog.TITLE to getString(R.string.exit_title),
@@ -150,7 +164,15 @@ class HomeFragment: BaseFragment(), YesNoCallback{
         }
 
         fun onClickGame() {
-            CreateRoomDialog.show(childFragmentManager)
+            if (viewModel.isGameCreated) {
+                (activity as PochaActivity).moveToPage(1)
+            }
+            else {
+                showDialog(
+                        ::CreateRoomDialog,
+                        CreateRoomDialog.RANDOM_ROOM to true
+                )
+            }
         }
     }
 }

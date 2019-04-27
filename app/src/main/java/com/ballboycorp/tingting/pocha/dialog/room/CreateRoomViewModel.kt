@@ -13,6 +13,20 @@ class CreateRoomViewModel: BaseObservableViewModel() {
     var selectedGameId: Int = -1
     var selectedGiftId: Int = -1
 
+    var isRandomRoom = true
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.randomRoom)
+        }
+
+    var isRandomJoin = true
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.randomJoin)
+        }
+
     var canCreateRoom: Boolean = false
         @Bindable get() = field
         set(value) {
@@ -20,7 +34,7 @@ class CreateRoomViewModel: BaseObservableViewModel() {
             notifyPropertyChanged(BR.canCreateRoom)
         }
 
-    fun verifyCanCreateRoon() {
+    fun verifyCanCreateRoom() {
         canCreateRoom = selectedGameId > -1 && selectedGiftId > -1
     }
 }

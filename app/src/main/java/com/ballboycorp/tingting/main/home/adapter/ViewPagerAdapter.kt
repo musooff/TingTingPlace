@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import android.widget.LinearLayout
 import com.ballboycorp.tingting.R
-import kotlinx.android.synthetic.main.item_vp_main.view.*
+import kotlinx.android.synthetic.main.item_vp_image.view.*
 
 
 /**
@@ -19,7 +19,7 @@ class ViewPagerAdapter: PagerAdapter() {
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val itemView = LayoutInflater.from(container.context).inflate(R.layout.item_vp_main, container, false)
+        val itemView = LayoutInflater.from(container.context).inflate(R.layout.item_vp_image, container, false)
         itemView.imageView.setImageResource(R.drawable.image_vp_main)
         container.addView(itemView)
         return itemView

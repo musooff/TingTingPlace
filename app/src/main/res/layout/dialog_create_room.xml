@@ -18,7 +18,8 @@
         android:padding="12dp">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp">
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -34,18 +35,20 @@
                 android:textColor="@color/colorBlackSecond"
                 android:lineSpacingExtra="0sp"
                 android:gravity="center_horizontal"
-                android:text="@string/dialog_create_room" />
+                android:text="@{viewModel.randomRoom ? @string/button_create_room : @string/button_game_apply}"
+                />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
+            android:layout_marginBottom="12dp"
+            android:visibility="@{viewModel.randomRoom ? View.VISIBLE : View.GONE}">
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:theme="@style/CheckBox"
-                android:checked="true"
+                android:checked="@={viewModel.randomJoin}"
                 android:id="@+id/checkbox"
                 android:layout_centerVertical="true"/>
             <TextView
@@ -90,7 +93,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingStart="10dp"
-            android:paddingTop="16dp"
+            android:paddingTop="12dp"
             android:paddingBottom="12dp"
             android:background="@drawable/shape_rectangle_outline_grey_4_thin"
             tools:ignore="RtlSymmetry">
@@ -131,7 +134,7 @@
             android:paddingStart="10dp"
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/shape_rectangle_outline_grey_4_thin"
             tools:ignore="RtlSymmetry">
             <TextView
@@ -169,9 +172,9 @@
             android:id="@+id/button_create"
             app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/default_button"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:textColor="@color/colorWhite"
-            android:text="@string/button_create_room"
+            android:text="@{viewModel.randomRoom ? @string/button_create_room : @string/button_game_apply}"
             android:enabled="@{viewModel.canCreateRoom ? true : false}"
             android:onClick="@{() -> clickHandler.onClickCreateRoom()}"/>
 

@@ -5,11 +5,17 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityTableProfileBinding
+import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomCallback
+import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog
+import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
+import com.ballboycorp.tingting.pocha.dialog.room.model.gift.Gift
 import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.table.model.TableItemViewModel
 import com.ballboycorp.tingting.table.profile.adapter.TablePeopleAdapter
+import com.ballboycorp.tingting.table.profile.dialog.PreGameDialog
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.showDialog
 import com.ballboycorp.tingting.utils.extensions.showShortToast
 import kotlinx.android.synthetic.main.activity_table_profile.*
 
@@ -17,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_table_profile.*
  * Created by musooff on 2019-04-21.
  */
 
-class ProfileActivity: BaseActivity(){
+class ProfileActivity: BaseActivity(), CreateRoomCallback {
 
     companion object {
         const val TABLE = "table"
@@ -56,14 +62,24 @@ class ProfileActivity: BaseActivity(){
 
     }
 
+    override fun onCreateRoom(game: Game, gift: Gift, isRandomJoin: Boolean) {
+        showDialog(
+                ::PreGameDialog,
+                PreGameDialog.IS_REQUEST_KIND to true,
+                PreGameDialog.GAME to Game(),
+                PreGameDialog.GIFT to Gift())
+    }
+
     inner class ClickHandler {
         fun onClickBack() {
             onBackPressed()
         }
 
         fun onClickProfile(number: Int) {
-            if (viewModel.chatSelectionMode || viewModel.gameSelectionMode) {
-                showShortToast("selected")
+            if (viewModel.gameSelectionMode) {
+                showDialog(
+                        ::CreateRoomDialog,
+                        CreateRoomDialog.RANDOM_ROOM to false)
             }
         }
     }

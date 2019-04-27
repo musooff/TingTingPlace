@@ -43,6 +43,10 @@ class YesNoDialog: DialogFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        targetFragment?.let {
+            yesNoCallback = it as YesNoCallback
+            return
+        }
         yesNoCallback = context as YesNoCallback
     }
 

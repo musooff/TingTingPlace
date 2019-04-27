@@ -13,8 +13,6 @@ import com.ballboycorp.tingting.common.dialog.YesNoDialog
 import com.ballboycorp.tingting.databinding.ActivityGiftBinding
 import com.ballboycorp.tingting.gift.adapter.SelectedGiftAdapter
 import com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftItemViewModel
-import com.ballboycorp.tingting.table.model.Table
-import com.ballboycorp.tingting.table.model.TableItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.showDialog
@@ -103,6 +101,8 @@ class GiftActivity: BaseActivity(), YesNoCallback {
             selectedAdapter.removeGifts()
             viewModel.updateTotal()
             pagerAdapter.snackFragment?.restoreEverything()
+            pagerAdapter.liquorFragment?.restoreEverything()
+            pagerAdapter.drinkFragment?.restoreEverything()
         }
     }
 

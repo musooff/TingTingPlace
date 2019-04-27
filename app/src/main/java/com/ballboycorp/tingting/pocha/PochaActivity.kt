@@ -11,6 +11,9 @@ import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityPochaBinding
 import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
 import com.ballboycorp.tingting.pocha.dialog.NumberOfPeopleDialog
+import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomCallback
+import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
+import com.ballboycorp.tingting.pocha.dialog.room.model.gift.Gift
 import com.ballboycorp.tingting.pocha.game.GameFragment
 import com.ballboycorp.tingting.pocha.home.HomeFragment
 import com.ballboycorp.tingting.pocha.home.dialog.hashtag.HashtagEditDialog
@@ -25,7 +28,8 @@ import kotlinx.android.synthetic.main.activity_pocha.view.*
  * Created by musooff on 13/04/2019.
  */
 
-class PochaActivity : BaseActivity() {
+class PochaActivity : BaseActivity(),
+        CreateRoomCallback {
 
     private lateinit var binding: ActivityPochaBinding
 
@@ -66,6 +70,15 @@ class PochaActivity : BaseActivity() {
         adapter.homeFragment?.onNumberOfPeopleSelected(maleCount, femaleCount)
     }
 
+    override fun onCreateRoom(game: Game, gift: Gift, isRandomJoin: Boolean) {
+        adapter.homeFragment?.onCreateRoom(game, gift, isRandomJoin)
+    }
+
+    fun moveToPage(index: Int) {
+        vp_pocha.currentItem = index
+    }
+
+
     private fun setCurrentTab(position: Int) {
         val values = arrayListOf(0, 1, 2)
         tabs_vp_pocha.getTabAt(position)?.icon?.alpha = 225
@@ -86,7 +99,7 @@ class PochaActivity : BaseActivity() {
         }
     }
 
-    inner class PochaAdapter(fragmentManager: FragmentManager): FragmentStatePagerAdapter(fragmentManager) {
+    inner class PochaAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
 
 
         var homeFragment: HomeFragment? = null
@@ -108,7 +121,7 @@ class PochaActivity : BaseActivity() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            return when(position) {
+            return when (position) {
                 0 -> "홈"
                 1 -> "게임"
                 2 -> "메세지"

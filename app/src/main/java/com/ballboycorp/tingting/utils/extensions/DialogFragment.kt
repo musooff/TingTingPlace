@@ -31,6 +31,17 @@ fun <T: DialogFragment> Fragment.showDialog(factory: () -> T, vararg params: Pai
     dialog.show(childFragmentManager, dialog::class.java.simpleName)
 }
 
+fun <T: DialogFragment> Fragment.showDialogOnActivity(factory: () -> T, vararg params: Pair<String, Any?>) {
+    val dialog = factory()
+    dialog.setTargetFragment(this, 1)
+    if (params.isNotEmpty()) {
+        val bundle = Bundle()
+        fillBundleArguments(bundle, params)
+        dialog.arguments = bundle
+    }
+    dialog.show(this.activity!!.supportFragmentManager, dialog::class.java.simpleName)
+}
+
 fun fillBundleArguments(bundle: Bundle, params: Array<out Pair<String, Any?>>) {
     params.forEach {
         val value = it.second

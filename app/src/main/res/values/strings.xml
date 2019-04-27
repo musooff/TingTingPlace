@@ -114,4 +114,14 @@
     <string name="text_total_amount">총 금 액 :</string>
     <string name="button_gift">선물하기</string>
     <string name="confirm_send_gift">%d번 테이블에 선물을 보내시겠습 니까?</string>
+    <string name="button_game_apply">게임신청</string>
+    <string name="pre_game_request_negative">취소</string>
+    <string name="pre_game_request_positive">예</string>
+    <string name="pre_game_notice_positive">수락</string>
+    <string name="pre_game_notice_negative">거절</string>
+    <string name="pre_game_notice_text">%d번테이블에서 게임 신청을 하셨습니다</string>
+    <string name="pre_game_request_text">%d번 테이블 %s님께 게임 신청을 하시겠습니까?</string>
+    <string name="pre_game_request_title">게임신청</string>
+    <string name="pre_game_notice_title">게임수락</string>
+    <string name="button_matching">게매칭중</string>
 </resources>
