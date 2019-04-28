@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.pocha.game.GameFragment.ClickHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.pocha.game.model.GameStatusItemViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/shape_rectangle_outline_grey_4">
+
+        <LinearLayout
+            android:id="@+id/container_profile"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="0sp"
+                android:textColor="@color/colorBlackSecond"
+                android:textSize="12sp"
+                android:text="@{@string/text_table_number(viewModel.table.tableNumber)}"
+                tools:text="1번 테이블" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/icon_profile_thumb_male" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="0sp"
+                android:textColor="@color/colorBlackSecond"
+                android:text="@{viewModel.table.people.get(viewModel.userIndex).nickname}"
+                tools:text="홍길동" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_centerInParent="true"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/container_profile"
+            app:layout_constraintBottom_toBottomOf="@id/container_profile"
+            android:background="@color/colorGrey" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/container_game_bet"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginRight="6dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/placeholder_thumb" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="0sp"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="10sp"
+                        android:text="@{viewModel.game.title}"
+                        tools:ignore="SmallSp"
+                        tools:text="가위바위보" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="88dp"
+                    android:layout_height="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:background="@drawable/shape_rectangle_blue_1_top_left"
+                        android:lineSpacingExtra="0sp"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="@string/text_game_description"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="10sp"
+                        tools:ignore="RtlSymmetry,SmallSp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        app:srcCompat="@drawable/ic_question_mark_blue" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginLeft="6dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/placeholder_thumb" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="0sp"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp"
+                        android:text="@{viewModel.bet.title}"
+                        tools:text="가위바위보" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="88dp"
+                    android:layout_height="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:background="@drawable/shape_rectangle_blue_1_top_left"
+                        android:lineSpacingExtra="0sp"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="@{viewModel.bet.price}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="10sp"
+                        tools:ignore="RtlSymmetry,SmallSp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        app:srcCompat="@drawable/ic_currency_blue" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@id/container_profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="14dp"
+            android:enabled="@{viewModel.status == 0 ? true : false}"
+            android:background="@drawable/blue_button_outline"
+            android:gravity="center"
+            android:lineSpacingExtra="0sp"
+            android:text="@string/button_game_apply"
+            android:textColor="@{viewModel.status == 0 ? @color/colorBlue : @color/colorGrey}"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
+                app:cardBackgroundColor="@{viewModel.status == 0 ? @color/colorBlue : @color/colorRed}"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="0dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:lineSpacingExtra="0sp"
+                android:text="@{viewModel.status == 0 ? @string/text_game_status_waiting : @string/text_game_status_playing}"
+                android:textColor="@color/colorAccent"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

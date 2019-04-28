@@ -8,7 +8,7 @@ import com.ballboycorp.tingting.base.BaseObservableViewModel
  * Created by musooff on 2019-04-23.
  */
 
-class GameViewModel(val game: Game): BaseObservableViewModel() {
+class GameItemViewModel(val game: Game): BaseObservableViewModel() {
 
     var id: Int = game.id
         @Bindable get() = field

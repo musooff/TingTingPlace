@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.ItemGameKindBinding
 import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog
-import com.ballboycorp.tingting.pocha.dialog.room.model.game.GameViewModel
+import com.ballboycorp.tingting.pocha.dialog.room.model.game.GameItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 
 /**
@@ -14,7 +14,7 @@ import com.ballboycorp.tingting.utils.extensions.bind
 
 class GameKindAdapter(private val clickHandler: CreateRoomDialog.ClickHandler) : RecyclerView.Adapter<GameKindAdapter.GameKindViewHolder>() {
 
-    private var mViewModels: List<GameViewModel> = ArrayList()
+    private var mViewModels: List<GameItemViewModel> = ArrayList()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameKindViewHolder {
@@ -31,12 +31,12 @@ class GameKindAdapter(private val clickHandler: CreateRoomDialog.ClickHandler) :
         holder.binding.clickHandler = clickHandler
     }
 
-    fun submitList(viewModels: List<GameViewModel>) {
+    fun submitList(viewModels: List<GameItemViewModel>) {
         mViewModels = viewModels
         notifyDataSetChanged()
     }
 
-    fun onClickItem(viewModel: GameViewModel) {
+    fun onClickItem(viewModel: GameItemViewModel) {
         mViewModels.forEach { it.isSelected = false }
         mViewModels.first { viewModel.id == it.id }.isSelected = true
     }

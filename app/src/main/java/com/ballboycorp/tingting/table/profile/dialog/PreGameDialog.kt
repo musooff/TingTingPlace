@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.DialogPreGameBinding
-import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.Gift
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 
@@ -21,7 +19,7 @@ class PreGameDialog : DialogFragment() {
 
     companion object {
         const val GAME = "game"
-        const val GIFT = "gift"
+        const val GIFT = "bet"
         const val IS_REQUEST_KIND = "is_request_kind"
     }
 
@@ -40,7 +38,7 @@ class PreGameDialog : DialogFragment() {
         arguments?.let {
             viewModel.isRequestKind = it.getBoolean(IS_REQUEST_KIND)
             viewModel.game = it.getParcelable(GAME)
-            viewModel.gift = it.getParcelable(GIFT)
+            viewModel.bet = it.getParcelable(GIFT)
         }
     }
 

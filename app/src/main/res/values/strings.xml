@@ -124,4 +124,12 @@
     <string name="pre_game_request_title">게임신청</string>
     <string name="pre_game_notice_title">게임수락</string>
     <string name="button_matching">게매칭중</string>
+    <string name="text_last_game_winner">이전 게임 승자</string>
+    <string name="text_winner_name">%d번 테이블 %s님 축하드립니다!</string>
+    <string name="text_game_description">게임설명</string>
+    <string name="text_game_status_playing">게임중</string>
+    <string name="text_game_status_waiting">대기중</string>
+    <string name="button_game_delete">방삭제</string>
+    <string name="button_game_random_matching">랜덤매칭</string>
+    <string name="text_my_table">내 테이블</string>
 </resources>

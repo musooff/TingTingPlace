@@ -12,7 +12,7 @@ import com.ballboycorp.tingting.common.dialog.YesNoCallback
 import com.ballboycorp.tingting.common.dialog.YesNoDialog
 import com.ballboycorp.tingting.databinding.ActivityGiftBinding
 import com.ballboycorp.tingting.gift.adapter.SelectedGiftAdapter
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftItemViewModel
+import com.ballboycorp.tingting.gift.model.GiftItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.showDialog

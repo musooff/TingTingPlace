@@ -8,7 +8,7 @@ import com.ballboycorp.tingting.databinding.ActivityTableProfileBinding
 import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomCallback
 import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog
 import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.Gift
+import com.ballboycorp.tingting.pocha.dialog.room.model.bet.Bet
 import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.table.model.TableItemViewModel
 import com.ballboycorp.tingting.table.profile.adapter.TablePeopleAdapter
@@ -16,7 +16,6 @@ import com.ballboycorp.tingting.table.profile.dialog.PreGameDialog
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.showDialog
-import com.ballboycorp.tingting.utils.extensions.showShortToast
 import kotlinx.android.synthetic.main.activity_table_profile.*
 
 /**
@@ -62,12 +61,12 @@ class ProfileActivity: BaseActivity(), CreateRoomCallback {
 
     }
 
-    override fun onCreateRoom(game: Game, gift: Gift, isRandomJoin: Boolean) {
+    override fun onCreateRoom(game: Game, bet: Bet, isRandomJoin: Boolean) {
         showDialog(
                 ::PreGameDialog,
                 PreGameDialog.IS_REQUEST_KIND to true,
                 PreGameDialog.GAME to Game(),
-                PreGameDialog.GIFT to Gift())
+                PreGameDialog.GIFT to Bet())
     }
 
     inner class ClickHandler {

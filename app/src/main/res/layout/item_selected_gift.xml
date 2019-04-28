@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftItemViewModel" />
+            type="com.ballboycorp.tingting.gift.model.GiftItemViewModel" />
     </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

@@ -14,10 +14,9 @@ import com.ballboycorp.tingting.gift.GiftActivity
 import com.ballboycorp.tingting.main.home.adapter.ViewPagerAdapter
 import com.ballboycorp.tingting.main.home.utils.ItemDecorator
 import com.ballboycorp.tingting.pocha.PochaActivity
-import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomCallback
 import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog
 import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.Gift
+import com.ballboycorp.tingting.pocha.dialog.room.model.bet.Bet
 import com.ballboycorp.tingting.pocha.home.adapter.NearbyTableAdapter
 import com.ballboycorp.tingting.pocha.home.adapter.TableAdapter
 import com.ballboycorp.tingting.pocha.home.description.GameGiftDescriptionActivity
@@ -108,7 +107,7 @@ class HomeFragment: BaseFragment(),
         }
     }
 
-    fun onCreateRoom(game: Game, gift: Gift, isRandomJoin: Boolean) {
+    fun onCreateRoom(game: Game, bet: Bet, isRandomJoin: Boolean) {
         viewModel.isGameCreated = true
     }
 

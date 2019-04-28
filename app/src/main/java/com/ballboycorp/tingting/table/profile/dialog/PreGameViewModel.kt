@@ -4,7 +4,7 @@ import androidx.databinding.Bindable
 import com.ballboycorp.tingting.BR
 import com.ballboycorp.tingting.base.BaseObservableViewModel
 import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.Gift
+import com.ballboycorp.tingting.pocha.dialog.room.model.bet.Bet
 
 /**
  * Created by musooff on 2019-04-26.
@@ -49,11 +49,11 @@ class PreGameViewModel: BaseObservableViewModel() {
             notifyPropertyChanged(BR.game)
         }
 
-    var gift: Gift? = null
+    var bet: Bet? = null
         @Bindable get() = field
         set(value) {
             field = value
-            notifyPropertyChanged(BR.gift)
+            notifyPropertyChanged(BR.bet)
         }
 
     fun updateState() {

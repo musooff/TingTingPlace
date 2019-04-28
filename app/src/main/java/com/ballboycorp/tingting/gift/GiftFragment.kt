@@ -10,8 +10,8 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentGiftBinding
 import com.ballboycorp.tingting.gift.adapter.GiftAdapter
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.Gift
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftItemViewModel
+import com.ballboycorp.tingting.gift.model.Gift
+import com.ballboycorp.tingting.gift.model.GiftItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 import kotlinx.android.synthetic.main.fragment_gift.*
 

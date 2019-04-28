@@ -1,4 +1,4 @@
-package com.ballboycorp.tingting.pocha.dialog.room.model.gift
+package com.ballboycorp.tingting.pocha.dialog.room.model.bet
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
  */
 
 @Parcelize
-class Gift (
+class Bet (
     var id: Int = 0,
     var title: String? = "참이슬",
     var price: String? = "4,000"

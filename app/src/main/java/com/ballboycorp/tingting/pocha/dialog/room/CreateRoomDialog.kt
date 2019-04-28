@@ -13,9 +13,9 @@ import com.ballboycorp.tingting.databinding.DialogCreateRoomBinding
 import com.ballboycorp.tingting.pocha.dialog.room.adapter.GameKindAdapter
 import com.ballboycorp.tingting.pocha.dialog.room.adapter.GiftKindAdapter
 import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
-import com.ballboycorp.tingting.pocha.dialog.room.model.game.GameViewModel
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.Gift
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftItemViewModel
+import com.ballboycorp.tingting.pocha.dialog.room.model.game.GameItemViewModel
+import com.ballboycorp.tingting.pocha.dialog.room.model.bet.Bet
+import com.ballboycorp.tingting.pocha.dialog.room.model.bet.BetItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getScreenWidth
 import com.ballboycorp.tingting.utils.extensions.getViewModel
@@ -39,8 +39,8 @@ class CreateRoomDialog : DialogFragment() {
     private val gameKindAdapter = GameKindAdapter(clickHandler)
     private val giftKindAdapter = GiftKindAdapter(clickHandler)
 
-    private var testPochas = arrayListOf<GameViewModel>()
-    private var testPochas1 = arrayListOf<GiftItemViewModel>()
+    private var testPochas = arrayListOf<GameItemViewModel>()
+    private var testPochas1 = arrayListOf<BetItemViewModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = bind<DialogCreateRoomBinding>(inflater, R.layout.dialog_create_room, container)
@@ -66,7 +66,7 @@ class CreateRoomDialog : DialogFragment() {
         for (i in 1..10) {
             val game = Game()
                     .apply { id = i }
-            testPochas.add(GameViewModel(game))
+            testPochas.add(GameItemViewModel(game))
         }
         gameKindAdapter.submitList(testPochas)
 
@@ -74,9 +74,9 @@ class CreateRoomDialog : DialogFragment() {
         rv_gift_kind.adapter = giftKindAdapter
 
         for (i in 1..10) {
-            val game = Gift()
+            val game = Bet()
                     .apply { id = i }
-            testPochas1.add(GiftItemViewModel(game))
+            testPochas1.add(BetItemViewModel(game))
         }
         giftKindAdapter.submitList(testPochas1)
     }
@@ -96,21 +96,21 @@ class CreateRoomDialog : DialogFragment() {
 
             callback.onCreateRoom(
                     testPochas[viewModel.selectedGameId].game,
-                    testPochas1[viewModel.selectedGiftId].gift,
+                    testPochas1[viewModel.selectedGiftId].bet,
                     viewModel.isRandomJoin
             )
             dismiss()
         }
 
-        fun onClickGameKind(gameViewModel: GameViewModel) {
-            gameKindAdapter.onClickItem(gameViewModel)
-            viewModel.selectedGameId = gameViewModel.id
+        fun onClickGameKind(gameItemViewModel: GameItemViewModel) {
+            gameKindAdapter.onClickItem(gameItemViewModel)
+            viewModel.selectedGameId = gameItemViewModel.id
             viewModel.verifyCanCreateRoom()
         }
 
-        fun onClickGiftKind(giftItemViewModel: GiftItemViewModel) {
-            giftKindAdapter.onClickItem(giftItemViewModel)
-            viewModel.selectedGiftId = giftItemViewModel.id
+        fun onClickGiftKind(betItemViewModel: BetItemViewModel) {
+            giftKindAdapter.onClickItem(betItemViewModel)
+            viewModel.selectedGiftId = betItemViewModel.id
             viewModel.verifyCanCreateRoom()
         }
     }

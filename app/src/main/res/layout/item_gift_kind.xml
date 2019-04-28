@@ -4,7 +4,7 @@
         <import type="com.ballboycorp.tingting.R" />
         <variable
             name="viewModel"
-            type="com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftItemViewModel" />
+            type="com.ballboycorp.tingting.pocha.dialog.room.model.bet.BetItemViewModel" />
         <variable
             name="clickHandler"
             type="com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog.ClickHandler" />

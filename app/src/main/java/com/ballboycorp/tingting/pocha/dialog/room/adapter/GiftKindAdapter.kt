@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.ItemGiftKindBinding
 import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftItemViewModel
+import com.ballboycorp.tingting.pocha.dialog.room.model.bet.BetItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 
 /**
@@ -14,7 +14,7 @@ import com.ballboycorp.tingting.utils.extensions.bind
 
 class GiftKindAdapter(private val clickHandler: CreateRoomDialog.ClickHandler) : RecyclerView.Adapter<GiftKindAdapter.GiftKindViewHolder>() {
 
-    private var mViewModels: List<GiftItemViewModel> = ArrayList()
+    private var mViewModels: List<BetItemViewModel> = ArrayList()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GiftKindViewHolder {
@@ -31,12 +31,12 @@ class GiftKindAdapter(private val clickHandler: CreateRoomDialog.ClickHandler) :
         holder.binding.clickHandler = clickHandler
     }
 
-    fun submitList(viewModels: List<GiftItemViewModel>) {
+    fun submitList(viewModels: List<BetItemViewModel>) {
         mViewModels = viewModels
         notifyDataSetChanged()
     }
 
-    fun onClickItem(viewModel: GiftItemViewModel) {
+    fun onClickItem(viewModel: BetItemViewModel) {
         mViewModels.forEach { it.isSelected = false }
         mViewModels.first { viewModel.id == it.id }.isSelected = true
     }

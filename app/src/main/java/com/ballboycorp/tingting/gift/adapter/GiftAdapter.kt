@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.ItemGiftBinding
 import com.ballboycorp.tingting.gift.GiftFragment
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.GiftItemViewModel
+import com.ballboycorp.tingting.gift.model.GiftItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 
 /**

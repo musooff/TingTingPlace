@@ -121,7 +121,7 @@
                         android:layout_marginTop="4dp"
                         android:gravity="center"
                         android:lineSpacingExtra="0sp"
-                        android:text="@{viewModel.gift.title}"
+                        android:text="@{viewModel.bet.title}"
                         android:textColor="@color/colorAccent"
                         android:textSize="10sp"
                         tools:ignore="SmallSp"

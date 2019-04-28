@@ -13,10 +13,9 @@ import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
 import com.ballboycorp.tingting.pocha.dialog.NumberOfPeopleDialog
 import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomCallback
 import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
-import com.ballboycorp.tingting.pocha.dialog.room.model.gift.Gift
+import com.ballboycorp.tingting.pocha.dialog.room.model.bet.Bet
 import com.ballboycorp.tingting.pocha.game.GameFragment
 import com.ballboycorp.tingting.pocha.home.HomeFragment
-import com.ballboycorp.tingting.pocha.home.dialog.hashtag.HashtagEditDialog
 import com.ballboycorp.tingting.pocha.message.MessageFragment
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.startActivity
@@ -70,8 +69,8 @@ class PochaActivity : BaseActivity(),
         adapter.homeFragment?.onNumberOfPeopleSelected(maleCount, femaleCount)
     }
 
-    override fun onCreateRoom(game: Game, gift: Gift, isRandomJoin: Boolean) {
-        adapter.homeFragment?.onCreateRoom(game, gift, isRandomJoin)
+    override fun onCreateRoom(game: Game, bet: Bet, isRandomJoin: Boolean) {
+        adapter.homeFragment?.onCreateRoom(game, bet, isRandomJoin)
     }
 
     fun moveToPage(index: Int) {
