@@ -17,6 +17,7 @@ import com.ballboycorp.tingting.main.pocha.PochaFragment
 import com.ballboycorp.tingting.main.pocha.model.Pocha
 import com.ballboycorp.tingting.notice.NoticeActivity
 import com.ballboycorp.tingting.pocha.PochaActivity
+import com.ballboycorp.tingting.pocha.chat.message.MessageActivity
 import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
 import com.ballboycorp.tingting.pocha.details.map.PochaMapActivity
 import com.ballboycorp.tingting.profile.ProfileFragment
@@ -82,6 +83,6 @@ class MainActivity : BaseActivity() {
                 femaleCount = 1
         )
         table.addTestPeople()
-        startActivity<PochaActivity>()
+        startActivity<MessageActivity>()
     }
 }

@@ -16,7 +16,7 @@ import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
 import com.ballboycorp.tingting.pocha.dialog.room.model.bet.Bet
 import com.ballboycorp.tingting.pocha.game.GameFragment
 import com.ballboycorp.tingting.pocha.home.HomeFragment
-import com.ballboycorp.tingting.pocha.message.MessageFragment
+import com.ballboycorp.tingting.pocha.chat.ChatFragment
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.activity_pocha.*
@@ -103,14 +103,14 @@ class PochaActivity : BaseActivity(),
 
         var homeFragment: HomeFragment? = null
         var gameFragment: GameFragment? = null
-        var messageFragment: MessageFragment? = null
+        var chatFragment: ChatFragment? = null
 
 
         override fun getItem(position: Int): Fragment {
             return when (position) {
                 0 -> HomeFragment()
                 1 -> GameFragment()
-                2 -> MessageFragment()
+                2 -> ChatFragment()
                 else -> Fragment()
             }
         }
@@ -136,7 +136,7 @@ class PochaActivity : BaseActivity(),
             when (position) {
                 0 -> homeFragment = `object` as HomeFragment
                 1 -> gameFragment = `object` as GameFragment
-                2 -> messageFragment = `object` as MessageFragment
+                2 -> chatFragment = `object` as ChatFragment
             }
             super.setPrimaryItem(container, position, `object`)
         }

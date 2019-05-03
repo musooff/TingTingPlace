@@ -1,7 +1,15 @@
 package com.ballboycorp.tingting.utils.extensions
 
 import android.app.Activity
+import android.content.Context
+import android.content.res.Resources
 import android.graphics.Point
+import android.graphics.Rect
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
+
+
 
 
 /**
@@ -13,3 +21,33 @@ fun Activity.getScreenWidth(): Int {
     this.windowManager.defaultDisplay.getSize(size)
     return size.x
 }
+
+
+fun Activity.getKeyboardHeight(): Int {
+    val r = Rect()
+    val rootView = window.decorView
+    rootView.getWindowVisibleDisplayFrame(r)
+    return rootView.height - r.bottom
+}
+
+fun View.setHeight(height: Int) {
+    val newLayoutParams = layoutParams
+    newLayoutParams.height = height
+    layoutParams = newLayoutParams
+}
+
+fun View.showKeyboard() {
+    if (requestFocus()) {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+    }
+}
+
+fun View.hideKeyboard() {
+    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(this.windowToken, InputMethodManager.SHOW_IMPLICIT)
+}
+
+fun Int.toPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
+
+fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toInt()

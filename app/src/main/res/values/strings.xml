@@ -132,4 +132,22 @@
     <string name="button_game_delete">방삭제</string>
     <string name="button_game_random_matching">랜덤매칭</string>
     <string name="text_my_table">내 테이블</string>
+    <string name="text_beginning_of_chat">새로운 유저와 채팅을 시작합니다.</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="text_message_info">대화 상대</string>
+    <string name="text_leave_chat">방을 나가시겠습니까?</string>
+    <string name="text_leave_chat_title">알림</string>
 </resources>

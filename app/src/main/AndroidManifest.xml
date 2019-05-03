@@ -4,22 +4,22 @@
     package="com.ballboycorp.tingting">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
-        android:hardwareAccelerated="true"
         tools:targetApi="honeycomb">
-        <activity android:name=".splash.SplashActivity"
+        <activity
+            android:name=".splash.SplashActivity"
             android:theme="@style/AppTheme.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,32 +27,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.MainActivity">
-        </activity>
-        <activity android:name=".qr.QRScanActivity">
-        </activity>
-        <activity android:name=".recent.RecentActivity">
-        </activity>
-        <activity android:name=".liked.LikedActivity"/>
-        <activity android:name=".pocha.details.PochaDetailsActivity"/>
-        <activity android:name=".pocha.PochaActivity"/>
-        <activity android:name=".review.ReviewActivity"/>
-        <activity android:name=".profile.create.CreateProfileActivity"/>
-        <activity android:name=".profile.edit.EditProfileActivity"/>
-        <activity android:name=".pocha.details.map.PochaMapActivity"/>
-        <activity android:name=".review.my.MyReviewsActivity"/>
-        <activity android:name=".review.add.AddReviewActivity"/>
-        <activity android:name=".notice.NoticeActivity"/>
-        <activity android:name=".event.EventActivity"/>
-        <activity android:name=".event.viewer.EventViewerActivity"/>
-        <activity android:name=".contact.ContactActivity"/>
-        <activity android:name=".contact.add.NewQuestionActivity"/>
-        <activity android:name=".settings.SettingsActivity"/>
-        <activity android:name=".table.profile.ProfileActivity"/>
-        <activity android:name=".pocha.home.description.GameGiftDescriptionActivity"/>
-        <activity android:name=".table.nearby.profile.NearbyProfileActivity"/>
-        <activity android:name=".table.my.MyTableProfileActivity"/>
-        <activity android:name=".gift.GiftActivity"/>
+        <activity android:name=".main.MainActivity"></activity>
+        <activity android:name=".qr.QRScanActivity"></activity>
+        <activity android:name=".recent.RecentActivity"></activity>
+        <activity android:name=".liked.LikedActivity" />
+        <activity android:name=".pocha.details.PochaDetailsActivity" />
+        <activity android:name=".pocha.PochaActivity" />
+        <activity android:name=".review.ReviewActivity" />
+        <activity android:name=".profile.create.CreateProfileActivity" />
+        <activity android:name=".profile.edit.EditProfileActivity" />
+        <activity android:name=".pocha.details.map.PochaMapActivity" />
+        <activity android:name=".review.my.MyReviewsActivity" />
+        <activity android:name=".review.add.AddReviewActivity" />
+        <activity android:name=".notice.NoticeActivity" />
+        <activity android:name=".event.EventActivity" />
+        <activity android:name=".event.viewer.EventViewerActivity" />
+        <activity android:name=".contact.ContactActivity" />
+        <activity android:name=".contact.add.NewQuestionActivity" />
+        <activity android:name=".settings.SettingsActivity" />
+        <activity android:name=".table.profile.ProfileActivity" />
+        <activity android:name=".pocha.home.description.GameGiftDescriptionActivity" />
+        <activity android:name=".table.nearby.profile.NearbyProfileActivity" />
+        <activity android:name=".table.my.MyTableProfileActivity" />
+        <activity android:name=".gift.GiftActivity" />
+        <activity
+            android:name=".pocha.chat.message.MessageActivity"
+            android:windowSoftInputMode="adjustResize" />
+
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />

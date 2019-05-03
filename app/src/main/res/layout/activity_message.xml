@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.pocha.chat.message.MessageViewModel" />
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.pocha.chat.message.MessageActivity.ClickHandler" />
+    </data>
+    <androidx.drawerlayout.widget.DrawerLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:openDrawer="end">
+
+        <include
+            layout="@layout/content_message"
+            app:clickHandler="@{clickHandler}"
+            app:viewModel="@{viewModel}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end">
+            <include
+                app:clickHandler="@{clickHandler}"
+                app:viewModel="@{viewModel}"
+                layout="@layout/nav_drawer_message"/>
+
+        </com.google.android.material.navigation.NavigationView>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>

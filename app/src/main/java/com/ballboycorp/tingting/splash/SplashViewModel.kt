@@ -15,6 +15,6 @@ class SplashViewModel: BaseViewModel() {
     fun openMainPage() {
         Handler().postDelayed({
             mainPageRequest.value = true
-        }, 2000)
+        }, 500)
     }
 }

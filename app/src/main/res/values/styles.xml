@@ -20,6 +20,7 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/colorBlackSeventh</item>
         <item name="colorControlActivated">@color/colorPrimary</item>
@@ -44,5 +45,31 @@
         <item name="thumbTint">@color/colorWhite</item>
         <item name="trackTint">@color/switch_color</item>
     </style>
+
+    <style name="LightTextView" parent="Theme.AppCompat">
+        <item name="android:fontFamily">@font/nanum_barun_gothic_light</item>
+    </style>
+
+    <style name="BoldTextView" parent="Theme.AppCompat">
+        <item name="android:fontFamily">@font/nanum_barun_gothic_bold</item>
+    </style>
+
+    <style name="RegularTextView" parent="Theme.AppCompat">
+        <item name="android:fontFamily">@font/nanum_barun_gothic</item>
+    </style>
+
+    <style name="UltraLightTextView" parent="Theme.AppCompat">
+        <item name="android:fontFamily">@font/nanum_barun_gothic_ultra_light</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 
 </resources>
