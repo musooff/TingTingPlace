@@ -40,7 +40,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     tools:text="Title"
-                    android:text="@{viewModel.toolbarTitle}"
+                    android:text="@{viewModel.receiver.nickname}"
                     android:textStyle="bold"
                     android:id="@+id/tb_title"
                     android:gravity="center"
@@ -66,6 +66,7 @@
             android:layout_height="match_parent"
             android:paddingRight="12dp"
             android:paddingLeft="12dp"
+            android:id="@+id/container_all"
             android:background="@color/colorHomeBackground">
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
@@ -125,7 +126,7 @@
                 app:layout_constraintDimensionRatio="H, 360:52"
                 android:id="@+id/container_edittext"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="@id/container_add">
+                app:layout_constraintBottom_toBottomOf="parent">
 
                 <ImageView
                     android:layout_width="0dp"
@@ -181,78 +182,6 @@
                         app:layout_constraintRight_toLeftOf="@id/button_send"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:orientation="horizontal"
-                android:id="@+id/container_add"
-                android:gravity="center"
-                android:visibility="@{viewModel.addMode ? View.VISIBLE : View.GONE}"
-                app:layout_constraintBottom_toBottomOf="parent">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    app:cardCornerRadius="60dp"
-                    app:cardElevation="0dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginEnd="10dp"
-                    app:cardBackgroundColor="@color/colorBlue">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_game_colorized"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="16sp"
-                            android:theme="@style/RegularTextView"
-                            android:textColor="@color/colorWhite"
-                            android:lineSpacingExtra="0sp"
-                            android:gravity="center_horizontal"
-                            android:text="@string/button_game"
-                            />
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    app:cardCornerRadius="60dp"
-                    app:cardElevation="0dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginStart="10dp"
-                    app:cardBackgroundColor="@color/colorRed">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_gift"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="16sp"
-                            android:theme="@style/RegularTextView"
-                            android:textColor="@color/colorWhite"
-                            android:lineSpacingExtra="0sp"
-                            android:gravity="center_horizontal"
-                            android:text="@string/button_gift"
-                            />
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </layout>

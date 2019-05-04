@@ -5,7 +5,10 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.Point
 import android.graphics.Rect
+import android.os.Build
+import android.util.DisplayMetrics
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat.getSystemService
 
@@ -51,3 +54,18 @@ fun View.hideKeyboard() {
 fun Int.toPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
 
 fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toInt()
+
+
+fun Context.getUsableScreenHeight(rootView: View): Int {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        val metrics = DisplayMetrics()
+
+        val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        windowManager.defaultDisplay.getMetrics(metrics)
+
+        metrics.heightPixels
+
+    } else {
+        rootView.rootView.height
+    }
+}

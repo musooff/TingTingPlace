@@ -12,14 +12,6 @@ import com.ballboycorp.tingting.profile.model.UserViewModel
 
 class MessageViewModel: BaseObservableViewModel() {
 
-    var toolbarTitle: String? = "some"
-        @Bindable get() = field
-        set(value) {
-            field = value
-            canSend = !value.isNullOrBlank()
-            notifyPropertyChanged(BR.toolbarTitle)
-        }
-
     var message: String? = null
         @Bindable get() = field
         set(value) {
