@@ -1,5 +1,7 @@
 package com.ballboycorp.tingting.base
 
+import android.content.pm.ActivityInfo
+import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -14,6 +16,11 @@ import kotlinx.android.synthetic.main.toolbar.view.*
  */
 
 open class BaseActivity: AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    }
 
     fun initToolbar(title: String, withBackButton: Boolean = false) {
         toolbar.tb_title.text = title

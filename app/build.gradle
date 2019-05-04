@@ -45,8 +45,6 @@ dependencies {
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0-alpha01'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0-alpha04'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha04'
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0-alpha04'
     implementation 'androidx.cardview:cardview:1.0.0'
@@ -56,5 +54,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
     implementation "com.kakao.sdk:kakaonavi:$kakao_sdk_version"
+
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
 
 }

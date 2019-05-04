@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.ItemTableBinding
 import com.ballboycorp.tingting.pocha.home.HomeFragment
+import com.ballboycorp.tingting.pocha.home.utils.ThumbnailsView
+import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.table.model.TableItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 
@@ -29,6 +31,7 @@ class TableAdapter(private val clickHandler: HomeFragment.ClickHandler) : Recycl
     override fun onBindViewHolder(holder: TableViewHolder, position: Int) {
         holder.binding.viewModel = mViewModels[position]
         holder.binding.clickHandler = clickHandler
+        holder.addThumbs(mViewModels[position].table)
     }
 
     fun submitList(viewModels: List<TableItemViewModel>) {
@@ -36,5 +39,9 @@ class TableAdapter(private val clickHandler: HomeFragment.ClickHandler) : Recycl
         notifyDataSetChanged()
     }
 
-    inner class TableViewHolder(val binding: ItemTableBinding): RecyclerView.ViewHolder(binding.root)
+    inner class TableViewHolder(val binding: ItemTableBinding): RecyclerView.ViewHolder(binding.root) {
+        fun addThumbs(table: Table) {
+            binding.containerThumbs.addView(ThumbnailsView.createThumbnails(binding.root.context, table))
+        }
+    }
 }

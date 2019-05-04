@@ -61,7 +61,7 @@ class PochaActivity : BaseActivity(),
             }
         })
 
-        NumberOfPeopleDialog.show(supportFragmentManager)
+        //NumberOfPeopleDialog.show(supportFragmentManager)
         //HashtagEditDialog.show(supportFragmentManager)
     }
 

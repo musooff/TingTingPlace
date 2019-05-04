@@ -71,7 +71,9 @@ class HomeFragment: BaseFragment(),
         for (i in 1..10) {
             val table = Table()
             table.addTestPeople()
-            testPochas.add(TableItemViewModel(table))
+            if (table.people.size != 0) {
+                testPochas.add(TableItemViewModel(table))
+            }
         }
         tableAdapter.submitList(testPochas)
 
@@ -92,7 +94,9 @@ class HomeFragment: BaseFragment(),
                 femaleCount = femaleCount
         )
         table.addTestPeople()
-        viewModel.myTableItemViewModel = TableItemViewModel(table)
+        if (table.people.size != 0) {
+            viewModel.myTableItemViewModel = TableItemViewModel(table)
+        }
         binding.myTable.itemViewModel = viewModel.myTableItemViewModel
 
     }
