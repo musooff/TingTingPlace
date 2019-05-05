@@ -26,6 +26,7 @@ import com.ballboycorp.tingting.review.my.MyReviewsActivity
 import com.ballboycorp.tingting.settings.SettingsActivity
 import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.table.profile.ProfileActivity
+import com.ballboycorp.tingting.test.MapViewDemoActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.startActivity
@@ -83,6 +84,6 @@ class MainActivity : BaseActivity() {
                 femaleCount = 1
         )
         table.addTestPeople()
-        startActivity<PochaActivity>()
+        startActivity<PochaMapActivity>()
     }
 }

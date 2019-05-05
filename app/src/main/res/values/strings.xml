@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">팅팅플레이스</string>
-    <string name="kakao_app_key">4e9c464e9348ef1a868026cb272941c3</string>
+    <string name="kakao_app_key">3d6f924f4e483cf1834b397c4d693cf1</string>
     <string name="title_home">홈</string>
     <string name="title_pocha">포차찾기</string>
     <string name="title_profile">내정보</string>

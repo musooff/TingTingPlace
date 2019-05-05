@@ -9,7 +9,7 @@ import com.ballboycorp.tingting.review.model.ReviewItemViewModel
  * Created by musooff on 18/04/2019.
  */
 
-class PochaItemViewModel(pocha: Pocha): BaseObservableViewModel() {
+class PochaItemViewModel(pocha: Pocha) : BaseObservableViewModel() {
 
     var title: String? = pocha.title
         @Bindable get() = field
@@ -46,6 +46,19 @@ class PochaItemViewModel(pocha: Pocha): BaseObservableViewModel() {
         set(value) {
             field = value
             notifyPropertyChanged(BR.location)
+        }
+
+    var latitude: Double = pocha.lattitude
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.latitude)
+        }
+    var longtitude: Double = pocha.longtitude
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.longtitude)
         }
     var isLiked: Boolean = pocha.isLiked
         @Bindable get() = field

@@ -1,7 +1,6 @@
 package com.ballboycorp.tingting.pocha.details.dialog
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,7 @@ import com.ballboycorp.tingting.databinding.DialogShareBinding
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import android.content.pm.PackageManager
-import com.ballboycorp.tingting.utils.extensions.showShortToast
+import com.ballboycorp.tingting.utils.extensions.showToast
 import android.content.ClipData
 import android.content.Context.CLIPBOARD_SERVICE
 import android.content.ClipboardManager
@@ -80,7 +79,7 @@ class ShareDialog: DialogFragment() {
             intent.putExtra(Intent.EXTRA_TEXT, "TinTingPlace")
             startActivity(Intent.createChooser(intent, "Share with"))
         }catch (ex: PackageManager.NameNotFoundException) {
-            context?.showShortToast("Kakao not installed")
+            context?.showToast("Kakao not installed")
         }
     }
 
@@ -88,7 +87,7 @@ class ShareDialog: DialogFragment() {
         val clipboard = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
         val clip = ClipData.newPlainText("TingTinPlace", "TingTingPlace Copy")
         clipboard?.primaryClip = clip
-        context?.showShortToast("It has been copied to the clipboard")
+        context?.showToast("It has been copied to the clipboard")
 
     }
 }

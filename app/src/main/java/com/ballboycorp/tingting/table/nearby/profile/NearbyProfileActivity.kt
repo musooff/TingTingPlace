@@ -10,7 +10,7 @@ import com.ballboycorp.tingting.table.model.TableItemViewModel
 import com.ballboycorp.tingting.table.nearby.profile.adapter.NearbyTablePeopleAdapter
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
-import com.ballboycorp.tingting.utils.extensions.showShortToast
+import com.ballboycorp.tingting.utils.extensions.showToast
 import kotlinx.android.synthetic.main.activity_table_profile.*
 
 /**
@@ -61,7 +61,7 @@ class NearbyProfileActivity: BaseActivity(){
 
         fun onClickProfile(number: Int) {
             if (viewModel.chatSelectionMode) {
-                showShortToast("selected")
+                showToast("selected")
             }
         }
     }

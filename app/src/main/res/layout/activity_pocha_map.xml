@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.pocha.details.map.PochaMapViewModel" />
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.pocha.details.map.PochaMapActivity.ClickHandler" />
+    </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
@@ -9,7 +18,7 @@
             layout="@layout/toolbar"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="58dp"
             android:paddingLeft="12sp"
             android:paddingRight="12sp"
             android:background="@color/colorWhite">
@@ -18,6 +27,7 @@
                 android:layout_height="30dp"
                 android:id="@+id/button_copy"
                 android:textSize="12sp"
+                android:onClick="@{() -> clickHandler.onClickCopy()}"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -36,25 +46,58 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
+                    android:theme="@style/RegularTextView"
                     android:textColor="@color/colorBlackSecond"
                     android:lineSpacingExtra="0sp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:gravity="center_horizontal"
-                    android:text="인천광역시 부평구 동암광장로14번길 8" />
+                    android:text="@{viewModel.pocha.location}" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
+                    android:layout_marginTop="8dp"
+                    android:theme="@style/RegularTextView"
                     android:textColor="@color/colorBlackSecond"
                     android:lineSpacingExtra="0sp"
-                    android:text="0503-5050-1628"
+                    android:text="@{viewModel.pocha.phone}"
                     />
 
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/container_map_view">
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/container_map">
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:onClick="@{() -> clickHandler.onClickCurrentLocation()}"
+                    android:background="@drawable/ic_button_current_location">
+                </ImageView>
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginStart="6dp"
+                    android:onClick="@{() -> clickHandler.onClickRestaurantLocation()}"
+                    android:background="@drawable/ic_button_location_restaurant">
+                </ImageView>
+            </LinearLayout>
         </RelativeLayout>
+
     </LinearLayout>
 </layout>

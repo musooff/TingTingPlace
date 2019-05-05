@@ -14,6 +14,8 @@ class Pocha(
         var reviewCount: Int = 121,
         var commentCount: Int = 232,
         var distance: Int = 332,
+        var lattitude: Double = 37.537229,
+        var longtitude: Double = 127.005515,
         var rating: Float = 4.2f,
         var location: String? = "부평구 부평대로 31길",
         var isLiked: Boolean = true,
