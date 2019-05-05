@@ -16,6 +16,7 @@ import android.content.ClipData
 import android.content.Context.CLIPBOARD_SERVICE
 import android.content.ClipboardManager
 import com.ballboycorp.tingting.R
+import com.ballboycorp.tingting.utils.extensions.copyToClipBoard
 
 
 /**
@@ -84,9 +85,7 @@ class ShareDialog: DialogFragment() {
     }
 
     fun copyUrl() {
-        val clipboard = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
-        val clip = ClipData.newPlainText("TingTinPlace", "TingTingPlace Copy")
-        clipboard?.primaryClip = clip
+        context?.copyToClipBoard("Some text")
         context?.showToast("It has been copied to the clipboard")
 
     }

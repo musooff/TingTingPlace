@@ -5,28 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
-import com.ballboycorp.tingting.contact.ContactActivity
-import com.ballboycorp.tingting.contact.add.NewQuestionActivity
 import com.ballboycorp.tingting.databinding.ActivityMainBinding
-import com.ballboycorp.tingting.event.EventActivity
-import com.ballboycorp.tingting.event.viewer.EventViewerActivity
-import com.ballboycorp.tingting.gift.GiftActivity
 import com.ballboycorp.tingting.main.home.HomeFragment
 import com.ballboycorp.tingting.main.more.MoreFragment
 import com.ballboycorp.tingting.main.pocha.PochaFragment
-import com.ballboycorp.tingting.main.pocha.model.Pocha
-import com.ballboycorp.tingting.notice.NoticeActivity
-import com.ballboycorp.tingting.pocha.PochaActivity
-import com.ballboycorp.tingting.pocha.chat.message.MessageActivity
+import com.ballboycorp.tingting.main.pocha.nearby.choose.ChooseLocationActivity
 import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
-import com.ballboycorp.tingting.pocha.details.map.PochaMapActivity
 import com.ballboycorp.tingting.profile.ProfileFragment
-import com.ballboycorp.tingting.review.add.AddReviewActivity
-import com.ballboycorp.tingting.review.my.MyReviewsActivity
-import com.ballboycorp.tingting.settings.SettingsActivity
 import com.ballboycorp.tingting.table.model.Table
-import com.ballboycorp.tingting.table.profile.ProfileActivity
-import com.ballboycorp.tingting.test.MapViewDemoActivity
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.startActivity
@@ -84,6 +70,6 @@ class MainActivity : BaseActivity() {
                 femaleCount = 1
         )
         table.addTestPeople()
-        startActivity<PochaMapActivity>()
+        startActivity<ChooseLocationActivity>()
     }
 }

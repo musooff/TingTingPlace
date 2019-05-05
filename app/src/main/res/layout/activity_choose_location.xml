@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.main.pocha.nearby.choose.ChooseLocationViewModel" />
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.main.pocha.nearby.choose.ChooseLocationActivity.ClickHandler" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:id="@+id/toolbar"
+            app:contentInsetStart="0dp"
+            android:background="@color/colorPrimary">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:id="@+id/iv_back"
+                    android:onClick="@{() -> clickHandler.onClickExit()}"
+                    app:srcCompat="@drawable/ic_exit"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:theme="@style/BoldTextView"
+                    android:id="@+id/tb_title"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="@string/title_select_location"
+                    android:textColor="@color/colorBlackSecond" />
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorWhite"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/colorBlackSecond"
+                android:lineSpacingExtra="0sp"
+                android:text="@{viewModel.location}"
+                tools:text="인천시 가좌3동" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/container_map">
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:id="@+id/iv_map_marker"
+                        android:visibility="invisible"
+                        android:src="@drawable/ic_map_marker"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:background="@drawable/default_button"
+                android:layout_marginBottom="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="12dp"
+                android:enabled="@{viewModel.canSelect}"
+                android:onClick="@{() -> clickHandler.onClickSelect()}"
+                android:textColor="@color/colorWhite"
+                android:text="@string/button_select_location"
+                android:layout_marginRight="12dp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

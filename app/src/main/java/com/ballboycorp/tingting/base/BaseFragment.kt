@@ -7,4 +7,7 @@ import androidx.fragment.app.Fragment
  */
 
 open class BaseFragment: Fragment() {
+    val mContext by lazy { context!! }
+
+    val mActivity by lazy { activity!! }
 }

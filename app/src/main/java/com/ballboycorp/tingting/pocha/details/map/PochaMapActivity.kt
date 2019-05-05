@@ -1,19 +1,16 @@
 package com.ballboycorp.tingting.pocha.details.map
 
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
 import android.os.Bundle
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseMapActivity
 import com.ballboycorp.tingting.databinding.ActivityPochaMapBinding
+import com.ballboycorp.tingting.utils.MapUtils.createCustomMarker
 import com.ballboycorp.tingting.utils.PermissionUtils
 import com.ballboycorp.tingting.utils.extensions.bind
+import com.ballboycorp.tingting.utils.extensions.copyToClipBoard
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.showSnackBar
 import kotlinx.android.synthetic.main.activity_pocha_map.*
-import net.daum.mf.map.api.MapLayout
-import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
 
@@ -23,9 +20,7 @@ import net.daum.mf.map.api.MapView
 
 class PochaMapActivity: BaseMapActivity() {
 
-    private lateinit var mMapView: MapView
-    private lateinit var mCustomMarker: MapPOIItem
-
+    private val mMapView by lazy { MapView(this) }
 
     private val viewModel by lazy { getViewModel<PochaMapViewModel>() }
 
@@ -40,22 +35,28 @@ class PochaMapActivity: BaseMapActivity() {
 
     }
 
+    override fun onPause() {
+        super.onPause()
+        container_map.removeAllViews()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         turnOffTracking()
     }
 
-    private fun initialize() {
-        val mapLayout = MapLayout(this)
-        mMapView = mapLayout.mapView
+    override fun onResume() {
+        super.onResume()
+        container_map.addView(mMapView)
+    }
 
+    private fun initialize() {
 
         mMapView.setOpenAPIKeyAuthenticationResultListener(this)
         mMapView.setMapViewEventListener(this)
         mMapView.mapType = MapView.MapType.Standard
 
-        container_map.addView(mapLayout)
-        mMapView.setCurrentLocationEventListener(this@PochaMapActivity)
+        mMapView.setCurrentLocationEventListener(this)
 
 
     }
@@ -70,29 +71,10 @@ class PochaMapActivity: BaseMapActivity() {
         viewModel.currentLocation = mapPoint
     }
 
-    private fun createCustomMarker(mapView: MapView, mapPoint: MapPoint,  title: String?) {
-        mCustomMarker = MapPOIItem()
-                .apply {
-                    itemName = title
-                    tag = 1
-                    this.mapPoint = mapPoint
-                    markerType = MapPOIItem.MarkerType.CustomImage
-                    customImageResourceId = R.drawable.ic_map_marker
-                    isCustomImageAutoscale = false
-                    setCustomImageAnchor(0.5f, 1.0f)
-                }
-
-        mapView.addPOIItem(mCustomMarker)
-        mapView.setMapCenterPoint(mapPoint, false)
-
-    }
-
     inner class ClickHandler {
 
         fun onClickCopy() {
-            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
-            val clip = ClipData.newPlainText(viewModel.pocha.title, viewModel.pocha.location)
-            clipboard?.primaryClip = clip
+            copyToClipBoard(viewModel.pocha.location)
             showSnackBar(container_map, "클립보드에 주소가 복사되었습니다.")
         }
 

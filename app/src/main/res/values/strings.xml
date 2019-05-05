@@ -150,4 +150,6 @@
     <string name="text_message_info">대화 상대</string>
     <string name="text_leave_chat">방을 나가시겠습니까?</string>
     <string name="text_leave_chat_title">알림</string>
+    <string name="button_select_location">위치 지정 완료</string>
+    <string name="title_select_location">지도로 위치 지정</string>
 </resources>

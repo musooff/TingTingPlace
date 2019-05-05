@@ -1,13 +1,20 @@
 package com.ballboycorp.tingting.base
 
 import net.daum.mf.map.api.MapPoint
+import net.daum.mf.map.api.MapReverseGeoCoder
 import net.daum.mf.map.api.MapView
 
 /**
  * Created by musooff on 2019-05-05.
  */
 
-open class BaseMapActivity: BaseActivity(), MapView.MapViewEventListener, MapView.OpenAPIKeyAuthenticationResultListener, MapView.CurrentLocationEventListener {
+open class BaseMapActivity : BaseActivity(), MapView.MapViewEventListener, MapView.OpenAPIKeyAuthenticationResultListener, MapView.CurrentLocationEventListener, MapReverseGeoCoder.ReverseGeoCodingResultListener {
+    override fun onReverseGeoCoderFailedToFindAddress(mapReverseGeoCoder: MapReverseGeoCoder?) {
+    }
+
+    override fun onReverseGeoCoderFoundAddress(mapReverseGeoCoder: MapReverseGeoCoder?, s: String?) {
+    }
+
     override fun onCurrentLocationUpdateFailed(mapView: MapView?) {
     }
 
@@ -38,10 +45,10 @@ open class BaseMapActivity: BaseActivity(), MapView.MapViewEventListener, MapVie
     override fun onMapViewCenterPointMoved(mapView: MapView, p1: MapPoint) {
     }
 
-    override fun onMapViewDragEnded(mapView: MapView, p1: MapPoint) {
+    override fun onMapViewDragEnded(mapView: MapView, mapPoint: MapPoint) {
     }
 
-    override fun onMapViewSingleTapped(mapView: MapView, p1: MapPoint) {
+    override fun onMapViewSingleTapped(mapView: MapView, mapPoint: MapPoint) {
     }
 
     override fun onMapViewZoomLevelChanged(mapView: MapView, p1: Int) {

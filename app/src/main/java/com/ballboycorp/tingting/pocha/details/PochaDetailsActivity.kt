@@ -2,19 +2,16 @@ package com.ballboycorp.tingting.pocha.details
 
 import android.os.Bundle
 import com.ballboycorp.tingting.R
-import com.ballboycorp.tingting.base.BaseActivity
+import com.ballboycorp.tingting.base.BaseMapActivity
 import com.ballboycorp.tingting.databinding.ActivityPochaDetailsBinding
 import com.ballboycorp.tingting.pocha.details.adapter.MenuAdapter
 import com.ballboycorp.tingting.pocha.details.dialog.ShareDialog
+import com.ballboycorp.tingting.pocha.details.map.PochaMapActivity
 import com.ballboycorp.tingting.review.ReviewActivity
 import com.ballboycorp.tingting.review.model.ReviewItemViewModel
-import com.ballboycorp.tingting.utils.extensions.bind
-import com.ballboycorp.tingting.utils.extensions.getViewModel
-import com.ballboycorp.tingting.utils.extensions.observe
-import com.ballboycorp.tingting.utils.extensions.startActivity
-import com.kakao.kakaonavi.Location
+import com.ballboycorp.tingting.utils.MapUtils.createCustomMarker
+import com.ballboycorp.tingting.utils.extensions.*
 import kotlinx.android.synthetic.main.activity_pocha_details.*
-import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
 
@@ -22,58 +19,10 @@ import net.daum.mf.map.api.MapView
  * Created by musooff on 13/04/2019.
  */
 
-class PochaDetailsActivity: BaseActivity(), MapView.MapViewEventListener, MapView.POIItemEventListener {
-    override fun onCalloutBalloonOfPOIItemTouched(p0: MapView?, p1: MapPOIItem?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onCalloutBalloonOfPOIItemTouched(p0: MapView?, p1: MapPOIItem?, p2: MapPOIItem.CalloutBalloonButtonType?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onDraggablePOIItemMoved(p0: MapView?, p1: MapPOIItem?, p2: MapPoint?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onPOIItemSelected(p0: MapView?, p1: MapPOIItem?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onMapViewDoubleTapped(p0: MapView?, p1: MapPoint?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onMapViewInitialized(p0: MapView?) {
-    }
-
-    override fun onMapViewDragStarted(p0: MapView?, p1: MapPoint?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onMapViewMoveFinished(p0: MapView?, p1: MapPoint?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onMapViewCenterPointMoved(p0: MapView?, p1: MapPoint?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onMapViewDragEnded(p0: MapView?, p1: MapPoint?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onMapViewSingleTapped(p0: MapView?, p1: MapPoint?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onMapViewZoomLevelChanged(p0: MapView?, p1: Int) {
-    }
-
-    override fun onMapViewLongPressed(p0: MapView?, p1: MapPoint?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+class PochaDetailsActivity: BaseMapActivity() {
 
     private val viewModel by lazy { getViewModel<PochaDetailsViewModel>() }
+    private lateinit var mMapView : MapView
 
     private val menuAdapter = MenuAdapter()
 
@@ -90,6 +39,17 @@ class PochaDetailsActivity: BaseActivity(), MapView.MapViewEventListener, MapVie
         initialize()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        initializeMapView()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        container_map.removeAllViews()
+    }
+
     private fun initialize() {
         viewModel.getPocha()
 
@@ -103,22 +63,28 @@ class PochaDetailsActivity: BaseActivity(), MapView.MapViewEventListener, MapVie
             binding.review1.viewModel = reviewViewModel
             binding.review2.viewModel = reviewViewModel
         }
+    }
 
+    private fun initializeMapView() {
 
+        mMapView = MapView(this)
 
-        val mapView = MapView(this)
-        container_map.addView(mapView)
+        mMapView.setOpenAPIKeyAuthenticationResultListener(this)
+        mMapView.setMapViewEventListener(this)
+        mMapView.mapType = MapView.MapType.Standard
 
-        mapView.setMapViewEventListener(this)
-        mapView.setPOIItemEventListener(this)
+        container_map.addView(mMapView)
 
-        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(37.53737528, 127.00557633), true);
-        mapView.setZoomLevel(7, true);
-        mapView.setMapCenterPointAndZoomLevel(MapPoint.mapPointWithGeoCoord(33.41, 126.52), 9, true);
-        mapView.zoomIn(true);
-        mapView.zoomOut(true);
+    }
 
+    override fun onMapViewInitialized(mapView: MapView) {
+        val mapPoint = MapPoint.mapPointWithGeoCoord(viewModel.pocha.latitude, viewModel.pocha.longtitude)
+        mapView.setMapCenterPointAndZoomLevel(mapPoint, 2, true)
+        createCustomMarker(mapView, mapPoint, viewModel.pocha.title)
+    }
 
+    override fun onMapViewSingleTapped(mapView: MapView, mapPoint: MapPoint) {
+        startActivity<PochaMapActivity>()
     }
 
     inner class ClickHandler {
@@ -138,5 +104,15 @@ class PochaDetailsActivity: BaseActivity(), MapView.MapViewEventListener, MapVie
         fun onClickShare() {
             ShareDialog.show(supportFragmentManager)
         }
+
+        fun onClickGoTo() {
+            startActivity<PochaMapActivity>()
+        }
+
+        fun onClickCopy() {
+            copyToClipBoard(viewModel.pocha.location)
+            showToast("클립보드에 주소가 복사되었습니다.")
+        }
+
     }
 }

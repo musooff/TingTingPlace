@@ -9,9 +9,6 @@ import androidx.fragment.app.FragmentManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.DialogLocationOptionBinding
 import com.ballboycorp.tingting.main.pocha.PochaFragment
-import com.ballboycorp.tingting.main.pocha.dialog.SortDialogListener
-import com.ballboycorp.tingting.main.pocha.model.SortType
-import com.ballboycorp.tingting.main.pocha.nearby.NearbyFragment
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 
@@ -37,10 +34,6 @@ class LocationOptionDialog: DialogFragment() {
         binding.viewModel = viewModel
         binding.clickHandler = ClickHandler()
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 
     inner class ClickHandler {

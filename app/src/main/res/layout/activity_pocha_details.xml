@@ -11,7 +11,7 @@
             type="com.ballboycorp.tingting.pocha.details.PochaDetailsViewModel"/>
     </data>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -431,6 +431,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="12sp"
+                            android:onClick="@{() -> clickHandler.onClickCopy()}"
                             android:id="@+id/text_copy"
                             android:textColor="@color/colorBlue"
                             android:lineSpacingExtra="0sp"
@@ -644,6 +645,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:background="@drawable/default_button"
                     android:id="@+id/button_go_to"
+                    android:onClick="@{() -> clickHandler.onClickGoTo()}"
                     android:gravity="center">
                     <ImageView
                         android:layout_width="24dp"
@@ -666,5 +668,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </layout>

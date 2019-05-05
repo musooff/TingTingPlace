@@ -52,11 +52,10 @@
         <activity android:name=".table.nearby.profile.NearbyProfileActivity" />
         <activity android:name=".table.my.MyTableProfileActivity" />
         <activity android:name=".gift.GiftActivity" />
+        <activity android:name=".main.pocha.nearby.choose.ChooseLocationActivity"/>
         <activity
             android:name=".pocha.chat.message.MessageActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".test.MapViewDemoActivity"
-            android:theme="@style/AppTheme"/>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"

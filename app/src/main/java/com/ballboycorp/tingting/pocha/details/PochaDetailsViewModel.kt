@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import com.ballboycorp.tingting.BR
 import com.ballboycorp.tingting.base.BaseObservableViewModel
 import com.ballboycorp.tingting.main.pocha.model.Pocha
+import com.ballboycorp.tingting.main.pocha.model.PochaItemViewModel
 import com.ballboycorp.tingting.pocha.details.model.Menu
 import com.ballboycorp.tingting.review.model.Review
 
@@ -24,6 +25,13 @@ class PochaDetailsViewModel : BaseObservableViewModel() {
             view.isActivated = value
         }
     }
+
+    var pocha = PochaItemViewModel(Pocha())
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.pocha)
+        }
 
     var isLiked: Boolean = false
         @Bindable get() = field
