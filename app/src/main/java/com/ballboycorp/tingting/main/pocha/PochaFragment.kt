@@ -19,7 +19,6 @@ import android.content.Context
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.utils.PermissionUtils
 
-
 /**
  * Created by musooff on 08/04/2019.
  */
@@ -69,8 +68,7 @@ class PochaFragment : BaseFragment() {
     fun onLocationTypeSelected(type: Int) {
         if (type == 0) {
             getLastBestLocation()
-        }
-        else startActivityForResult<ChooseLocationActivity>(REQUEST_CHOOSE)
+        } else startActivityForResult<ChooseLocationActivity>(REQUEST_CHOOSE)
     }
 
     inner class ClickHandler {
@@ -82,13 +80,13 @@ class PochaFragment : BaseFragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_CHOOSE){
+        if (requestCode == REQUEST_CHOOSE) {
             showToast("got location")
         }
     }
 
     private fun getLastBestLocation() {
-        PermissionUtils.requestLocation(mActivity, object :PermissionUtils.OnPermissionResult {
+        PermissionUtils.requestLocation(mActivity, object : PermissionUtils.OnPermissionResult {
             @SuppressLint("MissingPermission")
             override fun onResult(requestCode: Int, granted: Boolean, permissions: Array<out String>) {
                 if (granted) {

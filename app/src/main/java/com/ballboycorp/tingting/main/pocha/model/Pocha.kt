@@ -23,5 +23,6 @@ class Pocha(
         var descriptionMore: String? = "ㆍ8시 이전 여성 입장시 소주 1병 무료\nㆍSNS 공유시 음료수 1병 무료",
         var phone: String? = "032-444-1234",
         var workTime: String? = "평일 11:00 ~ 24:00, 연중무휴",
-        var myReview: Review? = null
+        var myReview: Review? = null,
+        var thumbs: List<String> = arrayListOf("", "", "")
 ) : Parcelable

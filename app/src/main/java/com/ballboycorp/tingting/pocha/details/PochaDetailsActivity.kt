@@ -3,8 +3,10 @@ package com.ballboycorp.tingting.pocha.details
 import android.os.Bundle
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseMapActivity
+import com.ballboycorp.tingting.common.adapter.ImagePagerAdapter
 import com.ballboycorp.tingting.databinding.ActivityPochaDetailsBinding
 import com.ballboycorp.tingting.pocha.details.adapter.MenuAdapter
+import com.ballboycorp.tingting.pocha.details.adapter.ThumbsPlaceholderPagerAdapter
 import com.ballboycorp.tingting.pocha.details.dialog.ShareDialog
 import com.ballboycorp.tingting.pocha.details.map.PochaMapActivity
 import com.ballboycorp.tingting.review.ReviewActivity
@@ -19,23 +21,33 @@ import net.daum.mf.map.api.MapView
  * Created by musooff on 13/04/2019.
  */
 
-class PochaDetailsActivity: BaseMapActivity() {
+class PochaDetailsActivity : BaseMapActivity() {
 
     private val viewModel by lazy { getViewModel<PochaDetailsViewModel>() }
-    private lateinit var mMapView : MapView
+    private lateinit var mMapView: MapView
 
     private val menuAdapter = MenuAdapter()
+    private val thumbAdapter = ImagePagerAdapter()
+    private val thumbPlaceHolderAdapter = ThumbsPlaceholderPagerAdapter()
 
     private lateinit var binding: ActivityPochaDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        makeTransparentStatus()
+
         binding = bind(R.layout.activity_pocha_details)
         binding.viewModel = viewModel
         binding.clickHandler = ClickHandler()
 
         setSupportActionBar(toolbar)
+
+        vp_thumb_placeholder.onPageChange { vp_thumb.currentItem = it }
+
+        vp_thumb_placeholder.adapter = thumbPlaceHolderAdapter
+        vp_thumb.adapter = thumbAdapter
+
         initialize()
     }
 
@@ -53,6 +65,8 @@ class PochaDetailsActivity: BaseMapActivity() {
     private fun initialize() {
         viewModel.getPocha()
 
+        thumbAdapter.submitList(viewModel.pocha.thumbs)
+        thumbPlaceHolderAdapter.submitList(viewModel.pocha.title, viewModel.pocha.thumbs)
 
         viewModel.getMenus().observe(this) {
             menuAdapter.submitList(it)

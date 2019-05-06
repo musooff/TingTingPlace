@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.pocha.details.thumbs.ImageViewerViewModel" />
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.pocha.details.thumbs.ImageViewerActivity.ClickHandler" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/colorBlackFirst"
+        android:fitsSystemWindows="true"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:id="@+id/toolbar"
+            android:fitsSystemWindows="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:contentInsetStart="0dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:id="@+id/iv_back"
+                    android:tint="@color/colorWhite"
+                    app:srcCompat="@drawable/ic_arrow_left_black_24dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:text="Title"
+                    android:theme="@style/BoldTextView"
+                    android:id="@+id/tb_title"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="@{viewModel.title}"
+                    android:textColor="@color/colorWhite" />
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/vp_thumb"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H, 360:267"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="14sp"
+            android:theme="@style/RegularTextView"
+            android:textColor="@color/colorWhite"
+            android:lineSpacingExtra="0sp"
+            android:text="@{viewModel.currentItem + `/` + viewModel.thumbs.size}"
+            android:gravity="center_horizontal"
+            tools:text="01/10"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

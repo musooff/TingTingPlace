@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
+import com.ballboycorp.tingting.common.adapter.ImagePagerAdapter
 import com.ballboycorp.tingting.common.dialog.YesNoCallback
 import com.ballboycorp.tingting.common.dialog.YesNoDialog
 import com.ballboycorp.tingting.databinding.FragmentPochaHomeBinding
 import com.ballboycorp.tingting.gift.GiftActivity
-import com.ballboycorp.tingting.main.home.adapter.ViewPagerAdapter
 import com.ballboycorp.tingting.main.home.utils.ItemDecorator
 import com.ballboycorp.tingting.pocha.PochaActivity
 import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog
@@ -34,9 +34,8 @@ import kotlinx.android.synthetic.main.fragment_pocha_home.*
  * Created by musooff on 20/04/2019.
  */
 
-class HomeFragment: BaseFragment(),
-        YesNoCallback
-{
+class HomeFragment : BaseFragment(),
+        YesNoCallback {
 
     companion object {
         private const val ALERT_EXIT = "alert_exit"
@@ -47,7 +46,7 @@ class HomeFragment: BaseFragment(),
     private val clickHandler = ClickHandler()
     private var tableAdapter = TableAdapter(clickHandler)
     private var nearbyTableAdapter = NearbyTableAdapter(clickHandler)
-    private val viewPagerAdapter = ViewPagerAdapter()
+    private val viewPagerAdapter = ImagePagerAdapter()
 
 
     private val viewModel by lazy { getViewModel<HomeViewModel>() }
@@ -75,6 +74,9 @@ class HomeFragment: BaseFragment(),
                 testPochas.add(TableItemViewModel(table))
             }
         }
+
+        viewPagerAdapter.submitList(arrayListOf("", "", ""))
+
         tableAdapter.submitList(testPochas)
 
         rv_table_nearby.adapter = nearbyTableAdapter
@@ -169,8 +171,7 @@ class HomeFragment: BaseFragment(),
         fun onClickGame() {
             if (viewModel.isGameCreated) {
                 (activity as PochaActivity).moveToPage(1)
-            }
-            else {
+            } else {
                 showDialog(
                         ::CreateRoomDialog,
                         CreateRoomDialog.RANDOM_ROOM to true

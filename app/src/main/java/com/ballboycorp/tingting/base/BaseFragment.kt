@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
  * Created by musooff on 08/04/2019.
  */
 
-open class BaseFragment: Fragment() {
+open class BaseFragment : Fragment() {
     val mContext by lazy { context!! }
 
     val mActivity by lazy { activity!! }

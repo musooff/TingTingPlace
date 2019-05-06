@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
-import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.utils.PermissionUtils
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar.view.*
@@ -15,7 +13,7 @@ import kotlinx.android.synthetic.main.toolbar.view.*
  * Created by musooff on 07/04/2019.
  */
 
-open class BaseActivity: AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +23,7 @@ open class BaseActivity: AppCompatActivity() {
     fun initToolbar(title: String, withBackButton: Boolean = false) {
         toolbar.tb_title.text = title
         setSupportActionBar(toolbar)
-        if (withBackButton){
+        if (withBackButton) {
             toolbar.iv_back.visibility = View.VISIBLE
             toolbar.iv_back.setOnClickListener { onBackPressed() }
         }

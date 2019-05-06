@@ -96,4 +96,11 @@ class PochaItemViewModel(pocha: Pocha) : BaseObservableViewModel() {
             field = value
             notifyPropertyChanged(BR.myReview)
         }
+
+    var thumbs: List<String> = pocha.thumbs
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.thumbs)
+        }
 }

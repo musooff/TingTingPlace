@@ -53,6 +53,7 @@
         <activity android:name=".table.my.MyTableProfileActivity" />
         <activity android:name=".gift.GiftActivity" />
         <activity android:name=".main.pocha.nearby.choose.ChooseLocationActivity"/>
+        <activity android:name=".pocha.details.thumbs.ImageViewerActivity"/>
         <activity
             android:name=".pocha.chat.message.MessageActivity"
             android:windowSoftInputMode="adjustResize" />

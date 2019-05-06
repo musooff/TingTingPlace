@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
+import com.ballboycorp.tingting.common.adapter.ImagePagerAdapter
 import com.ballboycorp.tingting.databinding.FragmentHomeBinding
 import com.ballboycorp.tingting.liked.LikedActivity
 import com.ballboycorp.tingting.main.home.adapter.ViewPagerAdapter
@@ -40,7 +41,7 @@ class HomeFragment: BaseFragment() {
 
     private val viewModel by lazy { getViewModel<HomeViewModel>() }
 
-    private val viewPagerAdapter = ViewPagerAdapter()
+    private val viewPagerAdapter = ImagePagerAdapter()
 
 
 
@@ -61,6 +62,8 @@ class HomeFragment: BaseFragment() {
 
     private fun initialize(){
         initializeViewModel()
+
+        viewPagerAdapter.submitList(arrayListOf("", "", ""))
     }
 
     private fun initializeViewModel() {
