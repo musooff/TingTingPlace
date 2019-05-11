@@ -45,7 +45,7 @@ class MoreFragment: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tb_title.text = "더보기"
+        tb_title.text = ""
     }
 
     inner class ClickHandler {
