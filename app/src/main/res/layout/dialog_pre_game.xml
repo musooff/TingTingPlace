@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="12dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         android:paddingRight="12dp">
 
         <RelativeLayout
@@ -34,6 +34,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="0sp"
+                android:theme="@style/BoldTextView"
                 android:text="@{viewModel.title}"
                 android:textColor="@color/colorBlackSecond"
                 android:textSize="14sp"
@@ -52,15 +53,16 @@
             android:textColor="@color/colorBlackSecond"
             android:textSize="14sp" />
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:gravity="center"
-                android:layout_centerInParent="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/container_game"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -75,11 +77,20 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         app:cardCornerRadius="5dp"
-                        app:cardElevation="0dp">
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/placeholder_thumb" />
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/colorGrey">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="76dp"
+                            android:layout_height="76dp"
+                            app:cardElevation="0dp"
+                            app:cardCornerRadius="5dp"
+                            android:layout_margin="2dp">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/image_game"
+                                android:scaleType="fitXY"/>
+                        </androidx.cardview.widget.CardView>
                     </androidx.cardview.widget.CardView>
 
                     <TextView
@@ -108,11 +119,20 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         app:cardCornerRadius="5dp"
-                        app:cardElevation="0dp">
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/placeholder_thumb" />
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/colorGrey">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="76dp"
+                            android:layout_height="76dp"
+                            app:cardElevation="0dp"
+                            app:cardCornerRadius="5dp"
+                            android:layout_margin="2dp">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/image_cham"
+                                android:scaleType="fitXY"/>
+                        </androidx.cardview.widget.CardView>
                     </androidx.cardview.widget.CardView>
 
                     <TextView
@@ -135,8 +155,11 @@
                 android:layout_height="120dp"
                 app:cardCornerRadius="60dp"
                 app:cardElevation="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/container_game"
                 android:visibility="@{viewModel.loading ? View.VISIBLE : View.INVISIBLE}"
-                android:layout_centerInParent="true">
+                android:layout_centerHorizontal="true">
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -151,7 +174,7 @@
 
                 </TextView>
             </androidx.cardview.widget.CardView>
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -164,32 +187,28 @@
                 android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
                 android:weightSum="2">
 
-                <TextView
+                <Button
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/button_height"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
                     android:layout_weight="1"
                     android:background="@drawable/shape_rectangle_outline_grey_4"
-                    android:gravity="center_horizontal"
                     android:lineSpacingExtra="0sp"
                     android:onClick="@{() -> clickHandler.onClickNo()}"
-                    android:padding="10dp"
                     android:text="@{viewModel.requestKind ? @string/pre_game_request_negative : @string/pre_game_notice_negative}"
                     android:textColor="@color/colorGrey"
                     android:textSize="12sp" />
 
-                <TextView
+                <Button
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/button_height"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
                     android:layout_weight="1"
                     android:background="@drawable/shape_rectangle_red_4"
-                    android:gravity="center_horizontal"
                     android:lineSpacingExtra="0sp"
                     android:onClick="@{() -> clickHandler.onClickYes()}"
-                    android:padding="10dp"
                     android:text="@{viewModel.requestKind ? @string/pre_game_request_positive : @string/pre_game_notice_positive}"
                     android:textColor="@color/colorWhite"
                     android:textSize="12sp" />
@@ -197,14 +216,13 @@
 
             </LinearLayout>
 
-            <TextView
+            <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/button_height"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
                 android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}"
                 android:background="@drawable/shape_rectangle_outline_grey_4"
-                android:gravity="center"
                 android:lineSpacingExtra="0sp"
                 android:onClick="@{() -> clickHandler.onClickCancel()}"
                 android:padding="10dp"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <import type="com.ballboycorp.tingting.R" />
         <variable
@@ -11,7 +11,6 @@
     </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
         android:layout_width="wrap_content"
@@ -30,10 +29,27 @@
                 android:layout_margin="2dp"
                 app:cardCornerRadius="4dp"
                 app:cardElevation="0dp">
-                <ImageView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/placeholder_thumb"/>
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/image_game"/>
+                    
+                    <ImageButton
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:onClick="@{() -> clickHandler.onClickGameInfo()}"
+                        android:background="@drawable/ic_question_mark_blue"/>
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
 

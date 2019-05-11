@@ -16,10 +16,7 @@ import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
 import com.ballboycorp.tingting.pocha.dialog.room.model.game.GameItemViewModel
 import com.ballboycorp.tingting.pocha.dialog.room.model.bet.Bet
 import com.ballboycorp.tingting.pocha.dialog.room.model.bet.BetItemViewModel
-import com.ballboycorp.tingting.utils.extensions.bind
-import com.ballboycorp.tingting.utils.extensions.getScreenWidth
-import com.ballboycorp.tingting.utils.extensions.getViewModel
-import com.ballboycorp.tingting.utils.extensions.setWidthPercentage
+import com.ballboycorp.tingting.utils.extensions.*
 import kotlinx.android.synthetic.main.dialog_create_room.*
 
 
@@ -112,6 +109,18 @@ class CreateRoomDialog : DialogFragment() {
             giftKindAdapter.onClickItem(betItemViewModel)
             viewModel.selectedGiftId = betItemViewModel.id
             viewModel.verifyCanCreateRoom()
+        }
+
+        fun onClickCheckBoxText() {
+            viewModel.isRandomJoin = !viewModel.isRandomJoin
+        }
+
+        fun onClickHelp() {
+            showToast("도움말 보기")
+        }
+
+        fun onClickGameInfo() {
+            showToast("게임 보기")
         }
     }
 }

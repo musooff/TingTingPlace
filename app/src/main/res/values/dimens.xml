@@ -9,4 +9,5 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="button_height">46dp</dimen>
+    <dimen name="button_height_small">30dp</dimen>
 </resources>

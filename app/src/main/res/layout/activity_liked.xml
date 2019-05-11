@@ -45,6 +45,7 @@
                     android:id="@+id/tb_title"
                     android:gravity="center"
                     android:textSize="16sp"
+                    android:theme="@style/BoldTextView"
                     android:textColor="@color/colorBlackSecond" />
 
                 <TextView
@@ -56,6 +57,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
                     android:gravity="end"
+                    android:theme="@style/BoldTextView"
                     android:lineSpacingExtra="0sp"
                     android:onClick="@{() -> clickHandler.onClickEdit()}"
                     android:text='@{viewModel.editMode ? R.string.button_cancel : R.string.button_edit }'

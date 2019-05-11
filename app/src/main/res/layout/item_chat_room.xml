@@ -83,19 +83,19 @@
 
             </LinearLayout>
             <androidx.cardview.widget.CardView
-                android:layout_width="26dp"
-                android:layout_height="16dp"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
                 app:cardBackgroundColor="@color/colorRed"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="@id/cv_thumb"
                 android:id="@+id/cv_message_count"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="10dp">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textSize="12sp"
                     android:gravity="center"
-                    android:theme="@style/RegularTextView"
+                    android:textAlignment="center"
                     android:text="@{``+viewModel.notReadCount}"
                     android:textColor="@color/colorWhite"
                     android:lineSpacingExtra="0sp"

@@ -10,6 +10,7 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.DialogPreGameBinding
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.setWidthPercentage
 
 /**
  * Created by musooff on 2019-04-26.
@@ -40,6 +41,11 @@ class PreGameDialog : DialogFragment() {
             viewModel.game = it.getParcelable(GAME)
             viewModel.bet = it.getParcelable(GIFT)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setWidthPercentage(.9)
     }
 
     inner class ClickHandler {

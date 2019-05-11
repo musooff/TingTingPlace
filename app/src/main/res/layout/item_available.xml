@@ -57,8 +57,7 @@
                     android:lineSpacingExtra="0sp"
                     android:text="@string/text_duration"
                     android:textColor="@color/colorAccent"
-                    android:textSize="16sp"
-                    android:theme="@style/RegularTextView" />
+                    android:textSize="16sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"

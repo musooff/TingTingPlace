@@ -80,7 +80,6 @@
                                 android:textSize="14sp"
                                 android:layout_marginLeft="2dp"
                                 android:layout_marginRight="2dp"
-                                android:theme="@style/RegularTextView"
                                 android:textColor="@color/colorWhite"
                                 android:lineSpacingExtra="0sp"
                                 android:gravity="center_horizontal"

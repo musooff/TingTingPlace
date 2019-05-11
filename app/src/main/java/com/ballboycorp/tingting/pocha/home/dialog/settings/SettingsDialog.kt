@@ -5,27 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.DialogPochaSettingsBinding
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.setWidthPercentage
 
 /**
  * Created by musooff on 2019-04-21.
  */
 
 class SettingsDialog: DialogFragment() {
-
-    companion object {
-
-        private const val DIALOG_TAG = "SettingsDialog"
-
-        fun show(fragmentManager: FragmentManager) {
-            val dialog = SettingsDialog()
-            dialog.show(fragmentManager, DIALOG_TAG)
-        }
-    }
 
     private val viewModel by lazy { getViewModel<SettingsViewModel>() }
 
@@ -34,6 +24,11 @@ class SettingsDialog: DialogFragment() {
         binding.viewModel = viewModel
         binding.clickHandler = ClickHandler()
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setWidthPercentage(.9)
     }
 
     inner class ClickHandler {

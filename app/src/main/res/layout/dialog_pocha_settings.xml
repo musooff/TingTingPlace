@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <import type="android.view.View"/>
         <variable
@@ -15,7 +14,10 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -30,7 +32,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:layout_centerHorizontal="true"
+                android:theme="@style/BoldTextView"
+                android:layout_centerInParent="true"
                 android:textColor="@color/colorBlackSecond"
                 android:lineSpacingExtra="0sp"
                 android:gravity="center_horizontal"
@@ -40,8 +43,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="8dp"
-            android:padding="8dp">
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:layout_marginTop="16dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"

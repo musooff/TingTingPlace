@@ -75,7 +75,6 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textSize="15sp"
-                android:theme="@style/RegularTextView"
                 android:textColor="@color/colorBlackFifth"
                 android:lineSpacingExtra="0sp"
                 android:gravity="center_horizontal"

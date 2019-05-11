@@ -122,7 +122,7 @@ class HomeFragment : BaseFragment(),
     inner class ClickHandler {
 
         fun onClickSettings() {
-            SettingsDialog.show(childFragmentManager)
+            showDialog(::SettingsDialog)
         }
 
         fun onClickItem(tableItemViewModel: TableItemViewModel, isChatMode: Boolean, isGameMode: Boolean) {

@@ -31,7 +31,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{title}"
-                android:theme="@style/RegularTextView"
                 android:textColor="@color/colorBlackFirst"
                 android:textSize="14sp"
                 android:layout_marginLeft="10dp"

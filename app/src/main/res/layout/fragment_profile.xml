@@ -83,7 +83,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
-                        android:theme="@style/RegularTextView"
                         android:text="@{viewModel.editProfileText}"
                         android:textColor="@color/colorBlackSecond"
                         android:textSize="12sp" />
@@ -100,7 +99,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
-                        android:theme="@style/RegularTextView"
                         android:text="@string/profile_coin_header"
                         android:textColor="@color/colorBlackFirst"
                         android:textSize="10sp"
@@ -115,7 +113,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginLeft="8dp"
-                        android:theme="@style/RegularTextView"
                         android:text="@{viewModel.coin}"
                         android:textColor="@color/colorBlackFirst"
                         android:textSize="10sp"

@@ -11,6 +11,7 @@ import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.databinding.DialogYesNoBinding
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.setWidthPercentage
 
 /**
  * Created by musooff on 2019-04-23.
@@ -65,6 +66,11 @@ class YesNoDialog: DialogFragment() {
             viewModel.title = it.getString(TITLE)
             viewModel.text = it.getString(TEXT)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setWidthPercentage(.9)
     }
 
     inner class ClickHandler {

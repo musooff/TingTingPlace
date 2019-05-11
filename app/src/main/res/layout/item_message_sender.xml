@@ -49,7 +49,6 @@
                     android:textSize="14sp"
                     android:padding="10dp"
                     android:maxWidth="240dp"
-                    android:theme="@style/RegularTextView"
                     android:textColor="@color/colorBlackSecond"
                     android:lineSpacingExtra="0sp"
                     android:gravity="end"

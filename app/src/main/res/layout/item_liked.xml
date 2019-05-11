@@ -60,12 +60,12 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
+                    app:layout_constraintLeft_toLeftOf="parent"
                     android:id="@+id/text_title"
+                    android:theme="@style/BoldTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toStartOf="@id/ll_location"
-                    android:layout_toLeftOf="@id/ll_location"
                     android:lineSpacingExtra="0sp"
                     android:textColor="@color/colorBlackSecond"
                     android:textSize="16sp"

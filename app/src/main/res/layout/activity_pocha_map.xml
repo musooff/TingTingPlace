@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout>
     <data>
         <variable
             name="viewModel"
@@ -46,7 +45,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
-                    android:theme="@style/RegularTextView"
                     android:textColor="@color/colorBlackSecond"
                     android:lineSpacingExtra="0sp"
                     android:ellipsize="end"
@@ -58,7 +56,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
                     android:layout_marginTop="8dp"
-                    android:theme="@style/RegularTextView"
                     android:textColor="@color/colorBlackSecond"
                     android:lineSpacingExtra="0sp"
                     android:text="@{viewModel.pocha.phone}"

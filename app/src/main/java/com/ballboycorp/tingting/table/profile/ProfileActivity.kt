@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityTableProfileBinding
+import com.ballboycorp.tingting.pocha.chat.message.MessageActivity
 import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomCallback
 import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog
 import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
@@ -16,6 +17,7 @@ import com.ballboycorp.tingting.table.profile.dialog.PreGameDialog
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
 import com.ballboycorp.tingting.utils.extensions.showDialog
+import com.ballboycorp.tingting.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.activity_table_profile.*
 
 /**
@@ -79,6 +81,9 @@ class ProfileActivity: BaseActivity(), CreateRoomCallback {
                 showDialog(
                         ::CreateRoomDialog,
                         CreateRoomDialog.RANDOM_ROOM to false)
+            }
+            else if (viewModel.chatSelectionMode) {
+                startActivity<MessageActivity>()
             }
         }
     }

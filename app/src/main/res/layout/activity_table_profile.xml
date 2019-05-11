@@ -27,20 +27,21 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                <ImageButton
+                    android:layout_width="14dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
+                    android:scaleType="fitXY"
                     android:id="@+id/iv_back"
                     android:onClick="@{() -> clickHandler.onClickBack()}"
-                    app:srcCompat="@drawable/ic_arrow_left_black_24dp"/>
+                    android:background="@drawable/ic_arrow_left_black_24dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     tools:text="Title"
-
+                    android:theme="@style/BoldTextView"
                     android:text="@{@string/text_table_number(viewModel.tableItemViewModel.tableNumber)}"                    android:textStyle="bold"
                     android:id="@+id/tb_title"
                     android:gravity="center"
@@ -56,11 +57,12 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
                     android:gravity="end"
+                    android:theme="@style/BoldTextView"
                     android:lineSpacingExtra="0sp"
                     android:visibility="@{(viewModel.chatSelectionMode || viewModel.gameSelectionMode) ? View.VISIBLE : View.GONE}"
                     android:onClick="@{() -> viewModel.onClickCancel()}"
                     android:text='@string/button_cancel'
-                    android:textColor="#333333"
+                    android:textColor="@color/colorAccent"
                     android:textSize="14sp" />
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
@@ -98,27 +100,25 @@
             android:weightSum="2"
             android:padding="12dp">
 
-            <TextView
+            <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="46dp"
+                android:layout_height="@dimen/button_height"
                 android:textSize="12sp"
-                android:padding="10dp"
                 android:layout_marginRight="6dp"
                 android:layout_marginEnd="6dp"
-                android:background="@drawable/shape_rectangle_outline_black_4"
+                android:background="@drawable/button_black_outline"
                 android:textColor="@color/colorAccent"
                 android:lineSpacingExtra="0sp"
                 android:visibility="@{(viewModel.chatSelectionMode || viewModel.gameSelectionMode) ? View.GONE : View.VISIBLE}"
                 android:onClick="@{() -> viewModel.onClickChat()}"
                 android:gravity="center"
                 android:text="@string/text_chatting"/>
-            <TextView
+            <Button
                 android:layout_width="0dp"
-                android:layout_height="46dp"
+                android:layout_height="@dimen/button_height"
                 android:layout_weight="1"
                 android:textSize="12sp"
-                android:padding="10dp"
                 android:layout_marginLeft="6dp"
                 android:layout_marginStart="6dp"
                 android:background="@drawable/shape_rectangle_blue_4"

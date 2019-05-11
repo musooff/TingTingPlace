@@ -58,6 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:theme="@style/BoldTextView"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:lineSpacingExtra="0sp"
@@ -131,19 +132,18 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/text_rating" />
 
-            <TextView
+            <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:textSize="12sp"
                 android:textColor="@color/colorBlackSecond"
                 android:lineSpacingExtra="0sp"
+                android:theme="@style/BoldTextView"
                 android:text="@string/button_review"
-                android:padding="10dp"
                 android:onClick="@{() -> clickHandler.onClickReview(viewModel)}"
-                android:background="@drawable/shape_rectangle_outline_black_4"
+                android:background="@drawable/button_black_outline"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                />
+                app:layout_constraintRight_toRightOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
