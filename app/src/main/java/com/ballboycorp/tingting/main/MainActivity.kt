@@ -9,9 +9,11 @@ import com.ballboycorp.tingting.databinding.ActivityMainBinding
 import com.ballboycorp.tingting.main.home.HomeFragment
 import com.ballboycorp.tingting.main.more.MoreFragment
 import com.ballboycorp.tingting.main.pocha.PochaFragment
+import com.ballboycorp.tingting.pocha.PochaActivity
 import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
 import com.ballboycorp.tingting.pocha.details.thumbs.ImageViewerActivity
 import com.ballboycorp.tingting.profile.ProfileFragment
+import com.ballboycorp.tingting.shop.ShopActivity
 import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
@@ -66,6 +68,6 @@ class MainActivity : BaseActivity() {
 
         val table = Table(maleCount = 2, femaleCount = 1)
         table.addTestPeople()
-        //startActivity<PochaDetailsActivity>()
+        startActivity<ShopActivity>()
     }
 }

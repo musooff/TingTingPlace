@@ -178,5 +178,9 @@ class HomeFragment : BaseFragment(),
                 )
             }
         }
+
+        fun onClickShop() {
+
+        }
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <import type="android.view.View" />
         <variable
@@ -13,7 +13,8 @@
     </data>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -30,7 +31,7 @@
                     android:id="@+id/vp_pocha_home"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    app:layout_constraintDimensionRatio="H, 360:150"
+                    app:layout_constraintDimensionRatio="H, 360:158"
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <com.google.android.material.tabs.TabLayout
@@ -58,32 +59,108 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintTop_toBottomOf="@id/vp_pocha_home">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@color/colorRed"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintDimensionRatio="H, 360: 30">
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:srcCompat="@drawable/ic_counter"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginRight="2dp"
+                                android:theme="@style/RegularTextView"
+                                android:textColor="@color/colorWhite"
+                                android:lineSpacingExtra="0sp"
+                                android:gravity="center_horizontal"
+                                android:text="@string/text_time_left" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginStart="2dp"
+                                android:textColor="@color/colorWhite"
+                                android:theme="@style/BoldTextView"
+                                android:lineSpacingExtra="0sp"
+                                android:text="01:53:43" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="46dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
                         android:layout_marginTop="12dp"
-                        android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:background="@drawable/shape_rectangle_blue_4"
-                        android:id="@+id/button_go_to"
-                        android:onClick="@{() -> clickHandler.onClickGame()}"
-                        android:gravity="center">
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:visibility="@{viewModel.gameCreated ? View.GONE : View.VISIBLE}"
-                            android:src="@drawable/ic_game_colorized"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="16sp"
-                            android:textColor="@color/colorWhite"
-                            android:lineSpacingExtra="0sp"
-                            android:gravity="center_horizontal"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginStart="4dp"
-                            android:text="@{viewModel.gameCreated ? @string/button_matching :@string/button_game}" />
+                        android:layout_marginLeft="12dp"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="46dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/shape_rectangle_blue_4"
+                            android:id="@+id/button_go_to"
+                            android:onClick="@{() -> clickHandler.onClickGame()}"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:visibility="@{viewModel.gameCreated ? View.GONE : View.VISIBLE}"
+                                android:src="@drawable/ic_game_colorized"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:theme="@style/BoldTextView"
+                                android:textColor="@color/colorWhite"
+                                android:lineSpacingExtra="0sp"
+                                android:gravity="center_horizontal"
+                                android:layout_marginLeft="4dp"
+                                android:layout_marginStart="4dp"
+                                android:text="@{viewModel.gameCreated ? @string/button_matching :@string/button_game}" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="46dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/shape_rectangle_red_4"
+                            android:id="@+id/button_shop"
+                            android:onClick="@{() -> clickHandler.onClickShop()}"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                app:srcCompat="@drawable/ic_shop"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:theme="@style/BoldTextView"
+                                android:textColor="@color/colorWhite"
+                                android:lineSpacingExtra="0sp"
+                                android:gravity="center_horizontal"
+                                android:layout_marginLeft="4dp"
+                                android:layout_marginStart="4dp"
+                                android:text="아이템 상점" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <include

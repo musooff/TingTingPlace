@@ -16,27 +16,27 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
+                    android:id="@+id/text_my_coin"
+                    android:theme="@style/BoldTextView"
                     android:layout_marginLeft="12dp"
                     android:layout_marginStart="12dp"
                     android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@id/iv_coin"
-                    android:layout_toStartOf="@id/iv_coin"
                     android:textColor="@color/colorBlackSecond"
                     android:lineSpacingExtra="0sp"
                     android:text="내 코인 현황" />
 
                 <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_marginEnd="4dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
                     android:id="@+id/iv_coin"
+                    android:layout_toRightOf="@id/text_my_coin"
+                    android:layout_toEndOf="@id/text_my_coin"
                     android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@id/text_coin_count"
-                    android:layout_toStartOf="@id/text_coin_count"
                     android:src="@drawable/ic_coin"/>
 
                 <TextView
@@ -47,20 +47,22 @@
                     android:id="@+id/text_coin_count"
                     android:layout_marginRight="10dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_toStartOf="@id/text_coin_guide"
-                    android:layout_toLeftOf="@id/text_coin_guide"
+                    android:theme="@style/BoldTextView"
+                    android:layout_toRightOf="@id/iv_coin"
+                    android:layout_toEndOf="@id/iv_coin"
                     android:textColor="@color/colorBlackSecond"
                     android:lineSpacingExtra="0sp"
-                    android:text="3코인" />
+                    android:text="3" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
+                    android:theme="@style/BoldTextView"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_toLeftOf="@id/iv_announcement"
-                    android:layout_toStartOf="@id/iv_announcement"
+                    android:layout_toRightOf="@id/text_coin_count"
+                    android:layout_toEndOf="@id/text_coin_count"
                     android:id="@+id/text_coin_guide"
                     android:textColor="@color/colorRed"
                     android:lineSpacingExtra="0sp"
@@ -68,37 +70,38 @@
 
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_toStartOf="@id/text_luck"
                     android:layout_toLeftOf="@id/text_luck"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginRight="4dp"
                     android:layout_centerVertical="true"
                     android:id="@+id/iv_announcement"
-                    android:background="@drawable/shape_rectangle_red_4"
-                    android:src="@drawable/ic_announcement"/>
+                    app:srcCompat="@drawable/ic_announce"/>
 
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="24dp"
+                    android:layout_height="30dp"
                     android:textSize="14sp"
                     android:id="@+id/text_luck"
+                    android:theme="@style/BoldTextView"
                     android:layout_centerVertical="true"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorRed"
                     android:lineSpacingExtra="0sp"
+                    android:gravity="center"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_toStartOf="@id/iv_question_mark"
                     android:layout_toLeftOf="@id/iv_question_mark"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/shape_rectangle_red_4"
-                    android:text="행운상자뽑기" />
+                    android:background="@drawable/shape_rectangle_outline_red_4"
+                    android:text="아이템 상점" />
 
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="12dp"

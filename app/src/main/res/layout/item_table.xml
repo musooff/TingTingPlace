@@ -41,12 +41,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
+                        android:theme="@style/BoldTextView"
                         android:textColor="@{viewModel.maleCount == 0 ? context.getColor(R.color.colorRed) : (viewModel.femaleCount == 0) ? context.getColor(R.color.colorBlue) : context.getColor(R.color.colorGreen)}"
                         android:lineSpacingExtra="0sp"
                         android:text="@{@string/text_table_number(viewModel.tableNumber)}" />
                     <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
                         android:tint="@color/colorBlueMaleText"
                         android:layout_marginLeft="5dp"
                         android:layout_marginStart="5dp"
@@ -55,15 +56,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14sp"
+                        android:textSize="10sp"
+                        android:theme="@style/BoldTextView"
                         android:gravity="center_vertical"
                         android:textColor="@color/colorBlueMaleText"
                         android:lineSpacingExtra="0sp"
                         android:visibility="@{viewModel.maleCount > 0 ? View.VISIBLE : View.GONE }"
                         android:text="@{``+viewModel.maleCount}" />
                     <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
                         android:tint="@color/colorRed"
                         android:layout_marginLeft="10dp"
                         android:layout_marginStart="10dp"
@@ -72,7 +74,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14sp"
+                        android:textSize="10sp"
+                        android:theme="@style/BoldTextView"
                         android:gravity="center_vertical"
                         android:textColor="@color/colorRed"
                         android:lineSpacingExtra="0sp"
@@ -105,42 +108,48 @@
                     android:orientation="horizontal">
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:textSize="12sp"
-                        android:padding="10dp"
+                        android:gravity="center"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:theme="@style/RegularTextView"
                         android:onClick="@{() -> clickHandler.onClickItem(viewModel, true, false)}"
                         android:background="@drawable/shape_rectangle_outline_black_4"
                         android:textColor="@color/colorAccent"
                         android:lineSpacingExtra="0sp"
-                        android:gravity="center_horizontal"
                         android:text="@string/text_chat"
                         />
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:textSize="12sp"
-                        android:padding="10dp"
+                        android:gravity="center"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:theme="@style/RegularTextView"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:background="@drawable/shape_rectangle_outline_red_4"
                         android:textColor="@color/colorRed"
                         android:lineSpacingExtra="0sp"
                         android:onClick="@{() -> clickHandler.onClickItem(viewModel, false, true)}"
-                        android:gravity="center_horizontal"
                         android:text="@string/text_game_request"
                         />
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:textSize="12sp"
-                        android:padding="10dp"
+                        android:theme="@style/RegularTextView"
                         android:background="@drawable/shape_rectangle_outline_blue_4"
                         android:textColor="@color/colorBlue"
                         android:lineSpacingExtra="0sp"
                         android:onClick="@{() -> clickHandler.onClickGift(viewModel)}"
-                        android:gravity="center_horizontal"
+                        android:gravity="center"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
                         android:text="@string/text_send_gift"
                         />
                 </LinearLayout>
