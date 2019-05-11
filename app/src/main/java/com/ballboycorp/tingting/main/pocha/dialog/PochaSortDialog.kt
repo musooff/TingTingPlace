@@ -11,6 +11,7 @@ import com.ballboycorp.tingting.databinding.DialogPochaSortBinding
 import com.ballboycorp.tingting.main.pocha.model.SortType
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.setWidthPercentage
 
 /**
  * Created by musooff on 18/04/2019.
@@ -52,6 +53,11 @@ class PochaSortDialog : DialogFragment() {
             viewModel.hasDistance = it.getBoolean(HAS_DISTANCE)
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setWidthPercentage(.9)
     }
 
     inner class ClickHandler {

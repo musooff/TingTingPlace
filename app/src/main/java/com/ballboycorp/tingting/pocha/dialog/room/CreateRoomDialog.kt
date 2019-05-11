@@ -19,6 +19,7 @@ import com.ballboycorp.tingting.pocha.dialog.room.model.bet.BetItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getScreenWidth
 import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.setWidthPercentage
 import kotlinx.android.synthetic.main.dialog_create_room.*
 
 
@@ -51,8 +52,7 @@ class CreateRoomDialog : DialogFragment() {
 
     override fun onResume() {
         super.onResume()
-        dialog?.window?.setLayout((activity!!.getScreenWidth() * .9).toInt(), ViewGroup.LayoutParams.WRAP_CONTENT)
-        dialog?.window?.setGravity(Gravity.CENTER)
+        setWidthPercentage(.9)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

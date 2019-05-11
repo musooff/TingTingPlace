@@ -2,6 +2,8 @@ package com.ballboycorp.tingting.utils.extensions
 
 import android.os.Bundle
 import android.os.Parcelable
+import android.view.Gravity
+import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -76,4 +78,9 @@ fun fillBundleArguments(bundle: Bundle, params: Array<out Pair<String, Any?>>) {
         }
         return@forEach
     }
+}
+
+fun DialogFragment.setWidthPercentage(percentage: Double) {
+    dialog?.window?.setLayout((activity!!.getScreenWidth() * percentage).toInt(), ViewGroup.LayoutParams.WRAP_CONTENT)
+    dialog?.window?.setGravity(Gravity.CENTER)
 }

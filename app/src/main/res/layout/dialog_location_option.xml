@@ -12,8 +12,11 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="12dp">
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -28,6 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
+                android:theme="@style/BoldTextView"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/colorBlackSecond"
                 android:lineSpacingExtra="0sp"
@@ -38,13 +42,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:layout_marginTop="32dp"
+            android:gravity="center">
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginTop="30dp"
                 android:orientation="vertical"
+                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
                 android:onClick="@{() -> clickHandler.onClickLocationType(0)}"
                 android:gravity="center_horizontal">
                 <ImageView
@@ -55,6 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
+                    android:theme="@style/RegularTextView"
                     android:layout_marginTop="16dp"
                     android:textColor="@color/colorBlackSecond"
                     android:lineSpacingExtra="0sp"
@@ -63,11 +69,11 @@
                     />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginTop="30dp"
                 android:orientation="vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
                 android:onClick="@{() -> clickHandler.onClickLocationType(1)}"
                 android:gravity="center_horizontal">
                 <ImageView
@@ -78,6 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
+                    android:theme="@style/RegularTextView"
                     android:layout_marginTop="16dp"
                     android:textColor="@color/colorBlackSecond"
                     android:lineSpacingExtra="0sp"
