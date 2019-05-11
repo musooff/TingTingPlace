@@ -61,6 +61,11 @@ class HomeFragment : BaseFragment(),
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        mActivity.hideSoftKeyboard()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

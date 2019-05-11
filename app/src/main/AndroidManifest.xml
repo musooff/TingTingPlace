@@ -29,12 +29,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.MainActivity"></activity>
-        <activity android:name=".qr.QRScanActivity"></activity>
-        <activity android:name=".recent.RecentActivity"></activity>
+        <activity android:name=".main.MainActivity"/>
+        <activity android:name=".qr.QRScanActivity"/>
+        <activity android:name=".recent.RecentActivity"/>
         <activity android:name=".liked.LikedActivity" />
         <activity android:name=".pocha.details.PochaDetailsActivity" />
-        <activity android:name=".pocha.PochaActivity" />
+        <activity android:name=".pocha.PochaActivity"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".review.ReviewActivity" />
         <activity android:name=".my.create.CreateProfileActivity" />
         <activity android:name=".my.edit.EditProfileActivity" />

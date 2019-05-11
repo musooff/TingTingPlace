@@ -18,7 +18,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorHomeBackground">
+            android:background="@color/colorHomeBackground"
+            android:descendantFocusability="blocksDescendants">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
