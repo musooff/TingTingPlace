@@ -164,6 +164,7 @@
                     </LinearLayout>
 
                     <include
+                        app:clickHandler="@{clickHandler}"
                         layout="@layout/view_coin_count"/>
 
                     <include

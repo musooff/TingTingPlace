@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.my.orders.OrdersViewModel" />
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.my.orders.OrdersActivity.ClickHandler" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/toolbar"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textSize="12sp"
+                android:onClick="@{() -> clickHandler.onClickShop()}"
+                android:text="@string/button_shop"
+                android:layout_centerInParent="true"
+                android:background="@drawable/button_black_outline_high"/>
+        </RelativeLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:id="@+id/tabs_vp_orders"
+            app:tabInlineLabel="true"
+            app:tabIndicatorColor="@color/colorBlackSecond"/>
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/vp_orders"/>
+
+    </LinearLayout>
+</layout>

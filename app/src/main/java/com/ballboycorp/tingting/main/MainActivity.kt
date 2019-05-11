@@ -9,11 +9,8 @@ import com.ballboycorp.tingting.databinding.ActivityMainBinding
 import com.ballboycorp.tingting.main.home.HomeFragment
 import com.ballboycorp.tingting.main.more.MoreFragment
 import com.ballboycorp.tingting.main.pocha.PochaFragment
-import com.ballboycorp.tingting.pocha.PochaActivity
-import com.ballboycorp.tingting.pocha.details.PochaDetailsActivity
-import com.ballboycorp.tingting.pocha.details.thumbs.ImageViewerActivity
-import com.ballboycorp.tingting.profile.ProfileFragment
-import com.ballboycorp.tingting.shop.ShopActivity
+import com.ballboycorp.tingting.my.MyProfileFragment
+import com.ballboycorp.tingting.my.orders.OrdersActivity
 import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
@@ -48,7 +45,7 @@ class MainActivity : BaseActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_profile -> {
-                ProfileFragment.replace(this)
+                MyProfileFragment.replace(this)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_more -> {
@@ -68,6 +65,6 @@ class MainActivity : BaseActivity() {
 
         val table = Table(maleCount = 2, femaleCount = 1)
         table.addTestPeople()
-        startActivity<ShopActivity>()
+        //startActivity<OrdersActivity>()
     }
 }

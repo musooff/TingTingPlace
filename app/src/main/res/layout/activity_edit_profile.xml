@@ -8,11 +8,11 @@
         <import type="com.ballboycorp.tingting.R"/>
         <variable
             name="viewModel"
-            type="com.ballboycorp.tingting.profile.edit.EditProfileViewModel"/>
+            type="com.ballboycorp.tingting.my.edit.EditProfileViewModel"/>
 
         <variable
             name="clickHandler"
-            type="com.ballboycorp.tingting.profile.edit.EditProfileActivity.ClickHandler" />
+            type="com.ballboycorp.tingting.my.edit.EditProfileActivity.ClickHandler" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"

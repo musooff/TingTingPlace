@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.pocha.home.HomeFragment.ClickHandler" />
+    </data>
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
@@ -84,6 +89,7 @@
                     android:layout_height="30dp"
                     android:textSize="14sp"
                     android:id="@+id/text_luck"
+                    android:onClick="@{() -> clickHandler.onClickOrders()}"
                     android:theme="@style/BoldTextView"
                     android:layout_centerVertical="true"
                     android:textColor="@color/colorRed"

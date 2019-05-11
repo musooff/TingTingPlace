@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.ballboycorp.tingting.profile.create.CreateProfileViewModel" />
+            type="com.ballboycorp.tingting.my.create.CreateProfileViewModel" />
     </data>
 
     <LinearLayout
@@ -32,7 +32,7 @@
                 android:background="@color/colorRed" />
         </LinearLayout>
 
-        <com.ballboycorp.tingting.profile.create.utils.ViewPagerNoScroll
+        <com.ballboycorp.tingting.my.create.utils.ViewPagerNoScroll
             android:id="@+id/vp_create"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

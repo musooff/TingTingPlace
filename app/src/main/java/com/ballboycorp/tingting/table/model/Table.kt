@@ -2,7 +2,7 @@ package com.ballboycorp.tingting.table.model
 
 import android.os.Parcelable
 import com.ballboycorp.tingting.main.pocha.model.Pocha
-import com.ballboycorp.tingting.profile.model.User
+import com.ballboycorp.tingting.my.model.User
 import kotlinx.android.parcel.Parcelize
 import java.util.*
 import kotlin.collections.ArrayList

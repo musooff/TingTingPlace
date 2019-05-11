@@ -1,7 +1,7 @@
 package com.ballboycorp.tingting.utils.preference
 
 import android.content.Context
-import com.ballboycorp.tingting.profile.model.User
+import com.ballboycorp.tingting.my.model.User
 
 /**
  * Created by musooff on 07/04/2019.

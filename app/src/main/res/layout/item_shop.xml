@@ -39,7 +39,7 @@
                 android:layout_marginLeft="8dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                app:layout_constraintRight_toLeftOf="@id/button_buy"
+                app:layout_constraintRight_toLeftOf="@id/button_use"
                 app:layout_constraintStart_toEndOf="@+id/iv_thumb">
 
                 <TextView
@@ -91,7 +91,9 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:onClick="@{() -> clickHandler.onClickBuy(viewModel.shopItem)}"
                 android:text="@{String.format(@string/text_price, viewModel.price)}"
-                android:id="@+id/button_buy"
+                android:id="@+id/button_use"
+                android:textColor="@color/colorAccent"
+                android:theme="@style/BoldTextView"
                 android:background="@drawable/button_black_outline"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

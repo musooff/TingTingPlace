@@ -2,7 +2,6 @@ package com.ballboycorp.tingting.pocha.game.model
 
 import com.ballboycorp.tingting.pocha.dialog.room.model.bet.BetItemViewModel
 import com.ballboycorp.tingting.pocha.dialog.room.model.game.GameItemViewModel
-import com.ballboycorp.tingting.profile.model.UserViewModel
 import com.ballboycorp.tingting.table.model.TableItemViewModel
 
 /**

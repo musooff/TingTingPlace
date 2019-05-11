@@ -3,8 +3,8 @@ package com.ballboycorp.tingting.pocha.chat.message
 import androidx.databinding.Bindable
 import com.ballboycorp.tingting.BR
 import com.ballboycorp.tingting.base.BaseObservableViewModel
-import com.ballboycorp.tingting.profile.model.User
-import com.ballboycorp.tingting.profile.model.UserViewModel
+import com.ballboycorp.tingting.my.model.User
+import com.ballboycorp.tingting.my.model.UserViewModel
 
 /**
  * Created by musooff on 2019-05-01.

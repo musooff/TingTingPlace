@@ -5,10 +5,10 @@
         <import type="com.ballboycorp.tingting.R"/>
         <variable
             name="viewModel"
-            type="com.ballboycorp.tingting.profile.create.second.CreateProfileSecondViewModel"/>
+            type="com.ballboycorp.tingting.my.create.second.CreateProfileSecondViewModel"/>
         <variable
             name="clickHandler"
-            type="com.ballboycorp.tingting.profile.create.second.CreateProfileSecondFragment.ClickHandler"/>
+            type="com.ballboycorp.tingting.my.create.second.CreateProfileSecondFragment.ClickHandler"/>
     </data>
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

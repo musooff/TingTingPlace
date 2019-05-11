@@ -36,8 +36,8 @@
         <activity android:name=".pocha.details.PochaDetailsActivity" />
         <activity android:name=".pocha.PochaActivity" />
         <activity android:name=".review.ReviewActivity" />
-        <activity android:name=".profile.create.CreateProfileActivity" />
-        <activity android:name=".profile.edit.EditProfileActivity" />
+        <activity android:name=".my.create.CreateProfileActivity" />
+        <activity android:name=".my.edit.EditProfileActivity" />
         <activity android:name=".pocha.details.map.PochaMapActivity" />
         <activity android:name=".review.my.MyReviewsActivity" />
         <activity android:name=".review.add.AddReviewActivity" />
@@ -58,6 +58,7 @@
             android:name=".pocha.chat.message.MessageActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".shop.ShopActivity"/>
+        <activity android:name=".my.orders.OrdersActivity"/>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"

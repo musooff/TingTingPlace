@@ -7,11 +7,11 @@
         <import type="android.view.View"/>
         <variable
             name="viewModel"
-            type="com.ballboycorp.tingting.profile.create.first.CreateProfileFirstViewModel"/>
+            type="com.ballboycorp.tingting.my.create.first.CreateProfileFirstViewModel"/>
 
         <variable
             name="clickHandler"
-            type="com.ballboycorp.tingting.profile.create.first.CreateProfileFirstFragment.ClickHandler" />
+            type="com.ballboycorp.tingting.my.create.first.CreateProfileFirstFragment.ClickHandler" />
     </data>
 
     <RelativeLayout

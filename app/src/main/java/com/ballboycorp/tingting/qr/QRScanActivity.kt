@@ -7,7 +7,6 @@ import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityQrBinding
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
-import kotlinx.android.synthetic.main.toolbar.*
 import com.google.zxing.Result
 import kotlinx.android.synthetic.main.activity_qr.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
@@ -17,7 +16,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.content.ContextCompat
 import com.ballboycorp.tingting.pocha.PochaActivity
-import com.ballboycorp.tingting.profile.create.CreateProfileActivity
+import com.ballboycorp.tingting.my.create.CreateProfileActivity
 import com.ballboycorp.tingting.utils.PermissionUtils
 import com.ballboycorp.tingting.utils.extensions.startActivity
 import com.ballboycorp.tingting.utils.extensions.startActivityForResult

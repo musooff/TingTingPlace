@@ -1,6 +1,6 @@
 package com.ballboycorp.tingting.pocha.chat.model
 
-import com.ballboycorp.tingting.profile.model.UserViewModel
+import com.ballboycorp.tingting.my.model.UserViewModel
 
 /**
  * Created by musooff on 2019-05-01.

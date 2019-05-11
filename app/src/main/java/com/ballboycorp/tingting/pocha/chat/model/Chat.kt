@@ -1,6 +1,6 @@
 package com.ballboycorp.tingting.pocha.chat.model
 
-import com.ballboycorp.tingting.profile.model.User
+import com.ballboycorp.tingting.my.model.User
 import kotlin.random.Random
 
 /**

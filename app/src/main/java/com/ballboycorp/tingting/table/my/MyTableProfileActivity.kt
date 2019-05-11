@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
 import com.ballboycorp.tingting.databinding.ActivityMyTableProfileBinding
-import com.ballboycorp.tingting.profile.edit.EditProfileActivity
+import com.ballboycorp.tingting.my.edit.EditProfileActivity
 import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.table.model.TableItemViewModel
 import com.ballboycorp.tingting.table.my.adapter.MyTablePeopleAdapter

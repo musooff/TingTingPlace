@@ -13,6 +13,7 @@ import com.ballboycorp.tingting.common.dialog.YesNoDialog
 import com.ballboycorp.tingting.databinding.FragmentPochaHomeBinding
 import com.ballboycorp.tingting.gift.GiftActivity
 import com.ballboycorp.tingting.main.home.utils.ItemDecorator
+import com.ballboycorp.tingting.my.orders.OrdersActivity
 import com.ballboycorp.tingting.pocha.PochaActivity
 import com.ballboycorp.tingting.pocha.dialog.room.CreateRoomDialog
 import com.ballboycorp.tingting.pocha.dialog.room.model.game.Game
@@ -22,6 +23,7 @@ import com.ballboycorp.tingting.pocha.home.adapter.TableAdapter
 import com.ballboycorp.tingting.pocha.home.description.GameGiftDescriptionActivity
 import com.ballboycorp.tingting.pocha.home.dialog.hashtag.HashtagEditDialog
 import com.ballboycorp.tingting.pocha.home.dialog.settings.SettingsDialog
+import com.ballboycorp.tingting.shop.ShopActivity
 import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.table.model.TableItemViewModel
 import com.ballboycorp.tingting.table.my.MyTableProfileActivity
@@ -180,7 +182,11 @@ class HomeFragment : BaseFragment(),
         }
 
         fun onClickShop() {
+            startActivity<ShopActivity>()
+        }
 
+        fun onClickOrders() {
+            startActivity<OrdersActivity>()
         }
     }
 }

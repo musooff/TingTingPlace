@@ -7,7 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import com.ballboycorp.tingting.R
-import com.ballboycorp.tingting.profile.model.User
+import com.ballboycorp.tingting.my.model.User
 import com.ballboycorp.tingting.table.model.Table
 import com.mikhaellopez.circularimageview.CircularImageView
 

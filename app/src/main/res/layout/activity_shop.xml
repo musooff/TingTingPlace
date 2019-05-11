@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="viewModel"
@@ -15,23 +15,26 @@
         <include layout="@layout/toolbar"/>
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
+
                 <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:id="@+id/rv_shop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:paddingLeft="12dp"
                     android:paddingRight="12dp"
-                    android:background="@color/colorWhite"/>
-
+                    app:layout_constraintBottom_toTopOf="@id/container_tip"/>
                 <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/container_tip"
-                    layout="@layout/view_shop_tip"/>
-            </LinearLayout>
+                    layout="@layout/view_shop_tip"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>

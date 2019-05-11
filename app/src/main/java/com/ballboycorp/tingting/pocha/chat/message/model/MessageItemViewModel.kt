@@ -1,7 +1,7 @@
 package com.ballboycorp.tingting.pocha.chat.message.model
 
 import com.ballboycorp.tingting.base.BaseObservableViewModel
-import com.ballboycorp.tingting.profile.model.UserViewModel
+import com.ballboycorp.tingting.my.model.UserViewModel
 import java.util.*
 
 /**
