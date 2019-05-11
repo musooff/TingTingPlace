@@ -23,15 +23,18 @@
         app:cardCornerRadius="5dp"
         android:layout_margin="12dp"
         app:cardBackgroundColor="@color/colorWhite">
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{() -> clickHandler.onClickMyTable()}"
             android:background="@drawable/shape_rectangle_outline_black_4">
             <LinearLayout
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:id="@+id/container_info"
                 android:padding="12dp">
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -63,7 +66,8 @@
                         android:textColor="@color/colorBlueMaleText"
                         android:lineSpacingExtra="0sp"
                         android:visibility="@{itemViewModel.maleCount > 0 ? View.VISIBLE : View.GONE }"
-                        android:text="@{``+itemViewModel.maleCount}" />
+                        android:text="@{``+itemViewModel.maleCount}"
+                        tools:ignore="SmallSp" />
                     <ImageView
                         android:layout_width="12dp"
                         android:layout_height="12dp"
@@ -81,7 +85,8 @@
                         android:textColor="@color/colorRed"
                         android:lineSpacingExtra="0sp"
                         android:visibility="@{itemViewModel.femaleCount > 0 ? View.VISIBLE : View.GONE }"
-                        android:text="@{``+itemViewModel.femaleCount}" />
+                        android:text="@{``+itemViewModel.femaleCount}"
+                        tools:ignore="SmallSp" />
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
@@ -106,7 +111,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
+                            android:textSize="10sp"
                             android:layout_marginLeft="2dp"
                             android:layout_marginStart="2dp"
                             android:gravity="center_vertical"
@@ -134,16 +139,14 @@
                         android:onClick="@{() -> clickHandler.onClickGameGiftDescription()}"
                         />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <Button
+                        android:layout_width="60dp"
                         android:layout_height="30dp"
                         android:textSize="12sp"
                         android:gravity="center"
-                        android:paddingRight="8dp"
-                        android:paddingLeft="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:background="@drawable/shape_rectangle_outline_black_4"
+                        android:background="@drawable/button_black_outline"
                         android:textColor="@color/colorAccent"
                         android:lineSpacingExtra="0sp"
                         android:onClick="@{() -> clickHandler.onClickSettings()}"
@@ -165,6 +168,19 @@
                         />
                 </LinearLayout>
             </LinearLayout>
-        </RelativeLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:id="@+id/container_thumbs"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/container_info"
+                app:layout_constraintBottom_toBottomOf="@id/container_info"
+                app:layout_constraintDimensionRatio="1:1">
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

@@ -130,6 +130,7 @@
                             android:textColor="@color/colorPrimary"
                             android:lineSpacingExtra="0sp"
                             android:gravity="center"
+                            android:theme="@style/BoldTextView"
                             android:text="@{viewModel.rating}"
                             app:layout_constraintBottom_toTopOf="@id/rating_bar"
                             app:layout_constraintRight_toRightOf="parent"
@@ -143,7 +144,8 @@
                             app:layout_constraintBottom_toTopOf="@id/container_review_count"
                             android:textSize="20sp"
                             android:id="@+id/title"
-                            android:textColor="#ffffff"
+                            android:theme="@style/BoldTextView"
+                            android:textColor="@color/colorWhite"
                             android:lineSpacingExtra="0sp"
                             android:layout_marginBottom="8dp"
                             tools:text="한신포차 부평점"
@@ -179,6 +181,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             android:textSize="14sp"
+                            android:theme="@style/BoldTextView"
                             android:id="@+id/text_intro_header"
                             android:textColor="@color/colorBlackSecond"
                             android:lineSpacingExtra="0sp"
@@ -238,6 +241,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             android:textSize="14sp"
+                            android:theme="@style/BoldTextView"
                             android:id="@+id/text_menu_header"
                             android:textColor="@color/colorBlackSecond"
                             android:lineSpacingExtra="0sp"
@@ -343,6 +347,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             android:textSize="14sp"
+                            android:theme="@style/BoldTextView"
                             android:id="@+id/text_location_header"
                             android:textColor="@color/colorBlackSecond"
                             android:lineSpacingExtra="0sp"
@@ -390,8 +395,10 @@
                                     android:gravity="center"
                                     android:lineSpacingExtra="0sp"
                                     android:text="@string/info_address"
+                                    android:theme="@style/BoldTextView"
                                     android:textColor="@color/colorBlackSecond"
-                                    android:textSize="10sp" />
+                                    android:textSize="10sp"
+                                    tools:ignore="SmallSp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -439,8 +446,10 @@
                                     android:gravity="center"
                                     android:lineSpacingExtra="0sp"
                                     android:text="@string/info_phone"
+                                    android:theme="@style/BoldTextView"
                                     android:textColor="@color/colorBlackSecond"
-                                    android:textSize="10sp" />
+                                    android:textSize="10sp"
+                                    tools:ignore="SmallSp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -471,10 +480,12 @@
                                     android:layout_height="20dp"
                                     android:background="@drawable/shape_rectangle_outline_black_4_high"
                                     android:gravity="center"
+                                    android:theme="@style/BoldTextView"
                                     android:lineSpacingExtra="0sp"
                                     android:text="@string/info_work_time"
                                     android:textColor="@color/colorBlackSecond"
-                                    android:textSize="10sp" />
+                                    android:textSize="10sp"
+                                    tools:ignore="SmallSp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -513,6 +524,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             android:textSize="14sp"
+                            android:theme="@style/BoldTextView"
                             android:id="@+id/text_review_header"
                             android:textColor="@color/colorBlackSecond"
                             android:lineSpacingExtra="0sp"
@@ -544,6 +556,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textSize="34sp"
+                                android:theme="@style/BoldTextView"
                                 android:textColor="@color/colorBlackSecond"
                                 android:lineSpacingExtra="0sp"
                                 android:layout_toRightOf="@id/iv_star"
@@ -564,6 +577,7 @@
                                 android:layout_alignParentEnd="true"
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
+                                android:onClick="@{() -> clickHandler.onClickMoreReviews()}"
                                 app:srcCompat="@drawable/ic_arrow_right_24db"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -665,15 +679,15 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                <ImageButton
+                    android:layout_width="14dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:id="@+id/iv_back"
                     android:onClick="@{()-> clickHandler.onClickBack()}"
-                    app:srcCompat="@drawable/ic_arrow_left_white_24dp"/>
+                    android:background="@drawable/ic_arrow_left_white_24dp"/>
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"

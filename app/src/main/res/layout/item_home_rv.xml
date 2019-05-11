@@ -26,7 +26,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textSize="10sp"
-                    tools:text="18.05.21"
+                    android:text="18.05.21"
                     android:gravity="center"
                     android:textColor="@color/colorWhite"
                     android:id="@+id/tv_date"
@@ -45,7 +45,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="18dp"
                     android:textColor="@color/colorWhite"
-                    tools:text="포차이름"
+                    android:text="포차이름"
+                    android:theme="@style/BoldTextView"
                     android:id="@+id/tv_name"
                     android:textSize="12sp"/>
                 <RatingBar

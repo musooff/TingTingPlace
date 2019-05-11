@@ -60,11 +60,22 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         val binding = bind<ActivityMainBinding>(R.layout.activity_main)
         binding.viewModel = viewModel
+        binding.clickHandler = ClickHandler()
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         navigation.selectedItemId = R.id.navigation_home
 
         val table = Table(maleCount = 2, femaleCount = 1)
         table.addTestPeople()
         //startActivity<OrdersActivity>()
+
+        viewModel.checkFirstRun()
+    }
+
+    inner class ClickHandler {
+        fun onClickFirstImage() {
+            viewModel.isFirstRun = false
+            viewModel.appPref.setFirstRun(false)
+        }
+
     }
 }

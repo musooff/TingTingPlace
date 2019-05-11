@@ -41,6 +41,7 @@
                     android:layout_toStartOf="@id/text_price"
                     android:layout_toLeftOf="@id/text_price"
                     android:lineSpacingExtra="0sp"
+                    android:theme="@style/BoldTextView"
                     android:singleLine="true"
                     android:ellipsize="end"
                     android:text="수박화채"

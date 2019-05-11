@@ -18,6 +18,7 @@ import com.ballboycorp.tingting.pocha.game.GameFragment
 import com.ballboycorp.tingting.pocha.home.HomeFragment
 import com.ballboycorp.tingting.pocha.chat.ChatFragment
 import com.ballboycorp.tingting.utils.extensions.bind
+import com.ballboycorp.tingting.utils.extensions.showDialog
 import com.ballboycorp.tingting.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.activity_pocha.*
 import kotlinx.android.synthetic.main.activity_pocha.view.*
@@ -61,7 +62,7 @@ class PochaActivity : BaseActivity(),
             }
         })
 
-        //NumberOfPeopleDialog.show(supportFragmentManager)
+        showDialog(::NumberOfPeopleDialog)
         //HashtagEditDialog.show(supportFragmentManager)
     }
 

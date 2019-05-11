@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="0sp"
                 android:text="@string/header_nickname"
+                android:theme="@style/BoldTextView"
                 android:textColor="@color/colorBlackFirst"
                 android:textSize="12sp" />
 
@@ -90,6 +91,7 @@
                 android:layout_marginTop="24dp"
                 android:lineSpacingExtra="0sp"
                 android:text="@string/header_gender"
+                android:theme="@style/BoldTextView"
                 android:textColor="@color/colorBlackFirst"
                 android:textSize="12sp" />
 

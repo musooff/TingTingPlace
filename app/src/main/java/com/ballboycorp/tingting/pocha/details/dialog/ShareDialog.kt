@@ -24,15 +24,6 @@ import com.ballboycorp.tingting.utils.extensions.copyToClipBoard
  */
 
 class ShareDialog: DialogFragment() {
-    companion object {
-
-        private const val DIALOG_TAG = "ShareDialog"
-
-        fun show(fragmentManager: FragmentManager) {
-            val dialog = ShareDialog()
-            dialog.show(fragmentManager, DIALOG_TAG)
-        }
-    }
 
     private val viewModel by lazy { getViewModel<ShareViewHolder>() }
 

@@ -183,6 +183,5 @@
             android:text="@{viewModel.randomRoom ? @string/button_create_room : @string/button_game_apply}"
             android:enabled="@{viewModel.canCreateRoom ? true : false}"
             android:onClick="@{() -> clickHandler.onClickCreateRoom()}"/>
-
     </LinearLayout>
 </layout>

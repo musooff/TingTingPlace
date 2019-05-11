@@ -24,11 +24,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="14dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
+                    android:scaleType="fitXY"
                     android:id="@+id/iv_back"
                     android:onClick="@{()-> clickHandler.onClickBack()}"
                     app:srcCompat="@drawable/ic_arrow_left_black_24dp"/>
@@ -36,6 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     tools:text="Title"
+                    android:theme="@style/BoldTextView"
                     android:textStyle="bold"
                     android:id="@+id/tb_title"
                     android:gravity="center"

@@ -41,8 +41,8 @@ class PochaMapActivity: BaseMapActivity() {
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         turnOffTracking()
+        super.onDestroy()
     }
 
     override fun onResume() {
@@ -96,7 +96,10 @@ class PochaMapActivity: BaseMapActivity() {
     }
 
     private fun turnOffTracking() {
-        mMapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOff
-        mMapView.setShowCurrentLocationMarker(false)
+        if (PermissionUtils.checkLocation(this)) {
+            mMapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOff
+            mMapView.setShowCurrentLocationMarker(false)
+
+        }
     }
 }

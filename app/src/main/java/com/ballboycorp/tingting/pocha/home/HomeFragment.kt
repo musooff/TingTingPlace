@@ -23,6 +23,7 @@ import com.ballboycorp.tingting.pocha.home.adapter.TableAdapter
 import com.ballboycorp.tingting.pocha.home.description.GameGiftDescriptionActivity
 import com.ballboycorp.tingting.pocha.home.dialog.hashtag.HashtagEditDialog
 import com.ballboycorp.tingting.pocha.home.dialog.settings.SettingsDialog
+import com.ballboycorp.tingting.pocha.home.utils.ThumbnailsView
 import com.ballboycorp.tingting.shop.ShopActivity
 import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.table.model.TableItemViewModel
@@ -102,6 +103,8 @@ class HomeFragment : BaseFragment(),
             viewModel.myTableItemViewModel = TableItemViewModel(table)
         }
         binding.myTable.itemViewModel = viewModel.myTableItemViewModel
+        binding.myTable.containerThumbs.addView(ThumbnailsView.createThumbnails(mContext, table))
+
 
     }
 

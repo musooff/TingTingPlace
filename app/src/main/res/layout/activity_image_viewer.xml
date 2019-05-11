@@ -28,12 +28,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="14dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:id="@+id/iv_back"
+                    android:scaleType="fitXY"
                     android:tint="@color/colorWhite"
                     app:srcCompat="@drawable/ic_arrow_left_black_24dp"/>
                 <TextView

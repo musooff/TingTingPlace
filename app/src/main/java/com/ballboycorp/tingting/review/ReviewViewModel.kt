@@ -21,6 +21,13 @@ class ReviewViewModel: BaseObservableViewModel() {
             notifyPropertyChanged(BR.rating)
         }
 
+    var isOnlyWithImages: Boolean = false
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.onlyWithImages)
+        }
+
     fun getReviews(): LiveData<List<ReviewItemViewModel>> {
         val result = ArrayList<ReviewItemViewModel>()
         for (i in 0..25) result.add(ReviewItemViewModel(Review()))

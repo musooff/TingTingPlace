@@ -116,7 +116,7 @@ class PochaDetailsActivity : BaseMapActivity() {
         }
 
         fun onClickShare() {
-            ShareDialog.show(supportFragmentManager)
+            showDialog(::ShareDialog)
         }
 
         fun onClickGoTo() {

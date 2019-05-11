@@ -59,6 +59,10 @@ object PermissionUtils{
         requestPermissions(activity, REQUEST_LOCATION, PERMISSION_LOCATION, cb)
     }
 
+    fun checkLocation(context: Context): Boolean {
+        return isGrantedPermission(context, PERMISSION_LOCATION)
+    }
+
     fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         val cb = mCallbackMap.remove(requestCode)
         var granted = true

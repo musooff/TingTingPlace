@@ -5,6 +5,9 @@
         <variable
             name="viewModel"
             type="com.ballboycorp.tingting.review.ReviewViewModel"/>
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.review.ReviewActivity.ClickHandler" />
     </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -42,8 +45,7 @@
                     android:lineSpacingExtra="0sp"
                     android:layout_toRightOf="@id/iv_star"
                     android:layout_toEndOf="@id/iv_star"
-                    android:layout_toLeftOf="@id/text_bottom_review_count"
-                    android:layout_toStartOf="@id/text_bottom_review_count"
+                    android:theme="@style/BoldTextView"
                     android:text="@{viewModel.rating}"
                     android:layout_centerVertical="true"
                     tools:text="4.0"
@@ -58,6 +60,7 @@
                 android:layout_marginTop="4dp"
                 android:textColor="@color/colorBlackSecond"
                 android:lineSpacingExtra="0sp"
+                android:theme="@style/BoldTextView"
                 android:id="@+id/text_total_points"
                 app:layout_constraintTop_toBottomOf="@id/container_review_header"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -82,6 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/checkbox"
+                android:checked="@={viewModel.onlyWithImages}"
                 android:theme="@style/CheckBox"
                 android:layout_marginRight="14dp"
                 android:layout_marginEnd="14dp"
@@ -92,6 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
+                android:onClick="@{() -> clickHandler.onClickCheckBoxText()}"
                 android:layout_toLeftOf="@id/checkbox"
                 android:layout_toStartOf="@id/checkbox"
                 android:layout_centerVertical="true"

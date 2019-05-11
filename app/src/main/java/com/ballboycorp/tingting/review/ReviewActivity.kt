@@ -27,6 +27,8 @@ class ReviewActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
         val binding = bind<ActivityReviewBinding>(R.layout.activity_review)
         binding.viewModel = viewModel
+        binding.clickHandler = ClickHandler()
+
 
         initToolbar("후기(1085개)", true)
 
@@ -37,6 +39,12 @@ class ReviewActivity: BaseActivity() {
 
         viewModel.getReviews().observe(this) {
             adapter.submitList(it)
+        }
+    }
+
+    inner class ClickHandler{
+        fun onClickCheckBoxText() {
+            viewModel.isOnlyWithImages = !viewModel.isOnlyWithImages
         }
     }
 }

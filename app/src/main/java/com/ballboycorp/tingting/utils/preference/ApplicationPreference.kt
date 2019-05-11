@@ -24,6 +24,7 @@ class ApplicationPreference(context: Context) {
         private const val USER_GENDER = "gender"
         private const val USER_THUMB = "thumbnail"
         private const val HASHTAG = "hashtag"
+        private const val FIRST_RUN = "first_run"
     }
 
     private val sharedPreferences = context.getSharedPreferences("TinTing", 0)
@@ -58,6 +59,13 @@ class ApplicationPreference(context: Context) {
 
     fun setHashtag(hashtag: String?) {
         editor.putString(HASHTAG, hashtag)
+                .apply()
+    }
+
+    fun isFirstRun() = sharedPreferences.getBoolean(FIRST_RUN, true)
+
+    fun setFirstRun(value: Boolean) {
+        editor.putBoolean(FIRST_RUN, value)
                 .apply()
     }
 }

@@ -15,7 +15,10 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -23,6 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
+                android:theme="@style/BoldTextView"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/colorBlackSecond"
                 android:lineSpacingExtra="0sp"
@@ -148,6 +152,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:theme="@style/BoldTextView"
                 android:gravity="end"
                 android:layout_marginTop="12dp"
                 android:textColor="@color/colorBlackSecond"
@@ -156,7 +161,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
+                android:layout_height="@dimen/button_height"
                 android:id="@+id/button_confirm"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@drawable/default_button"

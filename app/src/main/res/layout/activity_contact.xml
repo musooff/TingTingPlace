@@ -20,15 +20,16 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                <ImageButton
+                    android:layout_width="14dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
+                    android:scaleType="fitXY"
                     android:id="@+id/iv_back"
                     android:onClick="@{() -> clickHandler.onClickBack()}"
-                    app:srcCompat="@drawable/ic_arrow_left_black_24dp"/>
+                    android:background="@drawable/ic_arrow_left_black_24dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -37,6 +38,7 @@
                     android:id="@+id/tb_title"
                     android:gravity="center"
                     android:textSize="16sp"
+                    android:theme="@style/BoldTextView"
                     android:textColor="@color/colorBlackSecond" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -46,6 +48,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginRight="16dp"
                     android:layout_marginEnd="16dp"
+                    android:theme="@style/BoldTextView"
                     android:onClick="@{() -> clickHandler.onClickNew()}"
                     android:layout_alignParentRight="true"
                     android:textColor="@color/colorBlackSecond"

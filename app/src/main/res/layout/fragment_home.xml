@@ -141,6 +141,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:gravity="center_vertical"
+                    android:onClick="@{() -> clickHandler.onClickMoreRecent()}"
                     android:orientation="horizontal">
 
                     <TextView
@@ -150,7 +151,6 @@
                         android:layout_marginRight="4dp"
                         android:textSize="12sp"
                         android:text="@string/more"
-                        android:onClick="@{() -> clickHandler.onClickMoreRecent()}"
                         android:textColor="@color/colorBlackThird" />
 
                     <ImageView
@@ -362,6 +362,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:text="@string/notice_title"
+                        android:theme="@style/BoldTextView"
                         android:textColor="@color/colorBlackSecond"/>
 
                     <TextView
@@ -393,6 +394,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:text="@string/event_title"
+                        android:theme="@style/BoldTextView"
                         android:textColor="@color/colorBlackSecond" />
 
                     <TextView
@@ -423,11 +425,6 @@
                         tools:text="Some text" />
                 </LinearLayout>
             </LinearLayout>
-
-            <FrameLayout
-                android:id="@+id/fl_overlay"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
