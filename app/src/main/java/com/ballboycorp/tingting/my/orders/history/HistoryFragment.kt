@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
+import com.ballboycorp.tingting.billing.model.ChattingSkuDetails
 import com.ballboycorp.tingting.databinding.FragmentHistoryBinding
 import com.ballboycorp.tingting.my.orders.history.adapter.HistoryAdapter
 import com.ballboycorp.tingting.my.orders.model.Order
@@ -43,9 +44,30 @@ class HistoryFragment: BaseFragment() {
         rv_history.addItemDecoration(DividerItemDecoration(mContext, LinearLayoutManager.VERTICAL))
 
         val shop = mutableListOf<OrderItemViewModel>()
-        shop.add(OrderItemViewModel(Order(shopItem = ShopItem(duration = 30, amount = 1, price = "3,300"))))
-        shop.add(OrderItemViewModel(Order(shopItem = ShopItem(duration = 30, amount = 2, price = "5,300"), status = 1)))
-        shop.add(OrderItemViewModel(Order(shopItem = ShopItem(duration = 30, amount = 3, price = "7,300"))))
+        shop.add(OrderItemViewModel(Order(shopItem = ShopItem(duration = 30, amount = 1, price = "3,300", chattingSkuDetails = ChattingSkuDetails(
+                canPurchase = false,
+                sku = ChattingSkuDetails.ChattingSku.CHATTING_30_1,
+                type = "",
+                price = "3,300",
+                title = "sd",
+                description = "",
+                originalJson = "")))))
+        shop.add(OrderItemViewModel(Order(shopItem = ShopItem(duration = 30, amount = 2, price = "5,300", chattingSkuDetails = ChattingSkuDetails(
+                canPurchase = false,
+                sku = ChattingSkuDetails.ChattingSku.CHATTING_30_1,
+                type = "",
+                price = "5,300",
+                title = "sd",
+                description = "",
+                originalJson = "")), status = 1)))
+        shop.add(OrderItemViewModel(Order(shopItem = ShopItem(duration = 30, amount = 3, price = "7,300", chattingSkuDetails = ChattingSkuDetails(
+                canPurchase = false,
+                sku = ChattingSkuDetails.ChattingSku.CHATTING_30_1,
+                type = "",
+                price = "7,300",
+                title = "sd",
+                description = "",
+                originalJson = "")))))
 
         adapter.submitList(shop)
     }

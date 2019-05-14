@@ -11,6 +11,13 @@ import com.ballboycorp.tingting.utils.extensions.toStringDateOrder
  */
 
 class OrderItemViewModel(val order: Order): BaseObservableViewModel() {
+    var sku: String? = order.shopItem?.chattingSkuDetails?.sku
+        @Bindable get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.sku)
+        }
+
     var status = order.status
         @Bindable get() = field
         set(value) {
@@ -31,7 +38,7 @@ class OrderItemViewModel(val order: Order): BaseObservableViewModel() {
             notifyPropertyChanged(BR.amount)
         }
 
-    var shopItemViewModel = ShopItemViewModel(order.shopItem!!)
+    var shopItemViewModel: ShopItemViewModel? = null
         @Bindable get() = field
         set(value) {
             field = value

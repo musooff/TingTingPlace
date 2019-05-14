@@ -71,7 +71,7 @@ class BillingRepository private constructor(private val application: Application
         when (billingResult.responseCode) {
             BillingClient.BillingResponseCode.OK -> {
                 Log.d(LOG_TAG, "onBillingSetupFinished successfully")
-                querySkuDetailsAsync(BillingClient.SkuType.INAPP, ChattingSku.INAPP_SKUS)
+                querySkuDetailsAsync(BillingClient.SkuType.INAPP, ChattingSkuDetails.ChattingSku.INAPP_SKUS)
             }
             BillingClient.BillingResponseCode.BILLING_UNAVAILABLE -> {
                 Log.d(LOG_TAG, billingResult.debugMessage)
@@ -166,20 +166,6 @@ class BillingRepository private constructor(private val application: Application
                             ?: BillingRepository(application)
                                     .also { INSTANCE = it }
                 }
-    }
-
-    object ChattingSku {
-
-        val CHATTING_30_1 = "chatting_30_1"
-        val CHATTING_30_2 = "chatting_30_2"
-        val CHATTING_30_3 = "chatting_30_3"
-        val CHATTING_60_1 = "chatting_60_1"
-        val CHATTING_60_2 = "chatting_60_2"
-        val CHATTING_60_3 = "chatting_60_3"
-
-        val INAPP_SKUS = listOf(CHATTING_30_1, CHATTING_30_2, CHATTING_30_3, CHATTING_60_1, CHATTING_60_2, CHATTING_60_3)
-
-
     }
 }
 

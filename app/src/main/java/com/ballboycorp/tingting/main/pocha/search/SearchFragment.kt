@@ -10,12 +10,11 @@ import com.ballboycorp.tingting.base.BaseFragment
 import com.ballboycorp.tingting.databinding.FragmentSearchBinding
 import com.ballboycorp.tingting.main.pocha.adapter.PochaRecyclerViewAdapter
 import com.ballboycorp.tingting.main.pocha.model.Pocha
-import com.ballboycorp.tingting.utils.extensions.bind
 import kotlinx.android.synthetic.main.fragment_search.*
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.ballboycorp.tingting.utils.extensions.getViewModel
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
+import com.ballboycorp.tingting.utils.extensions.*
 
 
 /**
@@ -37,29 +36,34 @@ class SearchFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rv_main.adapter = adapter
-        rv_main.layoutManager = LinearLayoutManager(context)
+        rv_main.apply {
+            adapter = adapter
+            layoutManager = LinearLayoutManager(context)
+            addItemDecoration(DividerItemDecoration(context!!, DividerItemDecoration.VERTICAL))
+        }
 
-        rv_main.addItemDecoration(DividerItemDecoration(context!!,
-                DividerItemDecoration.VERTICAL))
+        initialize()
 
+    }
 
+    private fun initialize() {
+
+        viewModel.pochas.observe(this) {
+            adapter.submitList(it)
+        }
+
+        viewModel.error.observe(this) {
+            showToast(it.message)
+        }
     }
 
     inner class ClickHandler {
 
         fun onClickSearch() {
-            if (et_search.text.isNullOrBlank()) {
-                view_empty.visibility = View.VISIBLE
-                adapter.submitList(emptyList())
-            }
-            else {
-                view_empty.visibility = View.INVISIBLE
-                adapter.submitList(arrayListOf(Pocha(), Pocha()))
-            }
             et_search.clearFocus()
-            (activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
-                    .apply { hideSoftInputFromWindow(et_search.windowToken, 0) }
+            et_search.hideKeyboard()
+            viewModel.searchRestaurants()
+
         }
     }
 }

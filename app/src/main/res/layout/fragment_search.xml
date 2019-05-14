@@ -32,15 +32,17 @@
                 android:layout_toStartOf="@id/ib_search"
                 android:layout_toLeftOf="@id/ib_search"
                 android:padding="10dp"
+                android:text="@={viewModel.searchKey}"
                 android:background="@android:color/transparent" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/ib_search"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:padding="10dp"
+                android:enabled="@{viewModel.canSearch}"
                 android:onClick="@{()-> clickHandler.onClickSearch()}"
                 android:background="@drawable/ic_search_24dp"/>
         </RelativeLayout>

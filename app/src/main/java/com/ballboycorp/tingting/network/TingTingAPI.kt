@@ -20,4 +20,7 @@ interface TingTingAPI {
     @GET("getNearByRestaurants.php")
     fun nearbyRestaurants(@Query("longitude") longitude: Double, @Query("latitude") latitude: Double): Single<List<Pocha>>
 
+    @GET("getRestaurantList.php")
+    fun searchRestaurants(@Query("searchKey") searchKey: String): Single<List<Pocha>>
+
 }

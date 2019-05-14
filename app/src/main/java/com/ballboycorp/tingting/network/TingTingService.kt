@@ -50,4 +50,6 @@ class TingTingService {
     fun locations() = getApi().locations()
 
     fun nearbyRestaurants(longitude: Double, latitude: Double) = getApi().nearbyRestaurants(longitude, latitude)
+
+    fun searchRestaurants(searchKey: String) = getApi().searchRestaurants(searchKey)
 }

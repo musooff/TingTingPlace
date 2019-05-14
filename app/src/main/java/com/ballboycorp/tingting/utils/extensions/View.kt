@@ -11,8 +11,7 @@ import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat.getSystemService
-
-
+import kotlinx.android.synthetic.main.fragment_search.*
 
 
 /**
@@ -48,7 +47,7 @@ fun View.showKeyboard() {
 
 fun View.hideKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.hideSoftInputFromWindow(this.windowToken, InputMethodManager.SHOW_IMPLICIT)
+    imm.hideSoftInputFromWindow(windowToken, 0)
 }
 
 fun Int.toPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()

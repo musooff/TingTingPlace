@@ -26,4 +26,9 @@ class Pocha(
         var workTime: String? = "평일 11:00 ~ 24:00, 연중무휴",
         var myReview: Review? = null,
         var thumbs: List<String> = arrayListOf("", "", "")
-) : Parcelable
+) : Parcelable {
+
+    inner class PochaResult {
+
+    }
+}
