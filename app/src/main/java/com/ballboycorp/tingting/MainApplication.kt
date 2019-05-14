@@ -2,7 +2,7 @@ package com.ballboycorp.tingting
 
 import android.app.Application
 import android.content.Context
-
+import com.facebook.stetho.Stetho
 
 
 /**
@@ -24,5 +24,6 @@ class MainApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         INSTANCE = this
+        Stetho.initializeWithDefaults(this)
     }
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.ballboycorp.tingting.R" />
+        <variable
+            name="viewModel"
+            type="com.ballboycorp.tingting.main.pocha.region.model.AreaItemViewModel" />
+        <variable
+            name="clickHandler"
+            type="com.ballboycorp.tingting.main.pocha.region.RegionFragment.ClickHandler" />
+    </data>
+    <LinearLayout 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="12sp"
+            android:onClick="@{() -> clickHandler.onClickArea(viewModel.area.id)}"
+            android:theme="@style/BoldTextView"
+            android:textColor="@{viewModel.selected ? @color/colorAccent : @color/colorBlackSeventh}"
+            android:lineSpacingExtra="0sp"
+            android:gravity="center"
+            android:text="@{viewModel.area.name}"
+            tools:text="서울"
+            android:background="@{viewModel.selected ? context.getColor(R.color.colorHomeBackground) : context.getColor(R.color.colorWhite)}"
+            />
+    </LinearLayout>
+</layout>

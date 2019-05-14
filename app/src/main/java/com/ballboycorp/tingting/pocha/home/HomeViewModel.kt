@@ -19,4 +19,5 @@ class HomeViewModel: BaseObservableViewModel() {
             field = value
             notifyPropertyChanged(BR.gameCreated)
         }
+
 }

@@ -18,6 +18,19 @@ class PochaViewModel: BaseObservableViewModel() {
             notifyPropertyChanged(BR.viewPagerPosition)
         }
 
+    var nearbyLocationName: String? = "지역 선택"
+        @Bindable  get() = field
+        set(value) {
+            field = value
+            setToolbarTitle(viewPagerPosition)
+        }
+    var areaLocationName: String? = "지역 선택"
+        @Bindable  get() = field
+        set(value) {
+            field = value
+            setToolbarTitle(viewPagerPosition)
+        }
+
     var toolbarTitle: String? = null
         @Bindable  get() = field
         set(value) {
@@ -27,20 +40,10 @@ class PochaViewModel: BaseObservableViewModel() {
 
     private fun setToolbarTitle(position: Int) {
         toolbarTitle = when (position) {
-            0 -> getLocationName()
-            1 -> getRegion()
+            0 -> nearbyLocationName
+            1 -> areaLocationName
             2 -> "지역 선택"
             else -> "지역 선택"
         }
-    }
-
-    private fun getRegion(): String {
-        // TODO return name of the region when selected
-        return "지역 선택"
-    }
-
-    private fun getLocationName(): String {
-        // TODO return name of the location if available
-        return "지역 선택"
     }
 }

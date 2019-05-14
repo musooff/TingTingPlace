@@ -1,8 +1,10 @@
 package com.ballboycorp.tingting.main.pocha.nearby.choose
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseMapActivity
 import com.ballboycorp.tingting.databinding.ActivityChooseLocationBinding
@@ -20,8 +22,10 @@ import net.daum.mf.map.api.MapView
 class ChooseLocationActivity : BaseMapActivity() {
 
     companion object {
-        private val CUSTOM_MARKER_POINT = MapPoint.mapPointWithGeoCoord(37.537229, 127.005515)
+        const val LONGITUDE = "longitude"
+        const val LATITUDE = "latitude"
 
+        private val CUSTOM_MARKER_POINT = MapPoint.mapPointWithGeoCoord(37.537229, 127.005515)
     }
 
     private val viewModel by lazy { getViewModel<ChooseLocationViewModel>() }
@@ -76,7 +80,10 @@ class ChooseLocationActivity : BaseMapActivity() {
 
     inner class ClickHandler {
         fun onClickSelect() {
-            setResult(Activity.RESULT_OK)
+            setResult(Activity.RESULT_OK, Intent().apply {
+                putExtra(LONGITUDE, mMapView.mapCenterPoint.mapPointGeoCoord.longitude)
+                putExtra(LATITUDE,  mMapView.mapCenterPoint.mapPointGeoCoord.latitude)
+            })
             finish()
         }
 

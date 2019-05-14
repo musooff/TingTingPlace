@@ -1,17 +1,23 @@
 package com.ballboycorp.tingting.shop
 
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.billingclient.api.*
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseActivity
+import com.ballboycorp.tingting.billing.BillingRepository
+import com.ballboycorp.tingting.billing.BillingViewModel
+import com.ballboycorp.tingting.billing.model.ChattingSkuDetails
 import com.ballboycorp.tingting.databinding.ActivityShopBinding
 import com.ballboycorp.tingting.shop.adapter.ShopAdapter
 import com.ballboycorp.tingting.shop.model.ShopItem
 import com.ballboycorp.tingting.shop.model.ShopItemViewModel
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.observe
 import com.ballboycorp.tingting.utils.extensions.showToast
 import kotlinx.android.synthetic.main.activity_shop.*
 
@@ -24,6 +30,9 @@ class ShopActivity: BaseActivity() {
     private val clickHandler = ClickHandler()
     private val adapter = ShopAdapter(clickHandler)
     private val viewModel by lazy { getViewModel<ShopViewModel>() }
+    private val billingViewModel by lazy { getViewModel<BillingViewModel>() }
+
+    private var chattingSkuDetails = listOf<ChattingSkuDetails>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,12 +59,19 @@ class ShopActivity: BaseActivity() {
         shop.add(ShopItemViewModel(ShopItem(duration = 60, amount = 3, price = "20,300")))
 
         adapter.submitList(shop)
+
+        billingViewModel.inappSkuDetailsListLiveData.observe(this) {
+            showToast("loaded")
+            chattingSkuDetails = it
+        }
     }
+
 
     inner class ClickHandler {
 
         fun onClickBuy(shopItem: ShopItem) {
             showToast("구매하기 ${shopItem.duration}")
+            billingViewModel.makePurchase(this@ShopActivity, chattingSkuDetails[0])
         }
     }
 }

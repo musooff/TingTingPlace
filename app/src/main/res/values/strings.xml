@@ -169,4 +169,8 @@
     <string name="button_use">사용하기</string>
     <string name="button_in_use">사용중</string>
     <string name="button_orders">아이템 보관함</string>
+    <string name="dialog_no_coin_title">남은 코인이 부족합니다.</string>
+    <string name="dialog_coin_help">코인 도움말</string>
+    <string name="header_coin_help_gain">코인 획득</string>
+    <string name="header_coin_help_lose">코인 사용</string>
 </resources>

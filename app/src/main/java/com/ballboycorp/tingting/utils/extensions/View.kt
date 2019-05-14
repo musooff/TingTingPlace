@@ -69,3 +69,21 @@ fun Context.getUsableScreenHeight(rootView: View): Int {
         rootView.rootView.height
     }
 }
+
+fun View.hideView() {
+    if (visibility != View.INVISIBLE) {
+        visibility = View.INVISIBLE
+    }
+}
+
+fun View.removeView() {
+    if (visibility != View.GONE) {
+        visibility = View.GONE
+    }
+}
+
+fun View.showView() {
+    if (visibility != View.VISIBLE) {
+        visibility = View.VISIBLE
+    }
+}

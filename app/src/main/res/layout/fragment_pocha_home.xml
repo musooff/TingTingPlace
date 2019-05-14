@@ -163,6 +163,7 @@
                     </LinearLayout>
 
                     <include
+                        android:id="@+id/view_my_coin"
                         app:clickHandler="@{clickHandler}"
                         layout="@layout/view_coin_count"/>
 

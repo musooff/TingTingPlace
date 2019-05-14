@@ -1,9 +1,11 @@
 package com.ballboycorp.tingting.pocha.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ballboycorp.tingting.R
 import com.ballboycorp.tingting.base.BaseFragment
@@ -32,6 +34,7 @@ import com.ballboycorp.tingting.table.nearby.profile.NearbyProfileActivity
 import com.ballboycorp.tingting.table.profile.ProfileActivity
 import com.ballboycorp.tingting.utils.extensions.*
 import kotlinx.android.synthetic.main.fragment_pocha_home.*
+import kotlinx.android.synthetic.main.view_coin_count.*
 
 /**
  * Created by musooff on 20/04/2019.
@@ -125,6 +128,24 @@ class HomeFragment : BaseFragment(),
 
     fun onCreateRoom(game: Game, bet: Bet, isRandomJoin: Boolean) {
         viewModel.isGameCreated = true
+    }
+
+    @SuppressLint("SetTextI18n")
+    fun coinUpdateAnimation(message: String, amount: Int) {
+        text_coin_guide.showView()
+        when {
+            amount > 0 -> {
+                text_coin_guide.text = "$message+$amount"
+                text_coin_guide.setTextColor(ContextCompat.getColor(mContext, R.color.colorRed))
+                Animation.moveUp(text_coin_guide, 40f, 500L)
+            }
+            amount < 0 -> {
+                text_coin_guide.text = message + amount
+                text_coin_guide.setTextColor(ContextCompat.getColor(mContext, R.color.colorBlue))
+                Animation.moveDown(text_coin_guide, 40f, 500L)
+            }
+            else -> text_coin_guide.hideView()
+        }
     }
 
     inner class ClickHandler {

@@ -11,9 +11,13 @@ import com.ballboycorp.tingting.main.more.MoreFragment
 import com.ballboycorp.tingting.main.pocha.PochaFragment
 import com.ballboycorp.tingting.my.MyProfileFragment
 import com.ballboycorp.tingting.my.orders.OrdersActivity
+import com.ballboycorp.tingting.pocha.home.dialog.help.coin.CoinHelpDialog
+import com.ballboycorp.tingting.pocha.home.dialog.nocoin.NoCoinDialog
+import com.ballboycorp.tingting.shop.ShopActivity
 import com.ballboycorp.tingting.table.model.Table
 import com.ballboycorp.tingting.utils.extensions.bind
 import com.ballboycorp.tingting.utils.extensions.getViewModel
+import com.ballboycorp.tingting.utils.extensions.showDialog
 import com.ballboycorp.tingting.utils.extensions.startActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -69,6 +73,8 @@ class MainActivity : BaseActivity() {
         //startActivity<OrdersActivity>()
 
         viewModel.checkFirstRun()
+        //showDialog(::CoinHelpDialog)
+        //startActivity<ShopActivity>()
     }
 
     inner class ClickHandler {

@@ -18,7 +18,7 @@ object PermissionUtils{
     private const val REQUEST_LOCATION = 3
     private val PERMISSIONS_STORAGE = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
     private val PERMISSION_CAMERA = arrayOf(Manifest.permission.CAMERA)
-    private val PERMISSION_LOCATION = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
+    private val PERMISSION_LOCATION = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
 
 
     private var mCallbackMap: MutableMap<Int, OnPermissionResult> = HashMap()

@@ -48,13 +48,13 @@ class PochaItemViewModel(pocha: Pocha) : BaseObservableViewModel() {
             notifyPropertyChanged(BR.location)
         }
 
-    var latitude: Double = pocha.lattitude
+    var latitude: Double = pocha.latitude
         @Bindable get() = field
         set(value) {
             field = value
             notifyPropertyChanged(BR.latitude)
         }
-    var longtitude: Double = pocha.longtitude
+    var longtitude: Double = pocha.longitude
         @Bindable get() = field
         set(value) {
             field = value

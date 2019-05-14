@@ -36,6 +36,7 @@
                     android:id="@+id/iv_back"
                     android:scaleType="fitXY"
                     android:tint="@color/colorWhite"
+                    android:onClick="@{() -> clickHandler.onClickExit()}"
                     app:srcCompat="@drawable/ic_arrow_left_black_24dp"/>
                 <TextView
                     android:layout_width="match_parent"

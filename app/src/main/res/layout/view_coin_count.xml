@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="clickHandler"
@@ -69,9 +70,10 @@
                     android:layout_toRightOf="@id/text_coin_count"
                     android:layout_toEndOf="@id/text_coin_count"
                     android:id="@+id/text_coin_guide"
+                    android:visibility="invisible"
                     android:textColor="@color/colorRed"
                     android:lineSpacingExtra="0sp"
-                    android:text="첫입장 +1" />
+                    tools:text="첫입장 +1" />
 
 
                 <ImageView
